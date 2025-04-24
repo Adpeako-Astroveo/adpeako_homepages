@@ -1,117 +1,177 @@
 <script setup>
 import { ref } from 'vue';
 
-const categories = ref([
+const mobilePaymentFeatures = ref([
   {
-    title: 'Movies & Shows',
-    description: 'Stream the latest blockbusters and binge-worthy series',
-    icon: '🎬',
-    features: ['4K Ultra HD', 'Dolby Atmos', 'Offline Downloads']
+    title: 'Mobile Billing',
+    description: 'Simple charges through your mobile carrier',
+    icon: '📱'
   },
   {
-    title: 'Music Library',
-    description: 'Millions of tracks and exclusive artist content',
-    icon: '🎵',
-    features: ['HiFi Audio', 'Lyrics', 'Custom Playlists']
+    title: 'Instant Access',
+    description: 'Start streaming right after confirmation',
+    icon: '⚡'
   },
   {
-    title: 'Gaming Zone',
-    description: 'Cloud gaming and premium mobile titles',
-    icon: '🎮',
-    features: ['Cloud Saves', 'Multiplayer', 'No Ads']
+    title: 'Secure Payments',
+    description: 'Protected by advanced encryption',
+    icon: '🔒'
   }
 ]);
 
-const highlights = ref([
+const supportedCarriers = ref([
+  'Major mobile carriers supported'
+]);
+
+const entertainmentSections = ref([
   {
-    title: 'New Releases',
-    items: ['Blockbuster Movies', 'Chart-Topping Albums', 'Latest Games']
+    title: 'Premium Movies',
+    description: 'Stream the latest blockbusters and timeless classics.',
+    image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
+    features: ['4K Quality', 'Offline Mode', 'Multiple Languages']
   },
   {
-    title: 'Coming Soon',
-    items: ['Exclusive Series', 'Live Concerts', 'Game Premieres']
+    title: 'Live Sports',
+    description: 'Never miss a game with our comprehensive sports coverage.',
+    image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
+    features: ['Live Streaming', 'Instant Replays', 'Multi-cam Views']
   },
   {
-    title: 'Popular Now',
-    items: ['Top 10 Movies', 'Trending Music', 'Featured Games']
+    title: 'Music Collection',
+    description: 'Millions of tracks at your fingertips.',
+    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
+    features: ['Hi-Fi Audio', 'Offline Mode', 'Lyrics']
   }
 ]);
 
-const stats = ref([
-  { number: '10M+', label: 'Active Users' },
-  { number: '100K+', label: 'Content Items' },
-  { number: '99.9%', label: 'Uptime' }
+const plans = ref([
+  {
+    name: 'Basic Plan',
+    price: 'Weekly billing',
+    billing: 'Charged directly to your phone bill',
+    features: [
+      'HD streaming',
+      'Ad-free experience',
+      'Cancel anytime'
+    ]
+  },
+  {
+    name: 'Premium Plan',
+    price: 'Monthly billing',
+    billing: 'Charged directly to your phone bill',
+    features: [
+      'Ultra HD streaming',
+      'Multiple devices',
+      'Exclusive content',
+      'Priority support'
+    ]
+  }
 ]);
 </script>
 
 <template>
-  <div class="v3-homepage">
+  <div class="brisk-elm-homepage">
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Your Ultimate<br>Entertainment Hub</h1>
-        <p class="hero-subtitle">Movies, Music, and Games in One Place</p>
-        <div class="hero-stats">
-          <div v-for="stat in stats" :key="stat.number" class="stat-item">
-            <span class="stat-number">{{ stat.number }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
-          </div>
+        <h1>Stream Now,<br>Pay with Your Phone</h1>
+        <p class="subtitle">The easiest way to access premium entertainment</p>
+        <div class="carrier-logos">
+          <p class="supported-text">{{ supportedCarriers[0] }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories">
-      <h2>Entertainment Categories</h2>
-      <div class="categories-grid">
-        <div v-for="category in categories" :key="category.title" class="category-card">
-          <span class="category-icon">{{ category.icon }}</span>
-          <h3>{{ category.title }}</h3>
-          <p>{{ category.description }}</p>
-          <ul class="feature-list">
-            <li v-for="feature in category.features" :key="feature">{{ feature }}</li>
+    <!-- Mobile Payment Features -->
+    <section class="mobile-payment">
+      <h2>Simple Mobile Payment</h2>
+      <div class="features-grid">
+        <div v-for="feature in mobilePaymentFeatures" :key="feature.title" class="feature-card">
+          <span class="feature-icon">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entertainment Sections -->
+    <section class="entertainment">
+      <div v-for="section in entertainmentSections" :key="section.title" class="content-section">
+        <div class="section-image">
+          <img :src="section.image" :alt="section.title" />
+        </div>
+        <div class="section-content">
+          <h2>{{ section.title }}</h2>
+          <p>{{ section.description }}</p>
+          <ul class="features-list">
+            <li v-for="feature in section.features" :key="feature">{{ feature }}</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Highlights Section -->
-    <section class="highlights">
-      <div class="highlights-grid">
-        <div v-for="highlight in highlights" :key="highlight.title" class="highlight-card">
-          <h3>{{ highlight.title }}</h3>
-          <ul>
-            <li v-for="item in highlight.items" :key="item">{{ item }}</li>
+    <!-- Pricing Plans -->
+    <section class="pricing">
+      <h2>Choose Your Plan</h2>
+      <div class="plans-grid">
+        <div v-for="plan in plans" :key="plan.name" class="plan-card">
+          <h3>{{ plan.name }}</h3>
+          <div class="price">{{ plan.price }}</div>
+          <p class="billing">{{ plan.billing }}</p>
+          <ul class="plan-features">
+            <li v-for="feature in plan.features" :key="feature">{{ feature }}</li>
           </ul>
+          <button class="subscribe-btn">Subscribe Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <h2>How Mobile Billing Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Choose Your Plan</h3>
+          <p>Select your preferred subscription</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Verify Number</h3>
+          <p>Quick mobile verification</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Streaming</h3>
+          <p>Instant access to content</p>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-      <h2>Start Streaming Today</h2>
-      <p>Join millions of users enjoying premium entertainment</p>
-      <button class="cta-button">Get Started</button>
+      <h2>Ready to Start?</h2>
+      <p>No credit card needed - just your phone number</p>
+      <button class="cta-button">Get Started Now</button>
     </section>
   </div>
 </template>
 
 <style scoped>
-.v3-homepage {
-  background: #1A1A2E;
-  color: white;
-  min-height: 100vh;
+.brisk-elm-homepage {
+  color: #1a202c;
   padding-top: 64px;
 }
 
 .hero {
   background: linear-gradient(135deg, #805AD5 0%, #B794F4 100%);
+  color: white;
   padding: 8rem 2rem;
   text-align: center;
 }
 
 .hero-content {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -120,108 +180,36 @@ const stats = ref([
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.hero-subtitle {
+.subtitle {
   font-size: 1.5rem;
-  margin-bottom: 3rem;
   opacity: 0.9;
+  margin-bottom: 3rem;
 }
 
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
+.carrier-logos {
   margin-top: 4rem;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.supported-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
-}
-
-.stat-label {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.categories {
+.mobile-payment {
   padding: 6rem 2rem;
-  background: #16162A;
+  background: #f7fafc;
 }
 
-.categories h2 {
+.mobile-payment h2 {
   text-align: center;
   font-size: 2.5rem;
+  color: #805AD5;
   margin-bottom: 3rem;
-  color: #B794F4;
 }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.category-card {
-  background: #1E1E32;
-  padding: 2rem;
-  border-radius: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-}
-
-.category-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.category-card h3 {
-  font-size: 1.5rem;
-  color: #805AD5;
-  margin-bottom: 1rem;
-}
-
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.5rem;
-}
-
-.feature-list li {
-  padding: 0.5rem 0;
-  color: #B794F4;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.feature-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #805AD5;
-}
-
-.highlights {
-  padding: 6rem 2rem;
-  background: #1A1A2E;
-}
-
-.highlights-grid {
+.features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -229,38 +217,207 @@ const stats = ref([
   margin: 0 auto;
 }
 
-.highlight-card {
-  background: linear-gradient(135deg, #805AD5 0%, #6B46C1 100%);
+.feature-card {
+  background: white;
   padding: 2rem;
   border-radius: 1rem;
-  color: white;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
-.highlight-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: white;
+.feature-card:hover {
+  transform: translateY(-5px);
 }
 
-.highlight-card ul {
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card h3 {
+  color: #805AD5;
+  margin-bottom: 1rem;
+}
+
+.entertainment {
+  padding: 6rem 2rem;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto 6rem;
+  align-items: center;
+}
+
+.content-section:nth-child(even) {
+  direction: rtl;
+}
+
+.content-section:nth-child(even) .section-content {
+  direction: ltr;
+}
+
+.section-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.section-content h2 {
+  font-size: 2rem;
+  color: #805AD5;
+  margin-bottom: 1rem;
+}
+
+.features-list {
   list-style: none;
   padding: 0;
+  margin-top: 1.5rem;
 }
 
-.highlight-card li {
+.features-list li {
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.features-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #B794F4;
+}
+
+.pricing {
+  background: #f7fafc;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: 2.5rem;
+  color: #805AD5;
+  margin-bottom: 3rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.plan-card h3 {
+  color: #805AD5;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #805AD5;
+  margin-bottom: 0.5rem;
+}
+
+.billing {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.plan-features li {
   padding: 0.5rem 0;
-  opacity: 0.9;
+  color: #4a5568;
+}
+
+.subscribe-btn {
+  background: #805AD5;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background: #6B46C1;
+}
+
+.how-it-works {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem;
+  color: #805AD5;
+  margin-bottom: 3rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  padding: 2rem;
+}
+
+.step-number {
+  width: 3rem;
+  height: 3rem;
+  background: #805AD5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
+}
+
+.step h3 {
+  color: #805AD5;
+  margin-bottom: 0.5rem;
 }
 
 .cta {
-  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #805AD5 0%, #B794F4 100%);
+  color: white;
   text-align: center;
-  background: linear-gradient(135deg, #6B46C1 0%, #805AD5 100%);
+  padding: 6rem 2rem;
 }
 
 .cta h2 {
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .cta p {
@@ -276,13 +433,14 @@ const stats = ref([
   padding: 1rem 3rem;
   border-radius: 0.5rem;
   border: none;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 768px) {
@@ -290,13 +448,17 @@ const stats = ref([
     font-size: 2.5rem;
   }
 
-  .hero-stats {
-    flex-direction: column;
+  .content-section {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .categories h2 {
-    font-size: 2rem;
+  .content-section:nth-child(even) {
+    direction: ltr;
+  }
+
+  .section-image img {
+    height: 300px;
   }
 
   .cta h2 {
