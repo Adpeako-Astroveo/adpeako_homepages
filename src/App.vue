@@ -1,14 +1,50 @@
 <script setup>
-import { ref, provide, onMounted } from 'vue';
-import { RouterView, RouterLink } from 'vue-router';
+import { ref, provide, onMounted, watch } from 'vue';
+import { RouterView, RouterLink, useRoute } from 'vue-router';
 import domainMapping from './domain.js';
+import { designs } from './domain.js';
 
-const designId = ref('design_v1'); // Default to v1 design
+const designId = ref('design_v1');
+const route = useRoute();
 
 onMounted(() => {
   const hostname = window.location.hostname;
   designId.value = domainMapping[hostname] || 'design_v1';
 });
+
+// Update page title and meta description based on current route and design
+watch(
+  () => [route.path, designId.value],
+  () => {
+    const currentDesign = designs[designId.value];
+    if (!currentDesign) return;
+
+    let pageConfig;
+    switch (route.path) {
+      case '/':
+        pageConfig = currentDesign.pages.home;
+        break;
+      case '/privacy':
+        pageConfig = currentDesign.pages.privacy;
+        break;
+      default:
+        pageConfig = currentDesign.pages.notFound;
+    }
+
+    // Update title
+    document.title = pageConfig.title.replace('Your Domain', window.location.hostname);
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = pageConfig.description;
+  },
+  { immediate: true }
+);
 
 provide('designId', designId);
 </script>
