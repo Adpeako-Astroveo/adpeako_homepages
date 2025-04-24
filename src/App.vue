@@ -145,6 +145,10 @@ provide('siteName', siteName);
   background: #4CAF50;
 }
 
+.header-design_brisk_elm {
+  background: #2B6CB0;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
