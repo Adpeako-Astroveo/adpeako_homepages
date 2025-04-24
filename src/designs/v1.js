@@ -2,23 +2,26 @@ export default {
   id: 'design_v1',
   name: 'Version 1 Design',
   theme: {
-    primary: '#FF0000',
-    secondary: '#00FF00'
+    primary: '#4CAF50',
+    secondary: '#81C784'
   },
   pages: {
     home: {
-      title: 'Welcome to V1',
-      content: 'This is the custom homepage for V1 with its unique red and green theme.',
+      title: 'Mobile Entertainment Hub - Stream Music, Games & Sports | Your Domain',
+      description: 'Your one-stop destination for premium mobile entertainment. Stream music, play games, watch videos, listen to audiobooks, and follow live sports.',
+      content: 'Access premium mobile entertainment content with our comprehensive streaming platform.',
       component: () => import('./v1/HomePage.vue')
     },
     privacy: {
-      title: 'Privacy Policy - V1',
-      content: 'This is the V1 privacy policy with our specific terms and conditions.',
+      title: 'Privacy Policy - Mobile Entertainment Platform | Your Domain',
+      description: 'Learn how we protect your privacy and secure your data while using our mobile entertainment services.',
+      content: 'Our commitment to protecting your privacy while delivering premium entertainment.',
       component: () => import('./v1/PrivacyPage.vue')
     },
     notFound: {
-      title: '404 - V1',
-      content: 'Sorry, this page does not exist on V1'
+      title: '404 - Page Not Found | Your Domain',
+      description: 'The page you are looking for could not be found.',
+      content: 'Sorry, this page does not exist'
     }
   }
 };
