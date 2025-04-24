@@ -1,19 +1,21 @@
-import v1Design from './designs/v1.js';
-import v2Design from './designs/v2.js';
-import v3Design from './designs/v3.js';
+import jazzyMangoDesign from './designs/jazzy-mango.js';
+import briskOtterDesign from './designs/brisk-otter.js';
+import briskElmDesign from './designs/brisk-elm.js';
 import localhostDesign from './designs/localhost.js';
+import defaultDesign from './designs/default.js';
 
 export default {
-  "jazzy-mango.com": "design_v1",
-  "brisk-otter.com": "design_v2",
-  "brisk-elm.com": "design_v3",
-  "localhost": "design_v1",
-  "127.0.0.1": "design_v1"
+  "jazzy-mango.com": "jazzy-mango.com",
+  "brisk-otter.com": "brisk-otter.com",
+  "brisk-elm.com": "brisk-elm.com",
+  "localhost": "jazzy-mango.com",
+  "127.0.0.1": "jazzy-mango.com"
 };
 
 export const designs = {
-  "design_v1": v1Design,
-  "design_v2": v2Design,
-  "design_v3": v3Design,
-  "design_local001": localhostDesign
+  "jazzy-mango.com": jazzyMangoDesign,
+  "brisk-otter.com": briskOtterDesign,
+  "brisk-elm.com": briskElmDesign,
+  "design_local001": localhostDesign,
+  "default": defaultDesign
 };

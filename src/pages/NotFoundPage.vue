@@ -6,7 +6,13 @@ import { designs } from '../domain.js';
 const designId = inject('designId');
 const route = useRoute();
 
-const design = computed(() => designs[designId.value] || designs['design_local001']);
+const design = computed(() => {
+  const selectedDesign = designs[designId.value];
+  if (!selectedDesign) {
+    return designs['default']; // Default to default design
+  }
+  return selectedDesign;
+});
 </script>
 
 <template>

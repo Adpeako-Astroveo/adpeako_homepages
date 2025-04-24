@@ -10,7 +10,7 @@ const HomeComponent = shallowRef(null);
 const design = computed(() => {
   const selectedDesign = designs[designId.value];
   if (!selectedDesign) {
-    return designs['design_v1']; // Default to v1 design
+    return designs['default']; // Default to default design
   }
   return selectedDesign;
 });

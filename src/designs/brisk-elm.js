@@ -1,9 +1,9 @@
 export default {
-  id: 'design_brisk_elm',
+  id: 'brisk-elm.com',
   name: 'Brisk Elm Design',
   theme: {
-    primary: '#2B6CB0',
-    secondary: '#4299E1'
+    primary: '#805AD5',
+    secondary: '#B794F4'
   },
   pages: {
     home: {

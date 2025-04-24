@@ -1,336 +1,269 @@
 <script setup>
 import { ref } from 'vue';
 
-const entertainmentSections = ref([
+const categories = ref([
   {
-    title: 'Premium Movies',
-    description: 'Stream the latest blockbusters and timeless classics in stunning 4K quality.',
-    image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
-    features: ['4K Streaming', 'Dolby Atmos', 'Offline Downloads']
+    title: 'Movies & Shows',
+    description: 'Stream the latest blockbusters and binge-worthy series',
+    icon: '🎬',
+    features: ['4K Ultra HD', 'Dolby Atmos', 'Offline Downloads']
   },
   {
-    title: 'Music Collection',
-    description: 'Discover millions of tracks and exclusive releases from your favorite artists.',
-    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
-    features: ['Hi-Fi Audio', 'Custom Playlists', 'Live Lyrics']
+    title: 'Music Library',
+    description: 'Millions of tracks and exclusive artist content',
+    icon: '🎵',
+    features: ['HiFi Audio', 'Lyrics', 'Custom Playlists']
   },
   {
-    title: 'Gaming Hub',
-    description: 'Access a vast library of mobile games with stunning graphics and multiplayer support.',
-    image: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg',
-    features: ['Cloud Saves', 'Multiplayer', 'Achievements']
+    title: 'Gaming Zone',
+    description: 'Cloud gaming and premium mobile titles',
+    icon: '🎮',
+    features: ['Cloud Saves', 'Multiplayer', 'No Ads']
   }
 ]);
 
-const features = ref([
+const highlights = ref([
   {
-    title: 'Seamless Streaming',
-    description: 'Enjoy uninterrupted entertainment across all your devices',
-    icon: '🎯'
+    title: 'New Releases',
+    items: ['Blockbuster Movies', 'Chart-Topping Albums', 'Latest Games']
   },
   {
-    title: 'Smart Recommendations',
-    description: 'Discover content tailored to your preferences',
-    icon: '🎲'
+    title: 'Coming Soon',
+    items: ['Exclusive Series', 'Live Concerts', 'Game Premieres']
   },
   {
-    title: 'Premium Quality',
-    description: 'Experience entertainment in the highest quality',
-    icon: '⭐'
+    title: 'Popular Now',
+    items: ['Top 10 Movies', 'Trending Music', 'Featured Games']
   }
 ]);
 
-const testimonials = ref([
-  {
-    text: "The streaming quality is exceptional. Best service I've used!",
-    author: "James Wilson",
-    role: "Premium Member"
-  },
-  {
-    text: "Amazing selection of content and great recommendations.",
-    author: "Sarah Chen",
-    role: "Entertainment Enthusiast"
-  },
-  {
-    text: "The mobile gaming experience is fantastic.",
-    author: "Alex Rodriguez",
-    role: "Gaming Fan"
-  }
+const stats = ref([
+  { number: '10M+', label: 'Active Users' },
+  { number: '100K+', label: 'Content Items' },
+  { number: '99.9%', label: 'Uptime' }
 ]);
-
-const currentTestimonial = ref(0);
-
-const nextTestimonial = () => {
-  currentTestimonial.value = (currentTestimonial.value + 1) % testimonials.value.length;
-};
-
-const prevTestimonial = () => {
-  currentTestimonial.value = currentTestimonial.value === 0 
-    ? testimonials.value.length - 1 
-    : currentTestimonial.value - 1;
-};
 </script>
 
 <template>
-  <div class="brisk-elm-homepage">
+  <div class="v3-homepage">
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Premium Entertainment<br>Reimagined</h1>
-        <p class="subtitle">Stream, Play, and Experience More</p>
-        <div class="hero-features">
-          <div v-for="feature in features" :key="feature.title" class="feature-card">
-            <span class="feature-icon">{{ feature.icon }}</span>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
+        <h1>Your Ultimate<br>Entertainment Hub</h1>
+        <p class="hero-subtitle">Movies, Music, and Games in One Place</p>
+        <div class="hero-stats">
+          <div v-for="stat in stats" :key="stat.number" class="stat-item">
+            <span class="stat-number">{{ stat.number }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Entertainment Sections -->
-    <section class="entertainment-sections">
-      <div v-for="section in entertainmentSections" :key="section.title" class="content-section">
-        <div class="section-image">
-          <img :src="section.image" :alt="section.title" />
-        </div>
-        <div class="section-content">
-          <h2>{{ section.title }}</h2>
-          <p>{{ section.description }}</p>
-          <ul class="features-list">
-            <li v-for="feature in section.features" :key="feature">{{ feature }}</li>
+    <!-- Categories Section -->
+    <section class="categories">
+      <h2>Entertainment Categories</h2>
+      <div class="categories-grid">
+        <div v-for="category in categories" :key="category.title" class="category-card">
+          <span class="category-icon">{{ category.icon }}</span>
+          <h3>{{ category.title }}</h3>
+          <p>{{ category.description }}</p>
+          <ul class="feature-list">
+            <li v-for="feature in category.features" :key="feature">{{ feature }}</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <h2>What Our Members Say</h2>
-      <div class="testimonial-carousel">
-        <button class="carousel-button prev" @click="prevTestimonial">&lt;</button>
-        <div class="testimonial-content">
-          <p class="testimonial-text">"{{ testimonials[currentTestimonial].text }}"</p>
-          <p class="testimonial-author">{{ testimonials[currentTestimonial].author }}</p>
-          <p class="testimonial-role">{{ testimonials[currentTestimonial].role }}</p>
+    <!-- Highlights Section -->
+    <section class="highlights">
+      <div class="highlights-grid">
+        <div v-for="highlight in highlights" :key="highlight.title" class="highlight-card">
+          <h3>{{ highlight.title }}</h3>
+          <ul>
+            <li v-for="item in highlight.items" :key="item">{{ item }}</li>
+          </ul>
         </div>
-        <button class="carousel-button next" @click="nextTestimonial">&gt;</button>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-      <h2>Start Your Entertainment Journey</h2>
-      <p>Join millions of satisfied members today</p>
+    <section class="cta">
+      <h2>Start Streaming Today</h2>
+      <p>Join millions of users enjoying premium entertainment</p>
       <button class="cta-button">Get Started</button>
     </section>
   </div>
 </template>
 
 <style scoped>
-.brisk-elm-homepage {
-  font-family: 'Inter', sans-serif;
-  color: #2D3748;
+.v3-homepage {
+  background: #1A1A2E;
+  color: white;
+  min-height: 100vh;
+  padding-top: 64px;
 }
 
 .hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  margin-top: 60px;
+  background: linear-gradient(135deg, #805AD5 0%, #B794F4 100%);
+  padding: 8rem 2rem;
+  text-align: center;
 }
 
 .hero-content {
   max-width: 1200px;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .hero h1 {
   font-size: 4rem;
   font-weight: 800;
-  line-height: 1.2;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.subtitle {
+.hero-subtitle {
   font-size: 1.5rem;
-  color: #4A5568;
-  max-width: 800px;
-  margin: 0 auto 3rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
 }
 
-.hero-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
   margin-top: 4rem;
 }
 
-.feature-card {
-  background: white;
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.categories {
+  padding: 6rem 2rem;
+  background: #16162A;
+}
+
+.categories h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #B794F4;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: #1E1E32;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.feature-card:hover {
+.category-card:hover {
   transform: translateY(-5px);
 }
 
-.feature-icon {
-  font-size: 2.5rem;
+.category-icon {
+  font-size: 3rem;
   margin-bottom: 1rem;
   display: block;
 }
 
-.entertainment-sections {
-  padding: 4rem 2rem;
+.category-card h3 {
+  font-size: 1.5rem;
+  color: #805AD5;
+  margin-bottom: 1rem;
 }
 
-.content-section {
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.feature-list li {
+  padding: 0.5rem 0;
+  color: #B794F4;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.feature-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #805AD5;
+}
+
+.highlights {
+  padding: 6rem 2rem;
+  background: #1A1A2E;
+}
+
+.highlights-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 0;
-  align-items: center;
 }
 
-.content-section:nth-child(even) {
-  direction: rtl;
-}
-
-.content-section:nth-child(even) .section-content {
-  direction: ltr;
-}
-
-.section-image img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.section-content {
+.highlight-card {
+  background: linear-gradient(135deg, #805AD5 0%, #6B46C1 100%);
   padding: 2rem;
+  border-radius: 1rem;
+  color: white;
 }
 
-.section-content h2 {
-  font-size: 2.5rem;
+.highlight-card h3 {
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: #2B6CB0;
+  color: white;
 }
 
-.section-content p {
-  font-size: 1.2rem;
-  color: #4A5568;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.features-list {
+.highlight-card ul {
   list-style: none;
   padding: 0;
 }
 
-.features-list li {
-  margin-bottom: 1rem;
-  padding-left: 2rem;
-  position: relative;
-  color: #4A5568;
+.highlight-card li {
+  padding: 0.5rem 0;
+  opacity: 0.9;
 }
 
-.features-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #4299E1;
-  font-weight: bold;
-}
-
-.testimonials {
-  background: #EBF8FF;
+.cta {
   padding: 6rem 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #6B46C1 0%, #805AD5 100%);
 }
 
-.testimonials h2 {
-  font-size: 2.5rem;
-  color: #2B6CB0;
-  margin-bottom: 3rem;
-}
-
-.testimonial-carousel {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  padding: 2rem;
-}
-
-.testimonial-content {
-  min-height: 200px;
-}
-
-.testimonial-text {
-  font-size: 1.25rem;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-  color: #2D3748;
-}
-
-.testimonial-author {
-  font-weight: bold;
-  color: #2B6CB0;
-  margin-bottom: 0.5rem;
-}
-
-.testimonial-role {
-  color: #4A5568;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #4299E1;
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.carousel-button:hover {
-  background: #2B6CB0;
-}
-
-.prev { left: 0; }
-.next { right: 0; }
-
-.cta-section {
-  background: linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%);
-  color: white;
-  text-align: center;
-  padding: 6rem 2rem;
-}
-
-.cta-section h2 {
+.cta h2 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
 }
 
-.cta-section p {
+.cta p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   opacity: 0.9;
@@ -338,9 +271,9 @@ const prevTestimonial = () => {
 
 .cta-button {
   background: white;
-  color: #2B6CB0;
+  color: #805AD5;
   font-size: 1.2rem;
-  padding: 1rem 2.5rem;
+  padding: 1rem 3rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
@@ -348,8 +281,8 @@ const prevTestimonial = () => {
 }
 
 .cta-button:hover {
-  background: #EBF8FF;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {
@@ -357,21 +290,16 @@ const prevTestimonial = () => {
     font-size: 2.5rem;
   }
 
-  .content-section {
-    grid-template-columns: 1fr;
+  .hero-stats {
+    flex-direction: column;
     gap: 2rem;
-    padding: 2rem 0;
   }
 
-  .content-section:nth-child(even) {
-    direction: ltr;
+  .categories h2 {
+    font-size: 2rem;
   }
 
-  .section-image img {
-    height: 300px;
-  }
-
-  .cta-section h2 {
+  .cta h2 {
     font-size: 2rem;
   }
 }
