@@ -4,7 +4,7 @@ import { RouterView, RouterLink, useRoute } from 'vue-router';
 import domainMapping from './domain.js';
 import { designs } from './domain.js';
 
-const designId = ref('design_v1');
+const designId = ref('default');
 const route = useRoute();
 
 // Get hostname with mock support
@@ -47,7 +47,7 @@ const siteName = ref(getFormattedDomainName(hostname));
 const logoPath = ref('/default-logo.svg'); // Start with default logo
 
 onMounted(async () => {
-  designId.value = domainMapping[hostname] || 'design_v1';
+  designId.value = domainMapping[hostname] || 'default';
   // Update logo path after checking existence
   logoPath.value = await getLogoPath(hostname);
   
@@ -104,7 +104,7 @@ provide('siteName', siteName);
 
 <template>
   <div class="app-container">
-    <header class="app-header" :class="'header-' + designId">
+    <header class="app-header" :class="designId">
       <RouterLink to="/" class="logo-link">
         <img 
           :src="logoPath"
@@ -141,20 +141,24 @@ provide('siteName', siteName);
 }
 
 /* Design-specific header styles */
-.header-design_v1 {
-  background: #1a1a1a;
-}
-
-.header-design_v2 {
-  background: #2E7D32;
-}
-
-.header-design_v3 {
-  background: #805AD5;
-}
-
-.header-design_local001 {
+.jazzy-mango\.com {
   background: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+}
+
+.brisk-otter\.com {
+  background: #2E7D32;
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+}
+
+.brisk-elm\.com {
+  background: #805AD5;
+  background: linear-gradient(135deg, #805AD5 0%, #B794F4 100%);
+}
+
+.default {
+  background: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
 }
 
 .logo-link {
