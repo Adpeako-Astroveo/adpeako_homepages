@@ -1,26 +1,34 @@
 <script setup>
-import { inject, computed } from 'vue';
+import { inject, computed, shallowRef, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { designs } from '../domain.js';
 
 const designId = inject('designId');
 const route = useRoute();
+const HomeComponent = shallowRef(null);
 
-const design = computed(() => designs[designId.value] || designs['design_local001']);
+const design = computed(() => {
+  const selectedDesign = designs[designId.value];
+  if (!selectedDesign) {
+    return designs['design_v1']; // Default to v1 design
+  }
+  return selectedDesign;
+});
+
+onMounted(async () => {
+  if (design.value?.pages?.home?.component) {
+    const module = await design.value.pages.home.component();
+    HomeComponent.value = module.default;
+  }
+});
 </script>
 
 <template>
   <div>
-    <h1>{{ design.pages.home.title }}</h1>
-    <p>Design ID: {{ designId }}</p>
-    <p>Design Name: {{ design.name }}</p>
-    <p>Current Path: {{ route.path }}</p>
-    <p>Theme Colors:</p>
-    <ul>
-      <li>Primary: {{ design.theme.primary }}</li>
-      <li>Secondary: {{ design.theme.secondary }}</li>
-    </ul>
-    <component :is="design.pages.home.component" v-if="design.pages.home.component" />
-    <p v-else>{{ design.pages.home.content }}</p>
+    <component :is="HomeComponent" v-if="HomeComponent" />
+    <div v-else>
+      <h1>{{ design.pages.home.title }}</h1>
+      <p>{{ design.pages.home.content }}</p>
+    </div>
   </div>
 </template>

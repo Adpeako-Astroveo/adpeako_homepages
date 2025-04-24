@@ -3,12 +3,11 @@ import { ref, provide, onMounted } from 'vue';
 import { RouterView, RouterLink } from 'vue-router';
 import domainMapping from './domain.js';
 
-const designId = ref('unknown_design');
+const designId = ref('design_v1'); // Default to v1 design
 
 onMounted(() => {
   const hostname = window.location.hostname;
-  console.log(hostname);
-  designId.value = domainMapping[hostname] || domainMapping['example.com'];
+  designId.value = domainMapping[hostname] || 'design_v1';
 });
 
 provide('designId', designId);
@@ -24,3 +23,14 @@ provide('designId', designId);
     <RouterView />
   </div>
 </template>
+
+<style>
+nav {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  margin: 0 0.5rem;
+}
+</style>

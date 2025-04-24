@@ -1,16 +1,15 @@
-import exampleDesign from './designs/example.js';
-import anotherDesign from './designs/another.js';
+import v1Design from './designs/v1.js';
+import v2Design from './designs/v2.js';
 import localhostDesign from './designs/localhost.js';
 
 export default {
-  "example.com": exampleDesign.id,
-  "anotherdomain.com": anotherDesign.id,
-  "localhost": localhostDesign.id,
-  "127.0.0.1": localhostDesign.id
+  "yellow-racoon.com": "design_v2",
+  "localhost": "design_v1",
+  "127.0.0.1": "design_v1"
 };
 
 export const designs = {
-  [exampleDesign.id]: exampleDesign,
-  [anotherDesign.id]: anotherDesign,
-  [localhostDesign.id]: localhostDesign
+  "design_v1": v1Design,
+  "design_v2": v2Design,
+  "design_local001": localhostDesign
 };
