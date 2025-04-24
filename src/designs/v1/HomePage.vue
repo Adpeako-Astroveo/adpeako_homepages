@@ -36,20 +36,50 @@ const entertainmentSections = ref([
 
 const features = ref([
   {
-    title: 'Ad-free Experience',
-    description: 'Uninterrupted entertainment without any advertisements',
-    icon: '🎯'
+    title: 'Premium Content',
+    description: 'Access to exclusive shows, movies, and original productions',
+    icon: '🎬'
   },
   {
-    title: 'Mobile Freedom',
-    description: 'Take your entertainment anywhere, anytime',
-    icon: '🌎'
+    title: 'Multi-device Access',
+    description: 'Watch on your TV, phone, tablet, or laptop',
+    icon: '📱'
   },
   {
-    title: 'All-in-One Platform',
-    description: 'Everything you love, in one place',
-    icon: '✨'
+    title: 'Family Sharing',
+    description: 'Share your subscription with up to 6 family members',
+    icon: '👨‍👩‍👧‍👦'
+  },
+  {
+    title: 'Offline Downloads',
+    description: 'Download your favorite content to watch offline',
+    icon: '⬇️'
   }
+]);
+
+const subscriptionFeatures = ref([
+  {
+    title: 'Automatic Renewal',
+    description: 'Uninterrupted service with hassle-free automatic renewals',
+    icon: '🔄'
+  },
+  {
+    title: 'All-Inclusive Pricing',
+    description: 'All taxes included with no surprise fees',
+    icon: '💰'
+  },
+  {
+    title: 'Full Refund Guarantee',
+    description: 'Not satisfied? Get a full refund, no questions asked',
+    icon: '✅'
+  }
+]);
+
+const cancellationSteps = ref([
+  'Contact our customer care team for assistance',
+  'Request subscription cancellation',
+  'Verify account details',
+  'Receive confirmation email'
 ]);
 </script>
 
@@ -85,6 +115,28 @@ const features = ref([
           <ul class="features-list">
             <li v-for="feature in section.features" :key="feature">{{ feature }}</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+      <h2>Simple & Transparent Pricing</h2>
+      <div class="subscription-features">
+        <div v-for="feature in subscriptionFeatures" :key="feature.title" class="subscription-feature">
+          <span class="feature-icon">{{ feature.icon }}</span>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+
+      <div class="cancellation-process">
+        <h3>Easy Cancellation Process</h3>
+        <div class="steps">
+          <div v-for="(step, index) in cancellationSteps" :key="index" class="step">
+            <span class="step-number">{{ index + 1 }}</span>
+            <p>{{ step }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -228,6 +280,90 @@ const features = ref([
   font-weight: bold;
 }
 
+/* Payment Section Styles */
+.payment-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.payment-section h2 {
+  font-size: 3rem;
+  color: #2d3748;
+  margin-bottom: 3rem;
+}
+
+.subscription-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.subscription-feature {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.subscription-feature h3 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin: 1rem 0;
+}
+
+.subscription-feature p {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.cancellation-process {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  background: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cancellation-process h3 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.step-number {
+  background: #48bb78;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step p {
+  color: #4a5568;
+  margin: 0;
+}
+
 .cta-section {
   background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: white;
@@ -278,6 +414,14 @@ const features = ref([
 
   .section-image img {
     height: 300px;
+  }
+
+  .subscription-features {
+    grid-template-columns: 1fr;
+  }
+
+  .cancellation-process {
+    padding: 2rem;
   }
 }
 </style>
