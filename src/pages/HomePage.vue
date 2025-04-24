@@ -24,11 +24,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <component :is="HomeComponent" v-if="HomeComponent" />
-    <div v-else>
-      <h1>{{ design.pages.home.title }}</h1>
-      <p>{{ design.pages.home.content }}</p>
-    </div>
-  </div>
+  <component :is="HomeComponent" v-if="HomeComponent" />
 </template>
