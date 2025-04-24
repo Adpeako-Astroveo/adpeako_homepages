@@ -6,7 +6,15 @@ import { designs } from './domain.js';
 
 const designId = ref('design_v1');
 const route = useRoute();
-const hostname = window.location.hostname;
+
+// Get hostname with mock support
+const getHostname = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const mockedDomain = urlParams.get('m');
+  return mockedDomain || window.location.hostname;
+};
+
+const hostname = getHostname();
 
 const getFormattedDomainName = (domain) => {
   const domainWithoutTLD = domain.replace(/\.com$/, '');
