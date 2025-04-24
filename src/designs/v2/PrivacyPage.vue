@@ -4,14 +4,44 @@
       <h1>Privacy Policy</h1>
       
       <section class="privacy-section">
+        <div class="section-icon">🏢</div>
+        <h2>Who We Are</h2>
+        <p>Berg Online Marketing B.V. (hereinafter also referred to as 'we') treats your personal data with great care. This Privacy Statement describes how your personal data is processed when using our streaming entertainment services and visiting our website.</p>
+      </section>
+
+      <section class="privacy-section">
+        <div class="section-icon">📍</div>
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+          <div class="info-item">
+            <strong>Organization:</strong>
+            <p>Berg Online Marketing B.V.</p>
+          </div>
+          <div class="info-item">
+            <strong>Address:</strong>
+            <p>Willem de Zwijgerlaan 150</p>
+          </div>
+          <div class="info-item">
+            <strong>Postal Code:</strong>
+            <p>1056JV</p>
+          </div>
+          <div class="info-item">
+            <strong>City:</strong>
+            <p>Amsterdam</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-section">
         <div class="section-icon">🔒</div>
         <h2>Data Protection</h2>
-        <p>We take your privacy seriously and implement strict measures to protect your information:</p>
+        <p>We implement robust security measures to protect your personal information:</p>
         <ul class="protection-list">
-          <li>End-to-end encryption for all sensitive data</li>
-          <li>Regular security audits and updates</li>
-          <li>Strict access controls and authentication</li>
-          <li>Compliance with global privacy standards</li>
+          <li>End-to-end encryption for all sensitive data transmission</li>
+          <li>Regular security audits and vulnerability assessments</li>
+          <li>Multi-factor authentication for internal systems</li>
+          <li>Strict access controls and monitoring</li>
+          <li>Regular staff training on data protection</li>
         </ul>
       </section>
 
@@ -20,20 +50,20 @@
         <h2>Information We Collect</h2>
         <div class="info-grid">
           <div class="info-card">
-            <h3>Account Data</h3>
-            <p>Basic information needed for your account</p>
+            <h3>Account Information</h3>
+            <p>Name, email, and account preferences</p>
           </div>
           <div class="info-card">
             <h3>Usage Data</h3>
-            <p>How you interact with our services</p>
-          </div>
-          <div class="info-card">
-            <h3>Preferences</h3>
-            <p>Your choices and settings</p>
+            <p>Service interaction and viewing history</p>
           </div>
           <div class="info-card">
             <h3>Technical Data</h3>
-            <p>Device and connection information</p>
+            <p>Device info and IP address</p>
+          </div>
+          <div class="info-card">
+            <h3>Payment Data</h3>
+            <p>Billing information (processed securely)</p>
           </div>
         </div>
       </section>
@@ -44,15 +74,15 @@
         <div class="rights-container">
           <div class="right-item">
             <h3>Access</h3>
-            <p>Request a copy of your data</p>
+            <p>Request a copy of your personal data</p>
           </div>
           <div class="right-item">
             <h3>Rectification</h3>
-            <p>Correct inaccurate information</p>
+            <p>Correct any inaccurate information</p>
           </div>
           <div class="right-item">
             <h3>Erasure</h3>
-            <p>Request data deletion</p>
+            <p>Request deletion of your data</p>
           </div>
           <div class="right-item">
             <h3>Portability</h3>
@@ -62,12 +92,29 @@
       </section>
 
       <section class="privacy-section">
+        <div class="section-icon">🔍</div>
+        <h2>How We Use Your Data</h2>
+        <ul class="usage-list">
+          <li>Providing and personalizing our entertainment services</li>
+          <li>Processing subscriptions and payments</li>
+          <li>Improving content recommendations</li>
+          <li>Ensuring platform security</li>
+          <li>Communicating service updates</li>
+          <li>Legal compliance and fraud prevention</li>
+        </ul>
+      </section>
+
+      <section class="privacy-section">
         <div class="section-icon">📞</div>
         <h2>Contact Us</h2>
-        <div class="contact-info">
+        <div class="contact-section">
           <p>For privacy-related inquiries:</p>
-          <a href="mailto:privacy@example.com" class="contact-link">privacy@example.com</a>
-          <p>Response time: Within 48 hours</p>
+          <div class="contact-details">
+            <p><strong>Email:</strong> privacy@bergonlinemarketing.com</p>
+            <p><strong>Phone:</strong> +31 (0)20 123 4567</p>
+            <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam</p>
+          </div>
+          <p class="response-time">We aim to respond within 48 hours</p>
         </div>
       </section>
     </div>
@@ -78,7 +125,7 @@
 .v2-privacy {
   background-color: #E8F5E9;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 4rem;
 }
 
 .privacy-container {
@@ -126,12 +173,36 @@ h2 {
   font-size: 1.8rem;
 }
 
-.protection-list {
+.contact-info {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.info-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E8F5E9;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-item strong {
+  color: #2E7D32;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.protection-list, .usage-list {
   list-style: none;
   padding: 0;
 }
 
-.protection-list li {
+.protection-list li, .usage-list li {
   padding: 1rem;
   margin-bottom: 1rem;
   background: white;
@@ -140,7 +211,7 @@ h2 {
   position: relative;
 }
 
-.protection-list li::before {
+.protection-list li::before, .usage-list li::before {
   content: "✓";
   position: absolute;
   left: 0.8rem;
@@ -189,28 +260,28 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.contact-info {
+.contact-section {
   text-align: center;
   background: white;
   padding: 2rem;
   border-radius: 10px;
 }
 
-.contact-link {
-  display: inline-block;
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  border: 2px solid #4CAF50;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+.contact-details {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #F5F5F5;
+  border-radius: 10px;
 }
 
-.contact-link:hover {
-  background: #4CAF50;
-  color: white;
+.contact-details p {
+  margin-bottom: 0.5rem;
+}
+
+.response-time {
+  color: #4CAF50;
+  font-style: italic;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -225,6 +296,14 @@ h2 {
   .section-icon {
     position: static;
     margin: 0 auto 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
 </style>
