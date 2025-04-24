@@ -6,10 +6,42 @@ import { designs } from './domain.js';
 
 const designId = ref('design_v1');
 const route = useRoute();
+const hostname = window.location.hostname;
 
-onMounted(() => {
-  const hostname = window.location.hostname;
+const getFormattedDomainName = (domain) => {
+  const domainWithoutTLD = domain.replace(/\.com$/, '');
+  if (domainWithoutTLD.length > 30) {
+    return 'Domain Placeholder';
+  }
+  return domainWithoutTLD
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+const getLogoPath = (hostname) => {
+  // Remove .com and create logo path
+  const domain = hostname.replace(/\.com$/, '');
+  const logoPath = `/${domain}-logo.svg`;
+  
+  // Create a new Image to check if the logo exists
+  const img = new Image();
+  img.src = logoPath;
+  
+  // Return default logo if the domain-specific logo fails to load
+  return new Promise((resolve) => {
+    img.onload = () => resolve(logoPath);
+    img.onerror = () => resolve('/default-logo.svg');
+  });
+};
+
+const siteName = ref(getFormattedDomainName(hostname));
+const logoPath = ref('/default-logo.svg'); // Start with default logo
+
+onMounted(async () => {
   designId.value = domainMapping[hostname] || 'design_v1';
+  // Update logo path after checking existence
+  logoPath.value = await getLogoPath(hostname);
 });
 
 // Update page title and meta description based on current route and design
@@ -32,7 +64,7 @@ watch(
     }
 
     // Update title
-    document.title = pageConfig.title.replace('Your Domain', window.location.hostname);
+    document.title = pageConfig.title.replace('Your Domain', siteName.value);
 
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -47,10 +79,21 @@ watch(
 );
 
 provide('designId', designId);
+provide('siteName', siteName);
 </script>
 
 <template>
   <div class="app-container">
+    <header class="app-header">
+      <RouterLink to="/" class="logo-link">
+        <img 
+          :src="logoPath"
+          :alt="siteName" 
+          class="logo" 
+        />
+        <span class="logo-text">{{ siteName }}</span>
+      </RouterLink>
+    </header>
     <RouterView />
     <footer>
       <nav class="footer-nav">
@@ -66,6 +109,35 @@ provide('designId', designId);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.app-header {
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
 }
 
 footer {
