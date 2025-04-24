@@ -42,6 +42,12 @@ onMounted(async () => {
   designId.value = domainMapping[hostname] || 'design_v1';
   // Update logo path after checking existence
   logoPath.value = await getLogoPath(hostname);
+  
+  // Update favicon
+  const favicon = document.querySelector('link[rel="icon"]');
+  if (favicon) {
+    favicon.href = logoPath.value;
+  }
 });
 
 // Update page title and meta description based on current route and design
@@ -76,7 +82,7 @@ watch(
     metaDescription.content = pageConfig.description;
 
     // Update favicon
-    let favicon = document.querySelector('link[rel="icon"]');
+    const favicon = document.querySelector('link[rel="icon"]');
     if (favicon) {
       favicon.href = logoPath.value;
     }
