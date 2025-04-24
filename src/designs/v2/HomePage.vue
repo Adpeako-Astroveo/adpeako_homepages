@@ -24,7 +24,7 @@
 
 <style scoped>
 .v2-homepage {
-  background-color: #FFD700;
+  background-color: #E8F5E9;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -32,7 +32,7 @@
 .header {
   text-align: center;
   padding: 4rem 0;
-  color: #333;
+  color: #2E7D32;
 }
 
 .header h1 {
@@ -58,7 +58,7 @@
 }
 
 .feature h2 {
-  color: #FFA500;
+  color: #4CAF50;
   margin-bottom: 1rem;
 }
 

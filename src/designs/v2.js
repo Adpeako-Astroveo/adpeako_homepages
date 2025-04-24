@@ -2,13 +2,13 @@ export default {
   id: 'design_v2',
   name: 'Version 2 Design',
   theme: {
-    primary: '#FFD700',
-    secondary: '#FFA500'
+    primary: '#4CAF50',
+    secondary: '#81C784'
   },
   pages: {
     home: {
       title: 'Welcome to V2',
-      content: 'This is the custom homepage for V2 with its unique yellow and orange theme.',
+      content: 'This is the custom homepage for V2 with its unique green theme.',
       component: () => import('./v2/HomePage.vue')
     },
     privacy: {

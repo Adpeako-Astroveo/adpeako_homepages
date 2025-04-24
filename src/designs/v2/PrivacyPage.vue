@@ -16,7 +16,7 @@
 
 <style scoped>
 .v2-privacy {
-  background-color: #FFD700;
+  background-color: #E8F5E9;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -31,7 +31,7 @@
 }
 
 h1 {
-  color: #333;
+  color: #2E7D32;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -41,7 +41,7 @@ section {
 }
 
 h2 {
-  color: #FFA500;
+  color: #4CAF50;
   margin-bottom: 1rem;
 }
 </style>
