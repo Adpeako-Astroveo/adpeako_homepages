@@ -74,6 +74,12 @@ watch(
       document.head.appendChild(metaDescription);
     }
     metaDescription.content = pageConfig.description;
+
+    // Update favicon
+    let favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+      favicon.href = logoPath.value;
+    }
   },
   { immediate: true }
 );
@@ -84,7 +90,7 @@ provide('siteName', siteName);
 
 <template>
   <div class="app-container">
-    <header class="app-header">
+    <header class="app-header" :class="'header-' + designId">
       <RouterLink to="/" class="logo-link">
         <img 
           :src="logoPath"
@@ -112,7 +118,6 @@ provide('siteName', siteName);
 }
 
 .app-header {
-  background: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: fixed;
@@ -121,11 +126,24 @@ provide('siteName', siteName);
   z-index: 1000;
 }
 
+/* Design-specific header styles */
+.header-design_v1 {
+  background: #1a1a1a;
+}
+
+.header-design_v2 {
+  background: #2E7D32;
+}
+
+.header-design_local001 {
+  background: #4CAF50;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #4CAF50;
+  color: white;
   font-weight: bold;
   font-size: 1.2rem;
 }
