@@ -141,12 +141,12 @@ provide('siteName', siteName);
   background: #2E7D32;
 }
 
-.header-design_local001 {
-  background: #4CAF50;
+.header-design_v3 {
+  background: #805AD5;
 }
 
-.header-design_brisk_elm {
-  background: #2B6CB0;
+.header-design_local001 {
+  background: #4CAF50;
 }
 
 .logo-link {
