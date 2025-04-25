@@ -156,6 +156,10 @@ provide('siteName', siteName);
   background: linear-gradient(135deg, #805AD5 0%, #B794F4 100%);
 }
 
+.gleaming-fern\.com {
+  background: #3B82F6;
+}
+
 .default {
   background: #4CAF50;
   background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
