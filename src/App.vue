@@ -160,6 +160,10 @@ provide('siteName', siteName);
   background: #3B82F6;
 }
 
+.lofty-sprout\.com {
+  background: #FF6B6B;
+}
+
 .default {
   background: #4CAF50;
   background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
