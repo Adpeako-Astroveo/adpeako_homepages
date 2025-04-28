@@ -10,13 +10,13 @@ export default {
       title: 'Your Domain | Home',
       description: 'Your ultimate mobile entertainment destination. Stream music, watch videos, follow sports, play games, and listen to audiobooks - all with simple mobile billing.',
       content: 'Premium mobile entertainment at your fingertips.',
-      component: () => import('../pages/HomePage.vue')
+      component: () => import('./mellow-lynx/HomePage.vue')
     },
     privacy: {
       title: 'Your Domain | Privacy',
       description: 'Learn about our commitment to protecting your privacy and personal data while using our entertainment services.',
       content: 'Our privacy commitment to you.',
-      component: () => import('../pages/PrivacyPage.vue')
+      component: () => import('./mellow-lynx/PrivacyPage.vue')
     },
     notFound: {
       title: 'Your Domain | Page Not Found',
