@@ -5,31 +5,31 @@ const entertainmentSections = ref([
   {
     title: 'Music Streaming',
     description: 'Dive into a world of endless music. From chart-topping hits to underground gems, discover your next favorite track with crystal-clear sound quality.',
-    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
+    image: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg',
     features: ['Premium Audio Quality', 'Offline Mode', 'Personalized Playlists', 'Lyrics Support']
   },
   {
     title: 'Video Streaming',
     description: 'Experience entertainment like never before with our vast collection of movies, TV shows, and exclusive content. Stream in stunning quality on any device.',
-    image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
+    image: 'https://images.pexels.com/photos/2726370/pexels-photo-2726370.jpeg',
     features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'Smart Recommendations']
   },
   {
     title: 'Live Sports',
     description: 'Never miss a moment of action. Watch live matches, catch highlights, and follow your favorite teams across all major sports leagues worldwide.',
-    image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
+    image: 'https://images.pexels.com/photos/163452/basketball-dunk-blue-game-163452.jpeg',
     features: ['Live Coverage', 'Multi-cam Views', 'Stats & Analysis', 'Instant Replays']
   },
   {
     title: 'Mobile Games',
     description: 'Level up your gaming experience with our selection of premium mobile games. From casual fun to competitive multiplayer, find your perfect match.',
-    image: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg',
+    image: 'https://images.pexels.com/photos/159393/gamepad-video-game-controller-game-controller-controller-159393.jpeg',
     features: ['Cloud Saves', 'Online Multiplayer', 'Regular Updates', 'No Ads']
   },
   {
     title: 'Audiobook Library',
     description: 'Transform your daily routine with our vast collection of audiobooks. Listen to bestsellers and classics narrated by world-class voice artists.',
-    image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
+    image: 'https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg',
     features: ['Huge Collection', 'Offline Mode', 'Sleep Timer', 'Bookmarks Sync']
   }
 ]);
@@ -178,7 +178,7 @@ const supportedCarriers = ref([
 }
 
 .hero {
-  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+  background: #FF6B6B;
   color: white;
   padding: 8rem 2rem;
   text-align: center;
