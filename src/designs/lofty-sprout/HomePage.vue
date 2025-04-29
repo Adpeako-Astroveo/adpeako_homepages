@@ -63,23 +63,30 @@ const plans = ref([
       'Basic game features',
       'Cancel anytime'
     ]
-  },
-  {
-    name: 'Premium Plan',
-    price: 'Monthly billing',
-    billing: 'Added to your phone bill',
-    features: [
-      'Ultra HD streaming',
-      'Multiple devices',
-      'Full game features',
-      'Priority support',
-      'Exclusive content'
-    ]
   }
 ]);
 
 const supportedCarriers = ref([
   'All major mobile carriers supported'
+]);
+
+const faqs = ref([
+  {
+    question: 'Are there any termination deadlines?',
+    answer: 'There is no termination period. Active services can be deactivated at any time.'
+  },
+  {
+    question: 'How much do I pay for the subscription?',
+    answer: 'The subscription costs varies differently based on the services.'
+  },
+  {
+    question: 'Which mobile devices can I use the service on?',
+    answer: 'You can use this service on any device with Internet access. Mobile devices must be standard smartphones or tablets with an up-to-date browser and operating system.'
+  },
+  {
+    question: 'Could minor children use the service?',
+    answer: 'To participate in the service, the minimum age required is 18 years. Participants must be 18 years of age or older and have the payer\'s permission\/provide parental approval.'
+  }
 ]);
 
 const handleGetStarted = () => {
@@ -97,6 +104,7 @@ const handleGetStarted = () => {
         <div class="carrier-logos">
           <p class="supported-text">{{ supportedCarriers[0] }}</p>
         </div>
+        <button class="hero-cta" @click="handleGetStarted">Get Started</button>
       </div>
     </section>
 
@@ -150,18 +158,45 @@ const handleGetStarted = () => {
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Choose Plan</h3>
-          <p>Select what works for you</p>
+          <h3>Click Get Started</h3>
+          <p>Begin your entertainment journey</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Quick Verify</h3>
-          <p>Confirm your phone number</p>
+          <h3>Click Play</h3>
+          <p>Follow instructions on landing page</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Enjoy</h3>
-          <p>Start streaming instantly</p>
+          <h3>Start Streaming</h3>
+          <p>Enjoy instant access to content</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>Lofty Sprout is a trademark of Berg Online Marketing, a global leader in digital content solutions. We specialize in delivering unlimited, high-quality digital content to businesses and individuals across various countries around the world.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Information Section -->
+    <section class="pricing-info">
+      <div class="pricing-content">
+        <h2>Price Information</h2>
+        <p>The subscription costs varies based on the services. We also provide flexible ways to how can you unsubscribe from the service.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div v-for="faq in faqs" :key="faq.question" class="faq-item">
+          <h3>{{ faq.question }}</h3>
+          <p>{{ faq.answer }}</p>
         </div>
       </div>
     </section>
@@ -213,6 +248,24 @@ const handleGetStarted = () => {
 .supported-text {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+}
+
+.hero-cta {
+  background: white;
+  color: #FF6B6B;
+  font-size: 1.2rem;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .entertainment {
@@ -430,6 +483,66 @@ const handleGetStarted = () => {
 .step h3 {
   color: #FF6B6B;
   margin-bottom: 0.5rem;
+}
+
+.about-us, .pricing-info {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.about-content, .pricing-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-us h2, .pricing-info h2 {
+  color: #FF6B6B;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-us p, .pricing-info p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.faq {
+  padding: 6rem 2rem;
+  background: #f7fafc;
+}
+
+.faq h2 {
+  text-align: center;
+  color: #FF6B6B;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.faq-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h3 {
+  color: #FF6B6B;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.faq-item p {
+  color: #4a5568;
+  line-height: 1.6;
 }
 
 .cta {
