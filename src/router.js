@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './pages/HomePage.vue';
 import PrivacyPage from './pages/PrivacyPage.vue';
+import LoginPage from './pages/LoginPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
     path: '/privacy',
     component: PrivacyPage,
     name: 'privacy'
+  },
+  {
+    path: '/login',
+    component: LoginPage,
+    name: 'login'
   },
   {
     path: '/:pathMatch(.*)*',

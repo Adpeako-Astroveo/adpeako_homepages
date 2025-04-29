@@ -113,6 +113,7 @@ provide('siteName', siteName);
         />
         <span class="logo-text">{{ siteName }}</span>
       </RouterLink>
+      <RouterLink to="/login" class="login-btn">Login</RouterLink>
     </header>
     <RouterView />
     <footer>
@@ -138,6 +139,23 @@ provide('siteName', siteName);
   width: 100%;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-btn {
+  background: white;
+  color: inherit;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* Design-specific header styles */

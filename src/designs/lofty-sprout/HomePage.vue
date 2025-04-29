@@ -4,14 +4,14 @@ import { ref } from 'vue';
 const entertainmentSections = ref([
   {
     title: 'Music Streaming',
-    description: 'Dive into a world of endless music. From chart-topping hits to underground gems, discover your next favorite track with crystal-clear sound quality.',
+    description: 'Dive into a world of endless music. From chart-topping hits to indie gems, discover your next favorite track with crystal-clear sound quality.',
     image: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg',
     features: ['Premium Audio Quality', 'Offline Mode', 'Personalized Playlists', 'Lyrics Support']
   },
   {
     title: 'Video Streaming',
     description: 'Experience entertainment like never before with our vast collection of movies, TV shows, and exclusive content. Stream in stunning quality on any device.',
-    image: 'https://images.pexels.com/photos/2726370/pexels-photo-2726370.jpeg',
+    image: '',
     features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'Smart Recommendations']
   },
   {
@@ -81,6 +81,10 @@ const plans = ref([
 const supportedCarriers = ref([
   'All major mobile carriers supported'
 ]);
+
+const handleGetStarted = () => {
+  window.location.href = 'https://sa.lofty-sprout.com/offer';
+};
 </script>
 
 <template>
@@ -99,7 +103,7 @@ const supportedCarriers = ref([
     <!-- Entertainment Sections -->
     <section class="entertainment">
       <div v-for="section in entertainmentSections" :key="section.title" class="content-section">
-        <div class="section-image">
+        <div class="section-image" v-if="section.image">
           <img :src="section.image" :alt="section.title" />
         </div>
         <div class="section-content">
@@ -135,7 +139,7 @@ const supportedCarriers = ref([
           <ul class="plan-features">
             <li v-for="feature in plan.features" :key="feature">{{ feature }}</li>
           </ul>
-          <button class="subscribe-btn">Get Started</button>
+          <button class="subscribe-btn" @click="handleGetStarted">Get Started</button>
         </div>
       </div>
     </section>
@@ -166,7 +170,7 @@ const supportedCarriers = ref([
     <section class="cta">
       <h2>Ready for Endless Entertainment?</h2>
       <p>Join millions enjoying premium content - no credit card needed</p>
-      <button class="cta-button">Start Now</button>
+      <button class="cta-button" @click="handleGetStarted">Start Now</button>
     </section>
   </div>
 </template>
