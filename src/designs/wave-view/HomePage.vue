@@ -54,10 +54,37 @@ const faqs = ref([
 const handleGetStarted = () => {
   window.location.href = '/login';
 };
+
+const handleNavigation = (section) => {
+  // In a real app, this would navigate to the respective sections
+  console.log(`Navigating to ${section}`);
+};
 </script>
 
 <template>
   <div class="wave-view-homepage">
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button 
+        class="nav-button"
+        @click="handleNavigation('movies')"
+      >
+        Movies
+      </button>
+      <button 
+        class="nav-button"
+        @click="handleNavigation('tvshows')"
+      >
+        TV Shows
+      </button>
+      <button 
+        class="nav-button"
+        @click="handleNavigation('livetv')"
+      >
+        Live TV
+      </button>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
@@ -119,11 +146,42 @@ const handleGetStarted = () => {
   padding-top: 64px;
 }
 
+.nav-buttons {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.nav-button {
+  background: #3B82F6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
 .hero {
   background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
   color: white;
   padding: 8rem 2rem;
   text-align: center;
+  margin-top: 2rem;
 }
 
 .hero-content {
@@ -316,6 +374,19 @@ const handleGetStarted = () => {
 
   .cta h2 {
     font-size: 2rem;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .nav-button {
+    width: 100%;
+  }
+
+  .hero {
+    margin-top: 8rem;
   }
 }
 </style>
