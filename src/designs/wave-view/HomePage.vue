@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const entertainmentSections = ref([
   {
@@ -46,18 +49,17 @@ const faqs = ref([
     answer: 'A big collection of movies, audiobooks, games and documentaries can be found inside.'
   },
   {
-    question: 'I\'ve subscribed how do I access my content?',
+    question: "I've subscribed how do I access my content?",
     answer: 'You should have received an SMS with the link to your portal, if you lost it contact: support@wave-view.com'
   }
 ]);
 
-const handleGetStarted = () => {
-  window.location.href = '/login';
+const handleNavigation = (section) => {
+  router.push(`/${section}`);
 };
 
-const handleNavigation = (section) => {
-  // In a real app, this would navigate to the respective sections
-  console.log(`Navigating to ${section}`);
+const handleStartWatching = () => {
+  window.location.href = 'https://ch.wave-view.com/offer';
 };
 </script>
 
@@ -90,7 +92,7 @@ const handleNavigation = (section) => {
       <div class="hero-content">
         <h1>Your Global Entertainment Hub</h1>
         <p class="subtitle">Stream Anywhere, Anytime in Switzerland</p>
-        <button class="cta-button" @click="handleGetStarted">Start Watching Now</button>
+        <button class="cta-button" @click="handleStartWatching">Start Watching Now</button>
       </div>
     </section>
 
@@ -135,7 +137,7 @@ const handleNavigation = (section) => {
     <section class="cta">
       <h2>Ready to Start Streaming?</h2>
       <p>Join thousands of users enjoying premium entertainment</p>
-      <button class="cta-button" @click="handleGetStarted">Get Started Now</button>
+      <button class="cta-button" @click="handleStartWatching">Get Started Now</button>
     </section>
   </div>
 </template>
@@ -151,29 +153,30 @@ const handleNavigation = (section) => {
   top: 64px;
   left: 0;
   right: 0;
-  background: white;
+  background: #1a202c;
   padding: 1rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   z-index: 100;
 }
 
 .nav-button {
-  background: #3B82F6;
+  background: transparent;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.2);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .nav-button:hover {
-  background: #2563eb;
+  background: rgba(255,255,255,0.1);
   transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.4);
 }
 
 .hero {
@@ -364,18 +367,6 @@ const handleNavigation = (section) => {
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta h2 {
-    font-size: 2rem;
-  }
-
   .nav-buttons {
     flex-direction: column;
     padding: 0.5rem;
@@ -387,6 +378,18 @@ const handleNavigation = (section) => {
 
   .hero {
     margin-top: 8rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta h2 {
+    font-size: 2rem;
   }
 }
 </style>

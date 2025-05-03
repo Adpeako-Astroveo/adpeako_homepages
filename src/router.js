@@ -3,6 +3,9 @@ import HomePage from './pages/HomePage.vue';
 import PrivacyPage from './pages/PrivacyPage.vue';
 import LoginPage from './pages/LoginPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
+import MoviesPage from './pages/MoviesPage.vue';
+import TVShowsPage from './pages/TVShowsPage.vue';
+import LiveTVPage from './pages/LiveTVPage.vue';
 
 const routes = [
   {
@@ -19,6 +22,21 @@ const routes = [
     path: '/login',
     component: LoginPage,
     name: 'login'
+  },
+  {
+    path: '/movies',
+    component: MoviesPage,
+    name: 'movies'
+  },
+  {
+    path: '/tvshows',
+    component: TVShowsPage,
+    name: 'tvshows'
+  },
+  {
+    path: '/livetv',
+    component: LiveTVPage,
+    name: 'livetv'
   },
   {
     path: '/:pathMatch(.*)*',
