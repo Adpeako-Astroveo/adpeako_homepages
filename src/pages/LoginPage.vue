@@ -1,5 +1,21 @@
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, inject } from 'vue';
+import { designs } from '../domain.js';
+
+// Get the site name and designId from the App.vue component
+const siteName = inject('siteName');
+const designId = inject('designId');
+
+// Get design theme colors for consistent styling
+const design = computed(() => {
+  return designs[designId.value] || designs['default'];
+});
+
+// Format the domain name properly 
+const baseDomainName = computed(() => {
+  // Use the siteName directly as it's already properly formatted in App.vue
+  return siteName.value;
+});
 
 const msisdn = ref('');
 const country = ref('');
@@ -134,7 +150,7 @@ const handleLogin = async () => {
 <template>
   <div class="login-page">
     <div class="login-container">
-      <h1>Login to Yellow Racoon</h1>
+      <h1>Login to {{ baseDomainName }}</h1>
       <div class="login-form">
         <div class="form-group">
           <label for="country">Country</label>
@@ -167,9 +183,10 @@ const handleLogin = async () => {
           class="submit-btn" 
           @click="handleLogin"
           :disabled="isSubmitting"
+          :style="{ background: design.theme.primary }"
         >
           <span v-if="isSubmitting">Processing...</span>
-          <span v-else>Login Now</span>
+          <span v-else>Login</span>
         </button>
         
         <div class="error-container" v-if="error">
@@ -201,9 +218,9 @@ const handleLogin = async () => {
 
 h1 {
   text-align: center;
-  color: #FFB800;
   margin-bottom: 2rem;
   font-size: 2rem;
+  color: v-bind('design.theme.primary');
 }
 
 .login-form {
@@ -236,8 +253,8 @@ input, select {
 
 input:focus, select:focus {
   outline: none;
-  border-color: #FFB800;
-  box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.1);
+  border-color: v-bind('design.theme.primary');
+  box-shadow: 0 0 0 3px v-bind('`rgba(${parseInt(design.theme.primary.slice(1, 3), 16)}, ${parseInt(design.theme.primary.slice(3, 5), 16)}, ${parseInt(design.theme.primary.slice(5, 7), 16)}, 0.1)`');
 }
 
 input.error, select.error {
@@ -266,7 +283,6 @@ input.error, select.error {
 }
 
 .submit-btn {
-  background: #FFB800;
   color: white;
   padding: 0.75rem;
   border: none;
@@ -279,12 +295,12 @@ input.error, select.error {
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #FFA200;
   transform: translateY(-2px);
+  filter: brightness(110%);
 }
 
 .submit-btn:disabled {
-  background: #FFC547;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
