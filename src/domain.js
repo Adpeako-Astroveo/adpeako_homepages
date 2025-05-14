@@ -7,6 +7,7 @@ import loftySproutDesign from './designs/lofty-sprout.js';
 import localhostDesign from './designs/localhost.js';
 import defaultDesign from './designs/default.js';
 import waveViewDesign from './designs/wave-view.js';
+import yellowRacoonDesign from './designs/yellow-racoon.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -16,6 +17,7 @@ export default {
   "mellow-lynx.com": "mellow-lynx.com",
   "lofty-sprout.com": "lofty-sprout.com",
   "wave-view.com": "wave-view.com",
+  "yellow-racoon.com": "yellow-racoon.com",
   "localhost": "jazzy-mango.com",
   "127.0.0.1": "jazzy-mango.com"
 };
@@ -28,6 +30,7 @@ export const designs = {
   "mellow-lynx.com": mellowLynxDesign,
   "lofty-sprout.com": loftySproutDesign,
   "wave-view.com": waveViewDesign,
+  "yellow-racoon.com": yellowRacoonDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };
