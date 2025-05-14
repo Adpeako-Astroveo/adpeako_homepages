@@ -45,6 +45,7 @@ const getLogoPath = (hostname) => {
 
 const siteName = ref(getFormattedDomainName(hostname));
 const logoPath = ref('/default-logo.svg'); // Start with default logo
+const isMobileMenuOpen = ref(false);
 
 onMounted(async () => {
   designId.value = domainMapping[hostname] || 'default';
@@ -56,7 +57,27 @@ onMounted(async () => {
   if (favicon) {
     favicon.href = logoPath.value;
   }
+  
+  // Add viewport meta tag for better mobile responsiveness if not present
+  if (!document.querySelector('meta[name="viewport"]')) {
+    const viewportMeta = document.createElement('meta');
+    viewportMeta.name = 'viewport';
+    viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    document.head.appendChild(viewportMeta);
+  }
 });
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+// Close mobile menu when route changes
+watch(
+  () => route.path,
+  () => {
+    isMobileMenuOpen.value = false;
+  }
+);
 
 // Update page title and meta description based on current route and design
 watch(
@@ -113,7 +134,18 @@ provide('siteName', siteName);
         />
         <span class="logo-text">{{ siteName }}</span>
       </RouterLink>
-      <RouterLink to="/login" class="login-btn">Login</RouterLink>
+      
+      <!-- Mobile menu toggle button -->
+      <button class="mobile-menu-toggle" @click="toggleMobileMenu" aria-label="Toggle Menu">
+        <span class="menu-icon"></span>
+      </button>
+      
+      <!-- Navigation links (desktop and mobile) -->
+      <nav class="nav-links" :class="{ 'open': isMobileMenuOpen }">
+        <RouterLink to="/" class="nav-link">Home</RouterLink>
+        <RouterLink to="/privacy" class="nav-link">Privacy</RouterLink>
+        <RouterLink to="/login" class="login-btn">Login</RouterLink>
+      </nav>
     </header>
     <RouterView />
     <footer>
@@ -126,6 +158,20 @@ provide('siteName', siteName);
 </template>
 
 <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -182,6 +228,15 @@ provide('siteName', siteName);
   background: #FF6B6B;
 }
 
+.wave-view\.com {
+  background: #3B82F6;
+}
+
+.yellow-racoon\.com {
+  background: #FFB800;
+  background: linear-gradient(135deg, #FFB800 0%, #FFA200 100%);
+}
+
 .default {
   background: #4CAF50;
   background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
@@ -204,6 +259,77 @@ provide('siteName', siteName);
 
 .logo-text {
   font-size: 1.5rem;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-icon {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.menu-icon:before,
+.menu-icon:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s, top 0.3s;
+}
+
+.menu-icon:before {
+  top: -8px;
+}
+
+.menu-icon:after {
+  top: 8px;
+}
+
+.mobile-menu-toggle.open .menu-icon {
+  background-color: transparent;
+}
+
+.mobile-menu-toggle.open .menu-icon:before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.mobile-menu-toggle.open .menu-icon:after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 footer {
@@ -232,6 +358,79 @@ footer {
 }
 
 .footer-nav a.router-link-active {
-  color: #48bb78;
+  color: #FFB800;
+}
+
+/* Improved Responsive Styles */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    z-index: 1010;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background: #FFB800;
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1005;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    gap: 1.5rem;
+  }
+  
+  .nav-links.open {
+    transform: translateX(0);
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .footer-nav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.8rem;
+  }
+  
+  .login-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  .logo {
+    width: 28px;
+    height: 28px;
+    margin-right: 0.5rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    padding: 5rem 1.5rem 1.5rem;
+  }
 }
 </style>

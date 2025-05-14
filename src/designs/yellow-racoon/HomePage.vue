@@ -1,40 +1,43 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const entertainmentSections = ref([
   {
     title: 'Music Streaming',
-    description: 'Dive into millions of tracks across every genre. From chart-topping hits to indie gems, discover your next favorite song with crystal-clear audio quality.',
+    description: 'Dive into millions of tracks across every genre. From chart-topping hits to indie gems, discover your next favorite song.',
     image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
-    features: ['Hi-Fi Audio Quality', 'Offline Mode', 'Smart Playlists', 'Lyrics Support']
+    link: '/entertainment/music'
   },
   {
     title: 'Video Streaming',
-    description: 'Experience endless entertainment with our vast collection of movies, TV shows, and exclusive series. Stream in stunning quality wherever you are.',
+    description: 'Experience endless entertainment with our vast collection of movies, TV shows, and exclusive series.',
     image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
-    features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'Family Profiles']
+    link: '/entertainment/video'
   },
   {
     title: 'Live Sports',
-    description: 'Never miss a moment of action. Watch live matches, catch highlights, and follow your favorite teams across all major sports leagues worldwide.',
+    description: 'Never miss a moment of action. Watch live matches, catch highlights, and follow your favorite teams.',
     image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
-    features: ['Live Coverage', 'Multi-cam Views', 'Stats & Analysis', 'Instant Replays']
+    link: '/entertainment/sports'
   },
   {
     title: 'Mobile Games',
-    description: 'Access a world of gaming excitement right from your phone. From casual fun to competitive multiplayer, find your perfect gaming experience.',
+    description: 'Access a world of gaming excitement right from your phone. From casual fun to competitive multiplayer.',
     image: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg',
-    features: ['Cloud Saves', 'Online Multiplayer', 'Regular Updates', 'No Ads']
+    link: '/entertainment/games'
   },
   {
     title: 'Audiobook Library',
-    description: 'Immerse yourself in stories narrated by world-class voice artists. Our extensive collection includes bestsellers, classics, and exclusive productions.',
+    description: 'Immerse yourself in stories narrated by world-class voice artists. Our extensive collection includes bestsellers and classics.',
     image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
-    features: ['Huge Collection', 'Offline Mode', 'Sleep Timer', 'Bookmarks Sync']
+    link: '/entertainment/audiobooks'
   }
 ]);
 
-const paymentFeatures = ref([
+const features = ref([
   {
     title: 'Easy Mobile Billing',
     description: 'Simply charge to your phone bill - no credit card needed',
@@ -54,71 +57,55 @@ const paymentFeatures = ref([
 
 const plans = ref([
   {
-    name: 'Basic Plan',
-    price: 'Weekly billing',
-    billing: 'Added to your phone bill',
+    name: 'Free',
+    price: '$0',
     features: [
-      'HD streaming quality',
+      'Basic content access',
+      'Ad-supported streaming',
+      'Standard quality',
+      'Single device'
+    ],
+    highlighted: true
+  },
+  {
+    name: 'Basic',
+    price: '$4.99',
+    features: [
       'Ad-free experience',
-      'Basic game features',
-      'Cancel anytime'
+      'HD streaming',
+      'Download & watch',
+      'Two devices'
     ]
   },
   {
-    name: 'Premium Plan',
-    price: 'Monthly billing',
-    billing: 'Added to your phone bill',
+    name: 'Premium',
+    price: '$9.99',
     features: [
-      'Ultra HD streaming',
-      'Multiple devices',
-      'Full game features',
-      'Priority support',
+      'All Basic features',
+      '4K Ultra HD',
+      'Five devices',
       'Exclusive content'
     ]
   }
 ]);
 
-const stats = ref([
-  { number: '10M+', label: 'Active Users' },
-  { number: '100K+', label: 'Content Items' },
-  { number: '24/7', label: 'Support' }
-]);
-
 const handleGetStarted = () => {
-  window.location.href = 'https://yellow-racoon.com/subscribe';
+  router.push('/login');
+};
+
+const navigateToSection = (link) => {
+  router.push(link);
 };
 </script>
 
 <template>
   <div class="yellow-racoon-homepage">
-    <!-- Navigation Header -->
-    <nav class="nav-header">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <img src="../../../public/yellow-racoon-logo.svg" alt="Yellow Racoon" class="logo" />
-          <span class="logo-text">Yellow Racoon</span>
-        </div>
-        <div class="nav-links">
-          <a href="#entertainment" class="nav-link">Entertainment</a>
-          <a href="#pricing" class="nav-link">Pricing</a>
-          <a href="#support" class="nav-link">Support</a>
-          <button class="login-btn" @click="handleGetStarted">Login</button>
-        </div>
-      </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Your Ultimate<br>Mobile Entertainment Hub</h1>
+        <h1>Your Ultimate Entertainment Hub</h1>
         <p class="subtitle">Stream, Play, and Experience More - All Through Your Phone</p>
-        <div class="hero-stats">
-          <div v-for="stat in stats" :key="stat.number" class="stat-item">
-            <span class="stat-number">{{ stat.number }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
-          </div>
-        </div>
-        <button class="cta-button" @click="handleGetStarted">Get Started Now</button>
+        <button class="cta-button" @click="handleGetStarted">Login Now</button>
       </div>
     </section>
 
@@ -129,20 +116,18 @@ const handleGetStarted = () => {
           <img :src="section.image" :alt="section.title" />
         </div>
         <div class="section-content">
-          <h2>{{ section.title }}</h2>
+          <h2 @click="navigateToSection(section.link)" class="clickable-title">{{ section.title }}</h2>
           <p>{{ section.description }}</p>
-          <ul class="features-list">
-            <li v-for="feature in section.features" :key="feature">{{ feature }}</li>
-          </ul>
+          <button class="section-button" @click="navigateToSection(section.link)">Learn More</button>
         </div>
       </div>
     </section>
 
-    <!-- Payment Section -->
-    <section class="payment">
-      <h2>Simple Mobile Payment</h2>
+    <!-- Features Section -->
+    <section class="features">
+      <h2>Why Choose Us</h2>
       <div class="features-grid">
-        <div v-for="feature in paymentFeatures" :key="feature.title" class="feature-card">
+        <div v-for="feature in features" :key="feature.title" class="feature-card">
           <span class="feature-icon">{{ feature.icon }}</span>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
@@ -150,40 +135,22 @@ const handleGetStarted = () => {
       </div>
     </section>
 
-    <!-- Plans Section -->
-    <section class="plans">
-      <h2>Choose Your Entertainment Plan</h2>
+    <!-- Pricing Section -->
+    <section class="pricing">
+      <h2>Choose Your Plan</h2>
       <div class="plans-grid">
-        <div v-for="plan in plans" :key="plan.name" class="plan-card">
+        <div 
+          v-for="plan in plans" 
+          :key="plan.name" 
+          class="plan-card"
+          :class="{ 'highlighted': plan.highlighted }"
+        >
           <h3>{{ plan.name }}</h3>
           <div class="price">{{ plan.price }}</div>
-          <p class="billing">{{ plan.billing }}</p>
           <ul class="plan-features">
             <li v-for="feature in plan.features" :key="feature">{{ feature }}</li>
           </ul>
-          <button class="subscribe-btn" @click="handleGetStarted">Get Started</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-      <h2>Start in 3 Simple Steps</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Choose Plan</h3>
-          <p>Select your perfect package</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Quick Verify</h3>
-          <p>Confirm your phone number</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Enjoy</h3>
-          <p>Start streaming instantly</p>
+          <button class="subscribe-btn" @click="handleGetStarted">Login Now</button>
         </div>
       </div>
     </section>
@@ -192,7 +159,7 @@ const handleGetStarted = () => {
     <section class="cta">
       <h2>Ready for Endless Entertainment?</h2>
       <p>Join millions enjoying premium content - no credit card needed</p>
-      <button class="cta-button" @click="handleGetStarted">Start Now</button>
+      <button class="cta-button" @click="handleGetStarted">Login Now</button>
     </section>
   </div>
 </template>
@@ -201,77 +168,6 @@ const handleGetStarted = () => {
 .yellow-racoon-homepage {
   color: #1a202c;
   padding-top: 64px;
-}
-
-.nav-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  padding: 1rem 0;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  height: 40px;
-  width: auto;
-}
-
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #FFB800;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: #4a5568;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #FFB800;
-}
-
-.login-btn {
-  background: #FFB800;
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.login-btn:hover {
-  background: #FFA200;
-  transform: translateY(-2px);
 }
 
 .hero {
@@ -291,37 +187,12 @@ const handleGetStarted = () => {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .subtitle {
   font-size: 1.5rem;
   opacity: 0.9;
-  margin-bottom: 3rem;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin: 4rem 0;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
-}
-
-.stat-label {
-  font-size: 1.1rem;
-  opacity: 0.9;
+  margin-bottom: 2rem;
 }
 
 .entertainment {
@@ -357,41 +228,41 @@ const handleGetStarted = () => {
   font-size: 2rem;
   color: #FFB800;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.section-content p {
-  font-size: 1.1rem;
-  color: #4a5568;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+.section-content h2:hover {
+  color: #FFA200;
 }
 
-.features-list {
-  list-style: none;
-  padding: 0;
+.clickable-title {
+  cursor: pointer;
 }
 
-.features-list li {
-  padding-left: 2rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-  color: #4a5568;
+.section-button {
+  background: #FFB800;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.3s ease;
 }
 
-.features-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #FFB800;
+.section-button:hover {
+  background: #FFA200;
 }
 
-.payment {
-  background: #f7fafc;
+.features {
   padding: 6rem 2rem;
-  text-align: center;
+  background: #f7fafc;
 }
 
-.payment h2 {
+.features h2 {
+  text-align: center;
   font-size: 2.5rem;
   color: #FFB800;
   margin-bottom: 3rem;
@@ -409,12 +280,8 @@ const handleGetStarted = () => {
   background: white;
   padding: 2rem;
   border-radius: 1rem;
+  text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
 }
 
 .feature-icon {
@@ -428,12 +295,12 @@ const handleGetStarted = () => {
   margin-bottom: 1rem;
 }
 
-.plans {
+.pricing {
   padding: 6rem 2rem;
-  text-align: center;
 }
 
-.plans h2 {
+.pricing h2 {
+  text-align: center;
   font-size: 2.5rem;
   color: #FFB800;
   margin-bottom: 3rem;
@@ -452,6 +319,20 @@ const handleGetStarted = () => {
   padding: 3rem 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.plan-card.highlighted {
+  border: 2px solid #FFB800;
+  transform: scale(1.05);
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.plan-card.highlighted:hover {
+  transform: scale(1.05) translateY(-5px);
 }
 
 .plan-card h3 {
@@ -461,14 +342,9 @@ const handleGetStarted = () => {
 }
 
 .price {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #FFB800;
-  margin-bottom: 0.5rem;
-}
-
-.billing {
-  color: #666;
   margin-bottom: 2rem;
 }
 
@@ -486,7 +362,8 @@ const handleGetStarted = () => {
 .subscribe-btn {
   background: #FFB800;
   color: white;
-  padding: 1rem 2rem;
+  width: 100%;
+  padding: 1rem;
   border-radius: 0.5rem;
   border: none;
   font-weight: 500;
@@ -496,49 +373,6 @@ const handleGetStarted = () => {
 
 .subscribe-btn:hover {
   background: #FFA200;
-}
-
-.how-it-works {
-  background: #f7fafc;
-  padding: 6rem 2rem;
-  text-align: center;
-}
-
-.how-it-works h2 {
-  font-size: 2.5rem;
-  color: #FFB800;
-  margin-bottom: 3rem;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.step {
-  padding: 2rem;
-}
-
-.step-number {
-  width: 3rem;
-  height: 3rem;
-  background: #FFB800;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0 auto 1.5rem;
-}
-
-.step h3 {
-  color: #FFB800;
-  margin-bottom: 0.5rem;
 }
 
 .cta {
@@ -576,47 +410,135 @@ const handleGetStarted = () => {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Improved Responsive Styles */
+@media (max-width: 1024px) {
+  .content-section {
+    gap: 3rem;
+  }
+  
+  .plan-card.highlighted {
+    transform: scale(1.03);
+  }
+  
+  .plan-card.highlighted:hover {
+    transform: scale(1.03) translateY(-5px);
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-container {
-    padding: 0 1rem;
+  .hero {
+    padding: 6rem 1.5rem;
   }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .logo-text {
-    display: none;
-  }
-
-  .nav-link {
-    font-size: 0.9rem;
-  }
-
+  
   .hero h1 {
     font-size: 2.5rem;
   }
-
-  .hero-stats {
-    flex-direction: column;
-    gap: 2rem;
+  
+  .subtitle {
+    font-size: 1.2rem;
   }
-
+  
   .content-section {
     grid-template-columns: 1fr;
     gap: 2rem;
+    margin-bottom: 4rem;
   }
-
+  
   .content-section:nth-child(even) {
     direction: ltr;
   }
-
+  
   .section-image img {
     height: 300px;
   }
-
+  
+  .section-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .features h2, .pricing h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
   .cta h2 {
     font-size: 2rem;
+  }
+  
+  .cta p {
+    font-size: 1rem;
+  }
+  
+  .entertainment, .features, .pricing {
+    padding: 4rem 1.5rem;
+  }
+  
+  .cta {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 5rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-image img {
+    height: 250px;
+  }
+  
+  .section-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .feature-card, .plan-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    gap: 1.5rem;
+  }
+  
+  .plans-grid {
+    gap: 1.5rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .entertainment, .features, .pricing, .cta {
+    padding: 3rem 1rem;
+  }
+  
+  .plan-card {
+    margin-bottom: 1rem;
+  }
+  
+  .plan-card.highlighted {
+    transform: none;
+    border-width: 3px;
+  }
+  
+  .plan-card.highlighted:hover {
+    transform: translateY(-5px);
   }
 }
 </style>

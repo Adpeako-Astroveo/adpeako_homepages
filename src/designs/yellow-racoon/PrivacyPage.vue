@@ -1,4 +1,3 @@
-```vue
 <template>
   <div class="privacy-page">
     <div class="privacy-container">
@@ -248,6 +247,13 @@ p {
   border-radius: 0.5rem;
 }
 
+/* Improved Responsive Styles */
+@media (max-width: 1024px) {
+  .privacy-container {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .privacy-page {
     padding: 6rem 1rem 2rem;
@@ -255,6 +261,7 @@ p {
 
   .privacy-container {
     padding: 2rem;
+    max-width: 100%;
   }
 
   h1 {
@@ -264,6 +271,50 @@ p {
   h2 {
     font-size: 1.3rem;
   }
+  
+  section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .data-list li {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-page {
+    padding: 5rem 0.75rem 1.5rem;
+  }
+  
+  .privacy-container {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .data-list li {
+    padding: 1rem;
+  }
+  
+  .contact-details, .mobile-billing-section, .contact-section {
+    padding: 1rem;
+  }
+  
+  .last-updated {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  p, .usage-list li, .security-measures li {
+    font-size: 0.95rem;
+  }
 }
 </style>
-```
