@@ -102,7 +102,6 @@
         <p>For privacy-related inquiries, please contact our Data Protection Officer:</p>
         <div class="contact-section">
           <p><strong>Email:</strong> privacy@yellow-racoon.com</p>
-          <p><strong>Phone:</strong> +31 (0)20 123 4567</p>
           <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam</p>
         </div>
       </section>
