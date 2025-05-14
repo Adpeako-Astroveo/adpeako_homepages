@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, inject } from 'vue';
+import { ref, computed, watch, inject, nextTick } from 'vue';
 import { designs } from '../domain.js';
 
 // Get the site name and designId from the App.vue component
@@ -21,6 +21,205 @@ const msisdn = ref('');
 const country = ref('');
 const error = ref('');
 const isSubmitting = ref(false);
+
+// Country codes for various countries
+const countryCodes = {
+  'Afghanistan': '+93',
+  'Albania': '+355',
+  'Algeria': '+213',
+  'Andorra': '+376',
+  'Angola': '+244',
+  'Antigua and Barbuda': '+1',
+  'Argentina': '+54',
+  'Armenia': '+374',
+  'Australia': '+61',
+  'Austria': '+43',
+  'Azerbaijan': '+994',
+  'Bahamas': '+1',
+  'Bahrain': '+973',
+  'Bangladesh': '+880',
+  'Barbados': '+1',
+  'Belarus': '+375',
+  'Belgium': '+32',
+  'Belize': '+501',
+  'Benin': '+229',
+  'Bhutan': '+975',
+  'Bolivia': '+591',
+  'Bosnia and Herzegovina': '+387',
+  'Botswana': '+267',
+  'Brazil': '+55',
+  'Brunei': '+673',
+  'Bulgaria': '+359',
+  'Burkina Faso': '+226',
+  'Burundi': '+257',
+  'Cabo Verde': '+238',
+  'Cambodia': '+855',
+  'Cameroon': '+237',
+  'Canada': '+1',
+  'Central African Republic': '+236',
+  'Chad': '+235',
+  'Chile': '+56',
+  'China': '+86',
+  'Colombia': '+57',
+  'Comoros': '+269',
+  'Congo': '+242',
+  'Costa Rica': '+506',
+  'Croatia': '+385',
+  'Cuba': '+53',
+  'Cyprus': '+357',
+  'Czech Republic': '+420',
+  'Denmark': '+45',
+  'Djibouti': '+253',
+  'Dominica': '+1',
+  'Dominican Republic': '+1',
+  'Ecuador': '+593',
+  'Egypt': '+20',
+  'El Salvador': '+503',
+  'Equatorial Guinea': '+240',
+  'Eritrea': '+291',
+  'Estonia': '+372',
+  'Eswatini': '+268',
+  'Ethiopia': '+251',
+  'Fiji': '+679',
+  'Finland': '+358',
+  'France': '+33',
+  'Gabon': '+241',
+  'Gambia': '+220',
+  'Georgia': '+995',
+  'Germany': '+49',
+  'Ghana': '+233',
+  'Greece': '+30',
+  'Grenada': '+1',
+  'Guatemala': '+502',
+  'Guinea': '+224',
+  'Guinea-Bissau': '+245',
+  'Guyana': '+592',
+  'Haiti': '+509',
+  'Honduras': '+504',
+  'Hungary': '+36',
+  'Iceland': '+354',
+  'India': '+91',
+  'Indonesia': '+62',
+  'Iran': '+98',
+  'Iraq': '+964',
+  'Ireland': '+353',
+  'Israel': '+972',
+  'Italy': '+39',
+  'Jamaica': '+1',
+  'Japan': '+81',
+  'Jordan': '+962',
+  'Kazakhstan': '+7',
+  'Kenya': '+254',
+  'Kiribati': '+686',
+  'Korea, North': '+850',
+  'Korea, South': '+82',
+  'Kosovo': '+383',
+  'Kuwait': '+965',
+  'Kyrgyzstan': '+996',
+  'Laos': '+856',
+  'Latvia': '+371',
+  'Lebanon': '+961',
+  'Lesotho': '+266',
+  'Liberia': '+231',
+  'Libya': '+218',
+  'Liechtenstein': '+423',
+  'Lithuania': '+370',
+  'Luxembourg': '+352',
+  'Madagascar': '+261',
+  'Malawi': '+265',
+  'Malaysia': '+60',
+  'Maldives': '+960',
+  'Mali': '+223',
+  'Malta': '+356',
+  'Marshall Islands': '+692',
+  'Mauritania': '+222',
+  'Mauritius': '+230',
+  'Mexico': '+52',
+  'Micronesia': '+691',
+  'Moldova': '+373',
+  'Monaco': '+377',
+  'Mongolia': '+976',
+  'Montenegro': '+382',
+  'Morocco': '+212',
+  'Mozambique': '+258',
+  'Myanmar': '+95',
+  'Namibia': '+264',
+  'Nauru': '+674',
+  'Nepal': '+977',
+  'Netherlands': '+31',
+  'New Zealand': '+64',
+  'Nicaragua': '+505',
+  'Niger': '+227',
+  'Nigeria': '+234',
+  'North Macedonia': '+389',
+  'Norway': '+47',
+  'Oman': '+968',
+  'Pakistan': '+92',
+  'Palau': '+680',
+  'Palestine': '+970',
+  'Panama': '+507',
+  'Papua New Guinea': '+675',
+  'Paraguay': '+595',
+  'Peru': '+51',
+  'Philippines': '+63',
+  'Poland': '+48',
+  'Portugal': '+351',
+  'Qatar': '+974',
+  'Romania': '+40',
+  'Russia': '+7',
+  'Rwanda': '+250',
+  'Saint Kitts and Nevis': '+1',
+  'Saint Lucia': '+1',
+  'Saint Vincent and the Grenadines': '+1',
+  'Samoa': '+685',
+  'San Marino': '+378',
+  'Sao Tome and Principe': '+239',
+  'Saudi Arabia': '+966',
+  'Senegal': '+221',
+  'Serbia': '+381',
+  'Seychelles': '+248',
+  'Sierra Leone': '+232',
+  'Singapore': '+65',
+  'Slovakia': '+421',
+  'Slovenia': '+386',
+  'Solomon Islands': '+677',
+  'Somalia': '+252',
+  'South Africa': '+27',
+  'South Sudan': '+211',
+  'Spain': '+34',
+  'Sri Lanka': '+94',
+  'Sudan': '+249',
+  'Suriname': '+597',
+  'Sweden': '+46',
+  'Switzerland': '+41',
+  'Syria': '+963',
+  'Taiwan': '+886',
+  'Tajikistan': '+992',
+  'Tanzania': '+255',
+  'Thailand': '+66',
+  'Timor-Leste': '+670',
+  'Togo': '+228',
+  'Tonga': '+676',
+  'Trinidad and Tobago': '+1',
+  'Tunisia': '+216',
+  'Turkey': '+90',
+  'Turkmenistan': '+993',
+  'Tuvalu': '+688',
+  'Uganda': '+256',
+  'Ukraine': '+380',
+  'United Arab Emirates': '+971',
+  'United Kingdom': '+44',
+  'United States': '+1',
+  'Uruguay': '+598',
+  'Uzbekistan': '+998',
+  'Vanuatu': '+678',
+  'Vatican City': '+39',
+  'Venezuela': '+58',
+  'Vietnam': '+84',
+  'Yemen': '+967',
+  'Zambia': '+260',
+  'Zimbabwe': '+263'
+};
 
 // Country phone number format examples
 const countryPhoneExamples = {
@@ -56,6 +255,11 @@ const countryPhoneExamples = {
 // Default example for other countries
 const defaultExample = '+XXXXXXXXXXXX';
 
+// Get the country code for the selected country
+const getCountryCode = (countryName) => {
+  return countryCodes[countryName] || '';
+};
+
 // Computed property for the placeholder text
 const phonePlaceholder = computed(() => {
   if (!country.value) return 'Select country first';
@@ -67,6 +271,101 @@ const formatHint = computed(() => {
   if (!country.value) return 'Format: +CountryCode followed by number';
   return `Format: ${countryPhoneExamples[country.value] || defaultExample}`;
 });
+
+// Handle key press to prevent changing the country code part
+const handleKeyDown = (event) => {
+  if (!country.value) return;
+  
+  const countryCode = getCountryCode(country.value);
+  if (!msisdn.value.startsWith(countryCode)) {
+    msisdn.value = countryCode;
+  }
+  
+  // Get the current cursor position
+  const cursorPos = event.target.selectionStart;
+  
+  // If user is trying to delete or modify the country code, prevent it
+  if (cursorPos < countryCode.length) {
+    if (event.key === 'Backspace' || event.key === 'Delete' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+    }
+  }
+};
+
+// Handle input to ensure country code remains
+const handleInput = (event) => {
+  if (!country.value) return;
+  
+  const countryCode = getCountryCode(country.value);
+  if (!msisdn.value.startsWith(countryCode)) {
+    msisdn.value = countryCode + msisdn.value.replace(countryCode, '');
+    
+    // Place cursor after country code
+    nextTick(() => {
+      event.target.setSelectionRange(countryCode.length, countryCode.length);
+    });
+  }
+  
+  // Ensure only numbers are entered after country code
+  const nonDigitRegex = /[^\d]/g;
+  const valueAfterCode = msisdn.value.substring(countryCode.length);
+  if (nonDigitRegex.test(valueAfterCode)) {
+    msisdn.value = countryCode + valueAfterCode.replace(nonDigitRegex, '');
+  }
+};
+
+// Handle click to place cursor at end if clicked on country code part
+const handleClick = (event) => {
+  if (!country.value) return;
+  
+  const countryCode = getCountryCode(country.value);
+  const cursorPos = event.target.selectionStart;
+  
+  if (cursorPos < countryCode.length) {
+    nextTick(() => {
+      event.target.setSelectionRange(countryCode.length, countryCode.length);
+    });
+  }
+};
+
+// When country changes, update the mobile number with the country code
+watch(country, (newCountry) => {
+  if (newCountry) {
+    const countryCode = getCountryCode(newCountry);
+    msisdn.value = countryCode;
+    error.value = '';
+  } else {
+    msisdn.value = '';
+    error.value = '';
+  }
+});
+
+const validateMsisdn = () => {
+  if (!msisdn.value) {
+    error.value = 'Mobile number is required';
+    return false;
+  }
+  
+  if (!country.value) {
+    error.value = 'Please select your country';
+    return false;
+  }
+  
+  const countryCode = getCountryCode(country.value);
+  if (!msisdn.value.startsWith(countryCode)) {
+    error.value = 'Invalid country code';
+    return false;
+  }
+  
+  // Make sure the number has enough digits after the country code
+  const numberWithoutCode = msisdn.value.substring(countryCode.length);
+  if (numberWithoutCode.length < 4) {
+    error.value = 'Please enter a valid phone number';
+    return false;
+  }
+  
+  return true;
+};
 
 const countries = ref([
   'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 
@@ -98,31 +397,6 @@ const countries = ref([
   'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 
   'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
 ]);
-
-// Clear the mobile number when country changes
-watch(country, () => {
-  msisdn.value = '';
-  error.value = '';
-});
-
-const validateMsisdn = () => {
-  if (!msisdn.value) {
-    error.value = 'Mobile number is required';
-    return false;
-  } 
-  
-  if (!/^\+[0-9]{10,15}$/.test(msisdn.value)) {
-    error.value = 'Please enter a valid international mobile number';
-    return false;
-  }
-  
-  if (!country.value) {
-    error.value = 'Please select your country';
-    return false;
-  }
-  
-  return true;
-};
 
 const handleLogin = async () => {
   error.value = '';
@@ -174,6 +448,9 @@ const handleLogin = async () => {
             v-model="msisdn"
             :placeholder="phonePlaceholder"
             :class="{ 'error': error }"
+            @keydown="handleKeyDown"
+            @input="handleInput"
+            @click="handleClick"
           />
           <p class="format-hint">{{ formatHint }}</p>
         </div>
