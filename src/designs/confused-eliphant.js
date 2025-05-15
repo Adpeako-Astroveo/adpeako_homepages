@@ -2,8 +2,8 @@ export default {
   id: 'confused-eliphant.com',
   name: 'Confused Eliphant Design',
   theme: {
-    primary: '#9333EA',
-    secondary: '#C084FC'
+    primary: '#6C63FF',
+    secondary: '#FF6584'
   },
   pages: {
     home: {

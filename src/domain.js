@@ -21,7 +21,7 @@ export default {
   "wave-view.com": "wave-view.com",
   "yellow-racoon.com": "yellow-racoon.com",
   "switch-runner.com": "switch-runner.com",
-  "confused-eliphant.com": "confused-eliphant.com", 
+  "confused-eliphant.com": "confused-eliphant.com",
   "localhost": "jazzy-mango.com",
   "127.0.0.1": "jazzy-mango.com"
 };

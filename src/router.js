@@ -19,6 +19,13 @@ import SwitchRunnerSportsPage from './pages/switch-runner/SportsPage.vue';
 import SwitchRunnerGamesPage from './pages/switch-runner/GamesPage.vue';
 import SwitchRunnerAudiobooksPage from './pages/switch-runner/AudiobooksPage.vue';
 
+// Confused Eliphant specific pages
+import ConfusedEliphantMusicPage from './pages/confused-eliphant/MusicPage.vue';
+import ConfusedEliphantVideoPage from './pages/confused-eliphant/VideoPage.vue';
+import ConfusedEliphantSportsPage from './pages/confused-eliphant/SportsPage.vue';
+import ConfusedEliphantGamesPage from './pages/confused-eliphant/GamesPage.vue';
+import ConfusedEliphantAudiobooksPage from './pages/confused-eliphant/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -100,6 +107,32 @@ const routes = [
     path: '/switch-runner/audiobooks',
     component: SwitchRunnerAudiobooksPage,
     name: 'switch-runner-audiobooks'
+  },
+  // Confused Eliphant specific routes
+  {
+    path: '/confused-eliphant/music',
+    component: ConfusedEliphantMusicPage,
+    name: 'confused-eliphant-music'
+  },
+  {
+    path: '/confused-eliphant/video',
+    component: ConfusedEliphantVideoPage,
+    name: 'confused-eliphant-video'
+  },
+  {
+    path: '/confused-eliphant/sports',
+    component: ConfusedEliphantSportsPage,
+    name: 'confused-eliphant-sports'
+  },
+  {
+    path: '/confused-eliphant/games',
+    component: ConfusedEliphantGamesPage,
+    name: 'confused-eliphant-games'
+  },
+  {
+    path: '/confused-eliphant/audiobooks',
+    component: ConfusedEliphantAudiobooksPage,
+    name: 'confused-eliphant-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',

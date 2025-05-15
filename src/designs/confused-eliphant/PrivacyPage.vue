@@ -2,65 +2,56 @@
   <div class="privacy-page">
     <div class="privacy-container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: May 20, 2025</p>
+      <p class="last-updated">Last updated: June 15, 2025</p>
 
       <section>
         <h2>Introduction</h2>
-        <p>Berg Online Marketing B.V. (hereinafter also referred to as 'we' or 'us' or 'our') treats your personal data with great care. This Privacy Statement describes how your personal data is processed when using our streaming entertainment services and visiting our website.</p>
-        <p>At Confused Eliphant, we are committed to protecting your privacy and ensuring your data is handled responsibly. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information.</p>
+        <p>At Confused Eliphant, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile entertainment services. Please read this policy carefully to understand our practices regarding your personal data.</p>
       </section>
 
       <section>
-        <h2>Who is responsible for processing my personal data?</h2>
-        <p>We are responsible for processing your personal data when you visit our website. For any questions you may have about the processing of your personal data, you can reach us at our general postal address or via email:</p>
+        <h2>Contact Information</h2>
         <div class="contact-details">
-          <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
-          <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
-          <p><strong>Postal Code:</strong> 1056JV</p>
-          <p><strong>City:</strong> Amsterdam</p>
+          <p><strong>Organization:</strong> Confused Eliphant Entertainment Ltd.</p>
+          <p><strong>Address:</strong> 123 Digital Avenue</p>
+          <p><strong>Postal Code:</strong> EC1V 9BX</p>
+          <p><strong>City:</strong> London</p>
           <p><strong>Email:</strong> privacy@confused-eliphant.com</p>
         </div>
       </section>
 
       <section>
-        <h2>What personal data do we collect?</h2>
-        <p>When you visit our website or use our services, we collect and process various personal data. These include:</p>
-        <ul class="data-list">
-          <li>
+        <h2>Information We Collect</h2>
+        <div class="info-grid">
+          <div class="info-card">
             <h3>Account Information</h3>
-            <p>Name, email address, and phone number for account creation and management</p>
-          </li>
-          <li>
-            <h3>Entertainment Preferences</h3>
-            <p>Your viewing history, music preferences, gaming activity, and content interactions to provide personalized recommendations</p>
-          </li>
-          <li>
+            <p>Name, email, phone number, and account preferences</p>
+          </div>
+          <div class="info-card">
             <h3>Usage Data</h3>
-            <p>Information about how you use our services, including access times, pages viewed, and features used</p>
-          </li>
-          <li>
-            <h3>Device Information</h3>
-            <p>Device type, operating system, browser type, IP address, and mobile device identifiers</p>
-          </li>
-          <li>
-            <h3>Billing Information</h3>
-            <p>Mobile carrier details for processing payments through phone billing</p>
-          </li>
-        </ul>
+            <p>Content interactions, viewing history, and preferences</p>
+          </div>
+          <div class="info-card">
+            <h3>Technical Data</h3>
+            <p>Device info, IP address, and connection details</p>
+          </div>
+          <div class="info-card">
+            <h3>Payment Data</h3>
+            <p>Mobile carrier information for phone billing</p>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h2>For what purposes is my personal data used?</h2>
+        <h2>How We Use Your Data</h2>
         <ul class="usage-list">
           <li>Providing and personalizing our entertainment services</li>
-          <li>Processing subscriptions and mobile billing payments</li>
-          <li>Creating and managing your account</li>
-          <li>Improving our content recommendations based on your preferences</li>
-          <li>Enhancing your user experience and our services</li>
-          <li>Ensuring technical functionality and security</li>
-          <li>Communicating important updates and information</li>
-          <li>Detecting and preventing fraud and unauthorized access</li>
-          <li>Complying with legal obligations</li>
+          <li>Processing mobile billing payments</li>
+          <li>Improving content recommendations</li>
+          <li>Ensuring optimal streaming performance</li>
+          <li>Preventing unauthorized access</li>
+          <li>Communicating service updates</li>
+          <li>Analyzing usage patterns to enhance our platform</li>
         </ul>
       </section>
 
@@ -71,7 +62,7 @@
           <ul>
             <li>We process payments through secure carrier integrations</li>
             <li>Your mobile number is encrypted and stored securely</li>
-            <li>Billing details appear on your carrier statement in a clear manner</li>
+            <li>Billing details appear on your carrier statement</li>
             <li>We maintain strict security standards for payment processing</li>
             <li>We do not store complete payment information on our servers</li>
           </ul>
@@ -80,48 +71,57 @@
 
       <section>
         <h2>Your Rights</h2>
-        <div class="rights-section">
-          <p>Under applicable data protection laws, you have the following rights:</p>
-          <ul>
-            <li><strong>Right to Access</strong> - Request a copy of your personal data</li>
-            <li><strong>Right to Rectification</strong> - Correct any inaccurate personal data</li>
-            <li><strong>Right to Erasure</strong> - Request deletion of your personal data</li>
-            <li><strong>Right to Restriction</strong> - Limit how we use your data</li>
-            <li><strong>Right to Portability</strong> - Transfer your data to another service</li>
-            <li><strong>Right to Object</strong> - Object to processing of your personal data</li>
-            <li><strong>Right to Withdraw Consent</strong> - Withdraw previously given consent</li>
-          </ul>
-          <p>To exercise these rights, please contact us using the details provided in the "Contact Us" section. We will respond to your request within 30 days.</p>
+        <div class="rights-container">
+          <div class="right-item">
+            <h3>Access</h3>
+            <p>Request a copy of your personal data</p>
+          </div>
+          <div class="right-item">
+            <h3>Rectification</h3>
+            <p>Correct any inaccurate information</p>
+          </div>
+          <div class="right-item">
+            <h3>Erasure</h3>
+            <p>Request deletion of your data</p>
+          </div>
+          <div class="right-item">
+            <h3>Portability</h3>
+            <p>Transfer your data elsewhere</p>
+          </div>
         </div>
       </section>
 
       <section>
-        <h2>How is my personal data protected?</h2>
+        <h2>Data Security</h2>
         <p>We implement robust security measures to protect your data:</p>
         <ul class="security-measures">
           <li>End-to-end encryption for data transmission</li>
-          <li>Regular security audits and vulnerability assessments</li>
+          <li>Regular security audits and updates</li>
           <li>Strict access controls and authentication</li>
           <li>Continuous monitoring and threat detection</li>
-          <li>Employee security training and awareness programs</li>
-          <li>Data minimization and purpose limitation practices</li>
+          <li>Employee security training</li>
+          <li>Data minimization practices</li>
         </ul>
       </section>
 
       <section>
-        <h2>Changes to this Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes through our service or via email before they become effective.</p>
-        <p>We recommend that you regularly review this privacy statement to stay informed about our data processing activities.</p>
+        <h2>International Data Transfers</h2>
+        <p>We may transfer your data to countries outside your region. When we do, we ensure appropriate safeguards are in place to protect your information and comply with applicable data protection laws.</p>
+      </section>
+
+      <section>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes through our service or via email.</p>
       </section>
 
       <section>
         <h2>Contact Us</h2>
-        <p>For privacy-related inquiries, please contact our Data Protection Officer:</p>
+        <p>If you have any questions about this Privacy Policy or our data practices, please contact our Data Protection Officer:</p>
         <div class="contact-section">
-          <p><strong>Email:</strong> privacy@confused-eliphant.com</p>
-          <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam</p>
+          <p><strong>Email:</strong> dpo@confused-eliphant.com</p>
+          <p><strong>Phone:</strong> +44 20 1234 5678</p>
+          <p><strong>Address:</strong> 123 Digital Avenue, London, EC1V 9BX</p>
         </div>
-        <p>If you are not satisfied with how we process your personal data and we cannot resolve it together, you have the right to file a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens) or the data protection authority in your country of residence.</p>
       </section>
     </div>
   </div>
@@ -145,7 +145,7 @@
 
 h1 {
   font-size: 2.5rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -161,7 +161,7 @@ section {
 }
 
 h2 {
-  color: #9333EA;
+  color: #6C63FF;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
@@ -185,22 +185,28 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.data-list, .usage-list, .security-measures {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
-.data-list li {
+.info-card {
   background: #f7fafc;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.data-list h3 {
-  color: #9333EA;
+.info-card h3 {
+  color: #6C63FF;
   margin-bottom: 0.5rem;
+}
+
+.usage-list, .security-measures {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
 .usage-list li, .security-measures li {
@@ -211,35 +217,55 @@ p {
 
 .usage-list li::before, .security-measures li::before {
   content: "•";
-  color: #9333EA;
+  color: #6C63FF;
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
-.mobile-billing-section ul, .rights-section ul {
+.mobile-billing-section ul {
   list-style: none;
   padding: 0;
   margin-top: 1rem;
 }
 
-.mobile-billing-section li, .rights-section li {
+.mobile-billing-section li {
   padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
   color: #4a5568;
 }
 
-.mobile-billing-section li::before, .rights-section li::before {
+.mobile-billing-section li::before {
   content: "✓";
-  color: #9333EA;
+  color: #6C63FF;
   position: absolute;
   left: 0;
 }
 
-.rights-section strong {
-  color: #2d3748;
+.rights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
+.right-item {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.right-item:hover {
+  transform: translateY(-5px);
+}
+
+.right-item h3 {
+  color: #6C63FF;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .privacy-page {
     padding: 6rem 1rem 2rem;
@@ -255,6 +281,14 @@ p {
 
   h2 {
     font-size: 1.3rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rights-container {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -7,116 +7,104 @@ const router = useRouter();
 const entertainmentSections = ref([
   {
     title: 'Music Streaming',
-    description: 'Dive into millions of tracks across all genres. From chart-topping hits to hidden gems, discover your next favorite song with crystal-clear sound quality.',
-    image: 'https://images.pexels.com/photos/3944104/pexels-photo-3944104.jpeg',
-    features: ['Hi-Fi Audio Quality', 'Personalized Playlists', 'Offline Mode', 'Lyrics Support']
+    description: 'Immerse yourself in millions of tracks across all genres. From chart-topping hits to indie gems, discover your next favorite song with our premium audio quality.',
+    image: 'https://images.pexels.com/photos/3944091/pexels-photo-3944091.jpeg',
+    features: ['Hi-Fi Audio Quality', 'Offline Downloads', 'Personalized Playlists', 'Lyrics Support'],
+    link: '/confused-eliphant/music'
   },
   {
     title: 'Video Streaming',
-    description: 'Experience unlimited entertainment with our vast collection of movies, TV shows, and exclusive series in stunning quality.',
-    image: 'https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg',
-    features: ['HD & 4K Quality', 'Multiple Languages', 'Download & Watch', 'Smart Recommendations']
+    description: 'Enjoy endless entertainment with our vast collection of movies, TV shows, and exclusive series. Stream in stunning quality wherever you are.',
+    image: 'https://images.pexels.com/photos/8263321/pexels-photo-8263321.jpeg',
+    features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'Family Profiles'],
+    link: '/confused-eliphant/video'
   },
   {
     title: 'Live Sports',
-    description: 'Never miss a moment of action with comprehensive coverage of your favorite sports events, live matches, and exclusive highlights.',
-    image: 'https://images.pexels.com/photos/163398/football-american-football-quarterback-runner-163398.jpeg',
-    features: ['Live Coverage', 'Multi-cam Views', 'Real-time Stats', 'Expert Commentary']
+    description: 'Never miss a moment of action. Watch live matches, catch highlights, and follow your favorite teams across all major sports leagues worldwide.',
+    image: 'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg',
+    features: ['Live Coverage', 'Multi-cam Views', 'Stats & Analysis', 'Instant Replays'],
+    link: '/confused-eliphant/sports'
   },
   {
     title: 'Mobile Games',
-    description: 'Access hundreds of premium mobile games with no ads and no in-app purchases. From casual fun to immersive experiences.',
-    image: 'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg',
-    features: ['No Ads', 'Cloud Saves', 'Multiplayer Support', 'Regular Updates']
+    description: 'Access a world of gaming excitement right from your phone. From casual fun to competitive multiplayer, find your perfect gaming experience.',
+    image: 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg',
+    features: ['Cloud Saves', 'Online Multiplayer', 'Regular Updates', 'No Ads'],
+    link: '/confused-eliphant/games'
   },
   {
     title: 'Audiobook Library',
-    description: 'Listen to bestsellers and classics narrated by world-class voice artists. Transform your commute, workouts, or downtime.',
-    image: 'https://images.pexels.com/photos/762687/pexels-photo-762687.jpeg',
-    features: ['Huge Collection', 'Offline Mode', 'Sleep Timer', 'Bookmarks & Notes']
+    description: 'Immerse yourself in stories narrated by world-class voice artists. Our extensive collection includes bestsellers, classics, and exclusive productions.',
+    image: 'https://images.pexels.com/photos/4144179/pexels-photo-4144179.jpeg',
+    features: ['Huge Collection', 'Offline Mode', 'Sleep Timer', 'Bookmarks Sync'],
+    link: '/confused-eliphant/audiobooks'
   }
 ]);
 
-const billingFeatures = ref([
+const mobilePaymentFeatures = ref([
   {
-    title: 'Easy Mobile Billing',
-    description: 'Pay directly through your phone bill - no credit card or bank details needed',
+    title: 'Pay via Phone Bill',
+    description: 'Simply charge to your mobile bill - no credit card needed',
     icon: '📱'
   },
   {
-    title: 'Secure Transactions',
-    description: 'Your payment information is protected with industry-leading encryption',
-    icon: '🔒'
-  },
-  {
-    title: 'Flexible Plans',
-    description: 'Choose daily, weekly, or monthly billing options to fit your needs',
-    icon: '📅'
-  },
-  {
-    title: 'Instant Access',
-    description: 'Start enjoying premium content immediately after confirming your payment',
+    title: 'Start Instantly',
+    description: 'Begin enjoying content right after confirmation',
     icon: '⚡'
+  },
+  {
+    title: 'Secure & Safe',
+    description: 'Protected by advanced encryption technology',
+    icon: '🔒'
   }
 ]);
 
 const plans = ref([
   {
-    name: 'Daily Pass',
-    price: '€1.99',
-    period: 'per day',
+    name: 'Basic Plan',
+    price: 'Weekly billing',
+    billing: 'Added to your phone bill',
     features: [
-      'Full access to all content',
       'HD streaming quality',
-      'Single device access',
-      '24-hour validity'
-    ],
-    popular: false
-  },
-  {
-    name: 'Weekly Premium',
-    price: '€9.99',
-    period: 'per week',
-    features: [
-      'Full access to all content',
-      'HD streaming quality',
-      'Two device access',
-      'Offline downloads',
-      'Ad-free experience'
-    ],
-    popular: true
-  },
-  {
-    name: 'Monthly Ultimate',
-    price: '€29.99',
-    period: 'per month',
-    features: [
-      'Full access to all content',
-      '4K Ultra HD where available',
-      'Five device access',
-      'Unlimited downloads',
       'Ad-free experience',
-      'Priority customer support'
-    ],
-    popular: false
+      'Basic game features',
+      'Cancel anytime'
+    ]
+  },
+  {
+    name: 'Premium Plan',
+    price: 'Monthly billing',
+    billing: 'Added to your phone bill',
+    features: [
+      'Ultra HD streaming',
+      'Multiple devices',
+      'Full game features',
+      'Priority support',
+      'Exclusive content'
+    ]
   }
+]);
+
+const supportedCarriers = ref([
+  'All major mobile carriers supported'
 ]);
 
 const testimonials = ref([
   {
-    text: "I've tried many entertainment services, but Confused Eliphant offers the best value with its all-in-one package. The phone billing makes it so convenient!",
-    author: "Marcus T.",
-    location: "Berlin"
+    text: "Confused Eliphant has completely transformed my entertainment experience. The variety of content and ease of payment through my phone bill is unbeatable!",
+    author: "Sarah M.",
+    location: "London"
   },
   {
-    text: "The game selection is amazing, and I love that I can download music and audiobooks for my commute. No more juggling multiple subscriptions!",
-    author: "Sophia K.",
-    location: "Vienna"
+    text: "I love being able to access all my entertainment in one place. The audiobook collection is particularly impressive!",
+    author: "James T.",
+    location: "New York"
   },
   {
-    text: "Being able to watch sports events live while traveling has been a game-changer. The streaming quality is excellent even on mobile data.",
-    author: "Leo J.",
-    location: "Zurich"
+    text: "The mobile gaming selection is fantastic, and I never have to worry about ads interrupting my gameplay. Worth every penny!",
+    author: "Emma L.",
+    location: "Sydney"
   }
 ]);
 
@@ -130,34 +118,11 @@ const prevTestimonial = () => {
   currentTestimonialIndex.value = (currentTestimonialIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
 };
 
-const supportedCarriers = ref([
-  'All major mobile carriers supported'
-]);
+const navigateToSection = (link) => {
+  router.push(link);
+};
 
-const faqs = ref([
-  {
-    question: 'How does phone billing work?',
-    answer: 'When you subscribe, the charges are added directly to your monthly phone bill or deducted from your prepaid balance. No credit card or bank details are required.'
-  },
-  {
-    question: 'Can I cancel my subscription anytime?',
-    answer: 'Yes, you can cancel your subscription at any time with no cancellation fees. Your access will remain active until the current billing period ends.'
-  },
-  {
-    question: 'Which devices can I use for streaming?',
-    answer: 'You can use any mobile device with an internet connection. We support iOS and Android smartphones and tablets, as well as web access on computers.'
-  },
-  {
-    question: 'Is there a limit to how much content I can consume?',
-    answer: 'No, all our plans offer unlimited access to our entire content library. Stream as much as you want, whenever you want.'
-  },
-  {
-    question: 'Are there any hidden fees?',
-    answer: 'No hidden fees whatsoever. The price you see is what you pay, with all taxes included.'
-  }
-]);
-
-const navigateToLogin = () => {
+const handleLogin = () => {
   router.push('/login');
 };
 </script>
@@ -166,11 +131,10 @@ const navigateToLogin = () => {
   <div class="confused-eliphant-homepage">
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Your Complete<br>Mobile Entertainment Hub</h1>
-        <p class="subtitle">One subscription, unlimited entertainment - direct to your phone</p>
-        <button class="cta-button" @click="navigateToLogin">Login Now</button>
+        <h1>Unlimited Entertainment<br>In Your Pocket</h1>
+        <p class="subtitle">One platform for all your entertainment needs - Music, Videos, Games, Sports & Audiobooks</p>
+        <button class="cta-button" @click="handleLogin">Login Now</button>
         <div class="carrier-logos">
           <p class="supported-text">{{ supportedCarriers[0] }}</p>
         </div>
@@ -179,17 +143,12 @@ const navigateToLogin = () => {
 
     <!-- Entertainment Sections -->
     <section class="entertainment">
-      <h2>Unlimited Entertainment Options</h2>
+      <h2>Discover Premium Entertainment</h2>
       <div v-for="section in entertainmentSections" :key="section.title" class="content-section">
         <div class="section-image">
-          <div class="image-container">
-            <img :src="section.image" :alt="section.title" />
-            <div class="image-overlay">
-              <div class="overlay-content">
-                <span class="explore-icon">🔍</span>
-                <span>Explore</span>
-              </div>
-            </div>
+          <img :src="section.image" :alt="section.title" />
+          <div class="image-overlay">
+            <button class="explore-button" @click="navigateToSection(section.link)">Explore Now</button>
           </div>
         </div>
         <div class="section-content">
@@ -198,72 +157,44 @@ const navigateToLogin = () => {
           <ul class="features-list">
             <li v-for="feature in section.features" :key="feature">{{ feature }}</li>
           </ul>
-          <button class="section-button" @click="navigateToLogin">Explore {{ section.title }}</button>
+          <button class="section-button" @click="navigateToSection(section.link)">Learn More</button>
         </div>
       </div>
     </section>
 
-    <!-- Mobile Billing Section -->
-    <section class="billing">
+    <!-- Mobile Payment Section -->
+    <section class="payment">
       <h2>Simple Mobile Payment</h2>
       <p class="section-subtitle">No credit cards, no complicated forms - just fast, secure mobile billing</p>
-      
-      <div class="billing-features">
-        <div v-for="feature in billingFeatures" :key="feature.title" class="billing-feature">
-          <div class="feature-icon">{{ feature.icon }}</div>
+      <div class="features-grid">
+        <div v-for="feature in mobilePaymentFeatures" :key="feature.title" class="feature-card">
+          <span class="feature-icon">{{ feature.icon }}</span>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
         </div>
       </div>
-      
-      <div class="plans-section">
-        <h3>Choose Your Plan</h3>
-        <div class="plans-grid">
-          <div 
-            v-for="plan in plans" 
-            :key="plan.name" 
-            class="plan-card"
-            :class="{ 'popular': plan.popular }"
-          >
-            <div v-if="plan.popular" class="popular-tag">Most Popular</div>
-            <h4>{{ plan.name }}</h4>
-            <div class="price">{{ plan.price }}</div>
-            <p class="period">{{ plan.period }}</p>
-            <ul class="plan-features">
-              <li v-for="feature in plan.features" :key="feature">{{ feature }}</li>
-            </ul>
-            <button class="select-plan" @click="navigateToLogin">Login Now</button>
-          </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans">
+      <h2>Choose Your Entertainment Plan</h2>
+      <div class="plans-grid">
+        <div v-for="plan in plans" :key="plan.name" class="plan-card">
+          <h3>{{ plan.name }}</h3>
+          <div class="price">{{ plan.price }}</div>
+          <p class="billing">{{ plan.billing }}</p>
+          <ul class="plan-features">
+            <li v-for="feature in plan.features" :key="feature">{{ feature }}</li>
+          </ul>
+          <button class="login-btn" @click="handleLogin">Login Now</button>
         </div>
       </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Choose Your Plan</h3>
-          <p>Select the subscription that fits your entertainment needs</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Verify Your Number</h3>
-          <p>Confirm your mobile number for billing purposes</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Enjoy Unlimited Access</h3>
-          <p>Stream, play, and listen to premium content instantly</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
+    <!-- Testimonials Section -->
     <section class="testimonials">
       <h2>What Our Users Say</h2>
-      <div class="testimonials-container">
+      <div class="testimonial-container">
         <button @click="prevTestimonial" class="testimonial-nav prev">❮</button>
         <div class="testimonial">
           <p class="testimonial-text">"{{ testimonials[currentTestimonialIndex].text }}"</p>
@@ -285,23 +216,33 @@ const navigateToLogin = () => {
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div v-for="faq in faqs" :key="faq.question" class="faq-item">
-          <h3>{{ faq.question }}</h3>
-          <p>{{ faq.answer }}</p>
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <h2>Start in 3 Simple Steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Choose Your Plan</h3>
+          <p>Select what suits you best</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Quick Verification</h3>
+          <p>Confirm your mobile number</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Enjoy</h3>
+          <p>Start streaming instantly</p>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-      <div class="cta-pattern"></div>
-      <h2>Ready for Endless Entertainment?</h2>
-      <p>Join thousands of satisfied users enjoying premium content with just a few taps</p>
-      <button class="cta-button pulse-effect" @click="navigateToLogin">Login Now</button>
+      <h2>Ready for Unlimited Entertainment?</h2>
+      <p>Join millions enjoying premium content - no credit card needed</p>
+      <button class="cta-button" @click="handleLogin">Login Now</button>
     </section>
   </div>
 </template>
@@ -311,38 +252,35 @@ const navigateToLogin = () => {
   color: #1a202c;
   padding-top: 64px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #9333EA 0%, #C084FC 100%);
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
   color: white;
   padding: 8rem 2rem;
   text-align: center;
   position: relative;
-  z-index: 1;
   overflow: hidden;
 }
 
-.hero-overlay {
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.pexels.com/photos/7130498/pexels-photo-7130498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  z-index: -1;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI3NjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPjxzdG9wIHN0b3AtY29sb3I9IiNGRkYiIHN0b3Atb3BhY2l0eT0iLjAyIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMCAwaDEyMDB2NjAwSDB6IiBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=');
+  opacity: 0.3;
+  z-index: 0;
 }
 
 .hero-content {
   position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
-  z-index: 2;
 }
 
 .hero h1 {
@@ -350,7 +288,7 @@ const navigateToLogin = () => {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .subtitle {
@@ -371,7 +309,7 @@ const navigateToLogin = () => {
 
 .cta-button {
   background: white;
-  color: #9333EA;
+  color: #6C63FF;
   font-size: 1.2rem;
   padding: 1rem 3rem;
   border-radius: 50px;
@@ -385,26 +323,9 @@ const navigateToLogin = () => {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-  background: #f8f8f8;
 }
 
-.pulse-effect {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-
-/* Entertainment Section */
+/* Entertainment Sections */
 .entertainment {
   padding: 5rem 2rem;
 }
@@ -412,21 +333,8 @@ const navigateToLogin = () => {
 .entertainment h2 {
   text-align: center;
   font-size: 2.5rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 4rem;
-  position: relative;
-}
-
-.entertainment h2:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #9333EA, #C084FC);
-  border-radius: 3px;
 }
 
 .content-section {
@@ -451,66 +359,61 @@ const navigateToLogin = () => {
 }
 
 .section-image {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.image-container {
   position: relative;
-  overflow: hidden;
   border-radius: 1rem;
-  width: 100%;
-  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .section-image img {
   width: 100%;
-  height: 100%;
+  height: 400px;
   object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+.section-image:hover img {
+  transform: scale(1.05);
 }
 
 .image-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(147, 51, 234, 0.7);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.overlay-content {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.explore-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.image-container:hover .image-overlay {
+.section-image:hover .image-overlay {
   opacity: 1;
 }
 
-.image-container:hover img {
-  transform: scale(1.1);
+.explore-button {
+  background: #6C63FF;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+  background: #5a52e0;
+  transform: scale(1.05);
 }
 
 .section-content h3 {
   font-size: 2rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 1rem;
 }
 
@@ -538,12 +441,12 @@ const navigateToLogin = () => {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #9333EA;
+  color: #6C63FF;
   font-weight: bold;
 }
 
 .section-button {
-  background: #9333EA;
+  background: #6C63FF;
   color: white;
   padding: 0.8rem 1.8rem;
   border-radius: 30px;
@@ -552,43 +455,25 @@ const navigateToLogin = () => {
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
+  margin-top: 1rem;
 }
 
 .section-button:hover {
-  background: #A855F7;
+  background: #5a52e0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(147, 51, 234, 0.3);
 }
 
-/* Billing Section */
-.billing {
+/* Payment Section */
+.payment {
   background: #f8fafc;
   padding: 5rem 2rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
-.billing::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.pexels.com/photos/7130555/pexels-photo-7130555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.05;
-  z-index: 0;
-}
-
-.billing h2 {
+.payment h2 {
   font-size: 2.5rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
 }
 
 .section-subtitle {
@@ -596,21 +481,17 @@ const navigateToLogin = () => {
   color: #64748b;
   max-width: 700px;
   margin: 0 auto 4rem;
-  position: relative;
-  z-index: 1;
 }
 
-.billing-features {
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
-  margin: 0 auto 5rem;
-  position: relative;
-  z-index: 1;
+  margin: 0 auto;
 }
 
-.billing-feature {
+.feature-card {
   background: white;
   padding: 2.5rem 2rem;
   border-radius: 1rem;
@@ -618,43 +499,42 @@ const navigateToLogin = () => {
   transition: transform 0.3s ease;
 }
 
-.billing-feature:hover {
+.feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 1.5rem;
+  display: block;
 }
 
-.billing-feature h3 {
+.feature-card h3 {
   font-size: 1.5rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 1rem;
 }
 
-.billing-feature p {
+.feature-card p {
   color: #4a5568;
   line-height: 1.6;
 }
 
 /* Plans Section */
-.plans-section {
-  margin-top: 4rem;
-  position: relative;
-  z-index: 1;
+.plans {
+  padding: 5rem 2rem;
 }
 
-.plans-section h3 {
-  font-size: 2rem;
-  color: #9333EA;
+.plans h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #6C63FF;
   margin-bottom: 3rem;
 }
 
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -665,44 +545,17 @@ const navigateToLogin = () => {
   padding: 3rem 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid transparent;
+  transition: transform 0.3s ease;
+  text-align: center;
 }
 
 .plan-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
-.plan-card.popular {
-  border-color: #9333EA;
-  transform: scale(1.05);
-  z-index: 1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.plan-card.popular:hover {
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.popular-tag {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #9333EA;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.plan-card h4 {
+.plan-card h3 {
   font-size: 1.8rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 1rem;
 }
 
@@ -713,10 +566,9 @@ const navigateToLogin = () => {
   margin-bottom: 0.5rem;
 }
 
-.period {
+.billing {
   color: #64748b;
   margin-bottom: 2rem;
-  display: block;
 }
 
 .plan-features {
@@ -742,11 +594,11 @@ const navigateToLogin = () => {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #9333EA;
+  color: #6C63FF;
 }
 
-.select-plan {
-  background: #9333EA;
+.login-btn {
+  background: #6C63FF;
   color: white;
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -757,36 +609,113 @@ const navigateToLogin = () => {
   width: 100%;
 }
 
-.select-plan:hover {
-  background: #A855F7;
+.login-btn:hover {
+  background: #5a52e0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(147, 51, 234, 0.3);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 5rem 2rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  color: #6C63FF;
+  margin-bottom: 3rem;
+}
+
+.testimonial-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  flex: 1;
+}
+
+.testimonial-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  text-align: right;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.author-location {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.testimonial-nav {
+  background: #6C63FF;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.testimonial-nav:hover {
+  background: #5a52e0;
+  transform: scale(1.1);
+}
+
+.testimonial-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #6C63FF;
 }
 
 /* How It Works */
 .how-it-works {
   padding: 5rem 2rem;
   text-align: center;
-  background: linear-gradient(to right, rgba(147, 51, 234, 0.05), rgba(192, 132, 252, 0.05));
 }
 
 .how-it-works h2 {
   font-size: 2.5rem;
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 3rem;
-  position: relative;
-}
-
-.how-it-works h2:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #9333EA, #C084FC);
-  border-radius: 3px;
 }
 
 .steps {
@@ -816,18 +745,12 @@ const navigateToLogin = () => {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.step:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .step-number {
   width: 3.5rem;
   height: 3.5rem;
-  background: #9333EA;
+  background: #6C63FF;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -836,248 +759,21 @@ const navigateToLogin = () => {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto 1.5rem;
-  box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
-  position: relative;
-}
-
-.step-number::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border-radius: 50%;
-  border: 2px solid rgba(147, 51, 234, 0.3);
-  animation: pulse-border 2s infinite;
-}
-
-@keyframes pulse-border {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(1.1);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
 }
 
 .step h3 {
-  color: #9333EA;
+  color: #6C63FF;
   margin-bottom: 1rem;
   font-size: 1.3rem;
-}
-
-/* Testimonials */
-.testimonials {
-  padding: 5rem 2rem;
-  background: #f8fafc;
-  text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 2.5rem;
-  color: #9333EA;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.testimonials h2:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #9333EA, #C084FC);
-  border-radius: 3px;
-}
-
-.testimonials-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.testimonial {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  position: relative;
-}
-
-.testimonial::before {
-  content: '"';
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  font-size: 4rem;
-  color: rgba(147, 51, 234, 0.1);
-  font-family: Georgia, serif;
-}
-
-.testimonial::after {
-  content: '"';
-  position: absolute;
-  bottom: -10px;
-  right: 20px;
-  font-size: 4rem;
-  color: rgba(147, 51, 234, 0.1);
-  font-family: Georgia, serif;
-}
-
-.testimonial-text {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #4a5568;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-author {
-  text-align: right;
-}
-
-.author-name {
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.3rem;
-}
-
-.author-location {
-  color: #718096;
-  font-size: 0.9rem;
-}
-
-.testimonial-nav {
-  background: #9333EA;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin: 0 1rem;
-  transition: all 0.3s ease;
-}
-
-.testimonial-nav:hover {
-  background: #A855F7;
-  transform: scale(1.1);
-}
-
-.testimonial-indicators {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-  gap: 0.5rem;
-}
-
-.indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #e2e8f0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.indicator.active {
-  background-color: #9333EA;
-}
-
-/* FAQ Section */
-.faq {
-  padding: 5rem 2rem;
-  background: linear-gradient(to right, rgba(147, 51, 234, 0.03), rgba(192, 132, 252, 0.03));
-}
-
-.faq h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #9333EA;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.faq h2:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #9333EA, #C084FC);
-  border-radius: 3px;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-left: 4px solid #9333EA;
-}
-
-.faq-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item h3 {
-  color: #9333EA;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.faq-item p {
-  color: #4a5568;
-  line-height: 1.6;
 }
 
 /* CTA Section */
 .cta {
-  background: linear-gradient(135deg, #9333EA 0%, #C084FC 100%);
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
   color: white;
   text-align: center;
   padding: 6rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('https://images.pexels.com/photos/5717411/pexels-photo-5717411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  opacity: 0.1;
-  z-index: 0;
 }
 
 .cta h2 {
@@ -1085,8 +781,6 @@ const navigateToLogin = () => {
   line-height: 1.2;
   max-width: 800px;
   margin: 0 auto 1.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .cta p {
@@ -1094,33 +788,36 @@ const navigateToLogin = () => {
   max-width: 700px;
   margin: 0 auto 2.5rem;
   opacity: 0.9;
-  position: relative;
-  z-index: 1;
 }
 
 .cta .cta-button {
   background: white;
-  color: #9333EA;
-  position: relative;
-  z-index: 1;
+  color: #6C63FF;
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .content-section {
     gap: 3rem;
+    padding: 0 1rem;
   }
   
   .plans-grid {
-    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3.5rem;
   }
   
-  .plan-card.popular {
-    transform: scale(1.03);
+  .content-section {
+    gap: 2.5rem;
   }
   
-  .plan-card.popular:hover {
-    transform: scale(1.03) translateY(-5px);
+  .section-image img {
+    height: 350px;
   }
 }
 
@@ -1134,16 +831,11 @@ const navigateToLogin = () => {
   .content-section:nth-child(even) {
     direction: ltr;
   }
-  
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 7rem 1.5rem 6rem;
-    margin-top: 0;
+    padding: 6rem 1.5rem;
   }
   
   .hero h1 {
@@ -1154,11 +846,7 @@ const navigateToLogin = () => {
     font-size: 1.2rem;
   }
   
-  .billing-features {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .image-container {
+  .section-image img {
     height: 300px;
   }
   
@@ -1166,28 +854,19 @@ const navigateToLogin = () => {
     font-size: 1.8rem;
   }
   
+  .payment-features {
+    gap: 1.5rem;
+  }
+  
   .steps::after {
     display: none;
   }
   
   .steps {
-    grid-template-columns: 1fr;
     gap: 2rem;
   }
   
-  .testimonials-container {
-    flex-direction: column;
-  }
-  
-  .testimonial-nav {
-    margin: 1rem 0;
-  }
-  
   .cta h2 {
-    font-size: 2.2rem;
-  }
-  
-  .entertainment h2, .billing h2, .how-it-works h2, .testimonials h2, .faq h2 {
     font-size: 2.2rem;
   }
 }
@@ -1202,36 +881,31 @@ const navigateToLogin = () => {
     gap: 3rem;
   }
   
-  .plan-card, .plan-card.popular {
-    transform: none;
+  .plan-card {
     max-width: 400px;
     margin: 0 auto;
   }
   
-  .plan-card:hover, .plan-card.popular:hover {
-    transform: translateY(-5px);
+  .feature-card {
+    padding: 2rem 1.5rem;
   }
   
-  .billing-features {
-    grid-template-columns: 1fr;
-  }
-  
-  .image-container {
+  .section-image img {
     height: 250px;
   }
   
-  .section-content h3 {
-    font-size: 1.7rem;
+  .testimonial-container {
+    flex-direction: column;
   }
   
-  .entertainment, .billing, .how-it-works, .testimonials, .faq, .cta {
-    padding: 4rem 1.5rem;
+  .testimonial-nav {
+    margin: 1rem 0;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 6rem 1rem 4rem;
+    padding: 5rem 1rem;
   }
   
   .hero h1 {
@@ -1248,39 +922,28 @@ const navigateToLogin = () => {
     font-size: 1.1rem;
   }
   
-  .section-button {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.95rem;
+  .section-content h3 {
+    font-size: 1.7rem;
   }
   
-  .section-content p {
-    font-size: 1rem;
-  }
-  
-  .testimonial {
-    padding: 1.5rem;
-  }
-  
-  .testimonial-text {
-    font-size: 1rem;
-  }
-  
-  .faq-item {
-    padding: 1.5rem;
-  }
-  
-  .faq-item h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero h1 {
+  .entertainment h2, .payment h2, .plans h2, .testimonials h2, .how-it-works h2, .cta h2 {
     font-size: 2rem;
   }
   
-  .entertainment h2, .billing h2, .how-it-works h2, .testimonials h2, .faq h2 {
-    font-size: 1.8rem;
+  .plan-card {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .testimonial {
+    padding: 1.5rem 1rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1.1rem;
+  }
+  
+  .cta {
+    padding: 4rem 1rem;
   }
   
   .cta h2 {
