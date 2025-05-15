@@ -8,6 +8,7 @@ import localhostDesign from './designs/localhost.js';
 import defaultDesign from './designs/default.js';
 import waveViewDesign from './designs/wave-view.js';
 import yellowRacoonDesign from './designs/yellow-racoon.js';
+import switchRunnerDesign from './designs/switch-runner.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -18,6 +19,7 @@ export default {
   "lofty-sprout.com": "lofty-sprout.com",
   "wave-view.com": "wave-view.com",
   "yellow-racoon.com": "yellow-racoon.com",
+  "switch-runner.com": "switch-runner.com",
   "localhost": "jazzy-mango.com",
   "127.0.0.1": "jazzy-mango.com"
 };
@@ -31,6 +33,7 @@ export const designs = {
   "lofty-sprout.com": loftySproutDesign,
   "wave-view.com": waveViewDesign,
   "yellow-racoon.com": yellowRacoonDesign,
+  "switch-runner.com": switchRunnerDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };

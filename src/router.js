@@ -12,6 +12,13 @@ import SportsPage from './pages/entertainment/SportsPage.vue';
 import GamesPage from './pages/entertainment/GamesPage.vue';
 import AudiobooksPage from './pages/entertainment/AudiobooksPage.vue';
 
+// Switch Runner specific pages
+import SwitchRunnerMusicPage from './pages/switch-runner/MusicPage.vue';
+import SwitchRunnerVideoPage from './pages/switch-runner/VideoPage.vue';
+import SwitchRunnerSportsPage from './pages/switch-runner/SportsPage.vue';
+import SwitchRunnerGamesPage from './pages/switch-runner/GamesPage.vue';
+import SwitchRunnerAudiobooksPage from './pages/switch-runner/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -67,6 +74,32 @@ const routes = [
     path: '/entertainment/audiobooks',
     component: AudiobooksPage,
     name: 'audiobooks'
+  },
+  // Switch Runner specific routes
+  {
+    path: '/switch-runner/music',
+    component: SwitchRunnerMusicPage,
+    name: 'switch-runner-music'
+  },
+  {
+    path: '/switch-runner/video',
+    component: SwitchRunnerVideoPage,
+    name: 'switch-runner-video'
+  },
+  {
+    path: '/switch-runner/sports',
+    component: SwitchRunnerSportsPage,
+    name: 'switch-runner-sports'
+  },
+  {
+    path: '/switch-runner/games',
+    component: SwitchRunnerGamesPage,
+    name: 'switch-runner-games'
+  },
+  {
+    path: '/switch-runner/audiobooks',
+    component: SwitchRunnerAudiobooksPage,
+    name: 'switch-runner-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',
