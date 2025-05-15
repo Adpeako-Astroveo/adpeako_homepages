@@ -2,30 +2,31 @@
   <div class="privacy-page">
     <div class="privacy-container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: June 15, 2025</p>
+      <p class="last-updated">Last updated: 2 May 2024</p>
 
       <section>
         <h2>Introduction</h2>
-        <p>At Confused Eliphant, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile entertainment services. Please read this policy carefully to understand our practices regarding your personal data.</p>
+        <p>Berg Online Marketing B.V. (hereinafter also referred to as 'we') treats your personal data with great care. This Privacy Statement describes how your personal data is processed when using our streaming entertainment services and visiting our website.</p>
       </section>
 
       <section>
-        <h2>Contact Information</h2>
+        <h2>Who is responsible for processing my personal data?</h2>
+        <p>We are responsible for processing your personal data when you visit our website. For any questions you may have about the processing of your personal data, you can reach us at our general postal address or via email:</p>
         <div class="contact-details">
-          <p><strong>Organization:</strong> Confused Eliphant Entertainment Ltd.</p>
-          <p><strong>Address:</strong> 123 Digital Avenue</p>
-          <p><strong>Postal Code:</strong> EC1V 9BX</p>
-          <p><strong>City:</strong> London</p>
+          <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
+          <p><strong>Postal Code:</strong> 1056JV</p>
+          <p><strong>City:</strong> Amsterdam</p>
           <p><strong>Email:</strong> privacy@confused-eliphant.com</p>
         </div>
       </section>
 
       <section>
-        <h2>Information We Collect</h2>
+        <h2>What personal data is processed?</h2>
         <div class="info-grid">
           <div class="info-card">
             <h3>Account Information</h3>
-            <p>Name, email, phone number, and account preferences</p>
+            <p>Name, email, and account preferences</p>
           </div>
           <div class="info-card">
             <h3>Usage Data</h3>
@@ -40,10 +41,11 @@
             <p>Mobile carrier information for phone billing</p>
           </div>
         </div>
+        <p class="mt-4">When you visit our website, cookies are usually placed on your computer. Cookies allow the website to remember your computer. If you do not want this, you can set your browser to refuse all cookies or to notify you when a cookie is sent. In our cookie statement, we explain which cookies we use and for what purpose.</p>
       </section>
 
       <section>
-        <h2>How We Use Your Data</h2>
+        <h2>For what purposes is my personal data used?</h2>
         <ul class="usage-list">
           <li>Providing and personalizing our entertainment services</li>
           <li>Processing mobile billing payments</li>
@@ -52,7 +54,14 @@
           <li>Preventing unauthorized access</li>
           <li>Communicating service updates</li>
           <li>Analyzing usage patterns to enhance our platform</li>
+          <li>Sending products</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>On what legal basis is this processing based?</h2>
+        <p>We process your personal data based on your consent (for example, if you give us permission to send invitations for events or newsletters), the execution of the agreement (for example, when processing and sending a product or service you ordered on our website), a legal obligation we may be subject to, or on the basis of a legitimate interest (for example, to improve our website). In the case of the latter basis, we carefully consider what that interest is and weigh it against the privacy interests of those involved.</p>
+        <p>If you have given consent for the processing of your personal data, you can always withdraw that consent by sending us an email. The withdrawal of consent does not affect the lawfulness of the processing up until the moment of withdrawal.</p>
       </section>
 
       <section>
@@ -67,6 +76,16 @@
             <li>We do not store complete payment information on our servers</li>
           </ul>
         </div>
+      </section>
+
+      <section>
+        <h2>Is my personal data shared with third parties?</h2>
+        <p>We only share your personal data with other parties if it is necessary for the performance of our work. This may include software suppliers or parties that manage our website and store the data. When we engage third parties, we make the necessary written agreements with them about the processing and security of your personal data.</p>
+      </section>
+
+      <section>
+        <h2>Is my personal data transferred to countries outside the European Economic Area?</h2>
+        <p>We try to process your personal data only within the European Economic Area (EEA) and store your data as much as possible on a server in the EEA. Sometimes this is not possible. In that case, we take the necessary organizational, technical, and contractual measures to provide an adequate level of protection for your personal data.</p>
       </section>
 
       <section>
@@ -89,10 +108,13 @@
             <p>Transfer your data elsewhere</p>
           </div>
         </div>
+        <p class="mt-4">Under the GDPR, you have the right to access the personal data we collect and to correct personal data that contains factual inaccuracies. Additionally, you can request the deletion of personal data, the restriction of the processing of your personal data, and object to the processing of your personal data. Finally, under certain circumstances, you have the right to data portability.</p>
+        <p>If you want to exercise these rights, please contact us. You can find our contact details on our website.</p>
+        <p>If you are not satisfied with how we process your personal data and we cannot resolve it together, you can file a complaint with the Data Protection Authority.</p>
       </section>
 
       <section>
-        <h2>Data Security</h2>
+        <h2>How is my personal data protected?</h2>
         <p>We implement robust security measures to protect your data:</p>
         <ul class="security-measures">
           <li>End-to-end encryption for data transmission</li>
@@ -105,13 +127,20 @@
       </section>
 
       <section>
-        <h2>International Data Transfers</h2>
-        <p>We may transfer your data to countries outside your region. When we do, we ensure appropriate safeguards are in place to protect your information and comply with applicable data protection laws.</p>
+        <h2>How long is my data retained?</h2>
+        <p>We do not retain your personal data longer than necessary for the purposes for which we use your personal data. Below are the retention periods we apply in case you no longer use our services:</p>
+        <ul class="retention-list">
+          <li>Phone number and/or email address: 12 months</li>
+          <li>IP address: 12 months</li>
+        </ul>
+        <p>If you indicate that you no longer wish to receive (electronic) newsletters or event invitations, you can also request us to delete your data. In that case, we will delete your personal data.</p>
       </section>
 
       <section>
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes through our service or via email.</p>
+        <h2>What else is important?</h2>
+        <p>This privacy statement does not apply to third-party websites that can be accessed via our website. We advise you to read the privacy and cookie statement of these websites before using them.</p>
+        <p>We may make changes to this privacy statement. We therefore recommend that you regularly review this privacy statement.</p>
+        <p>This privacy statement was last updated on 2 May 2024.</p>
       </section>
 
       <section>
@@ -119,8 +148,7 @@
         <p>If you have any questions about this Privacy Policy or our data practices, please contact our Data Protection Officer:</p>
         <div class="contact-section">
           <p><strong>Email:</strong> dpo@confused-eliphant.com</p>
-          <p><strong>Phone:</strong> +44 20 1234 5678</p>
-          <p><strong>Address:</strong> 123 Digital Avenue, London, EC1V 9BX</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam</p>
         </div>
       </section>
     </div>
@@ -203,19 +231,19 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.usage-list, .security-measures {
+.usage-list, .security-measures, .retention-list {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
 }
 
-.usage-list li, .security-measures li {
+.usage-list li, .security-measures li, .retention-list li {
   padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
   color: #4a5568;
 }
 
-.usage-list li::before, .security-measures li::before {
+.usage-list li::before, .security-measures li::before, .retention-list li::before {
   content: "•";
   color: #6C63FF;
   position: absolute;
@@ -263,6 +291,10 @@ p {
 .right-item h3 {
   color: #6C63FF;
   margin-bottom: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 /* Responsive Styles */
