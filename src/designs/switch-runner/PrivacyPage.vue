@@ -2,7 +2,7 @@
   <div class="privacy-page">
     <div class="privacy-container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: June 01, 2025</p>
+      <p class="last-updated">Last updated: June 22, 2023</p>
 
       <section>
         <h2>Introduction</h2>
