@@ -61,18 +61,20 @@ const paymentFeatures = ref([
 
 const plans = ref([
   {
-    name: 'Weekend Pass',
-    price: '4.99',
-    billing: 'Charged to your phone bill',
-    duration: '48 hours of access',
+    name: 'Free',
+    price: '0',
+    billing: 'No payment required',
+    duration: 'Limited access',
     features: [
-      'Full content access',
-      'HD streaming',
-      'No commitments'
-    ]
+      'Basic content access',
+      'Ad-supported streaming',
+      'Standard quality',
+      'Single device'
+    ],
+    popular: false
   },
   {
-    name: 'Weekly Premium',
+    name: 'Basic',
     price: '7.99',
     billing: 'Weekly via phone bill',
     duration: '7 days of premium access',
@@ -85,16 +87,17 @@ const plans = ref([
     popular: true
   },
   {
-    name: 'Monthly Unlimited',
+    name: 'Premium',
     price: '19.99',
     billing: 'Monthly via phone bill',
     duration: '30 days of unlimited access',
     features: [
-      'Everything in Weekly Premium',
+      'Everything in Basic',
       '4K Ultra HD where available',
       'Multiple device support',
       'Priority customer service'
-    ]
+    ],
+    popular: false
   }
 ]);
 
@@ -310,6 +313,7 @@ onMounted(() => {
   color: #1a202c;
   padding-top: 64px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -318,6 +322,8 @@ onMounted(() => {
   color: white;
   padding: 8rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -865,14 +871,29 @@ onMounted(() => {
   line-height: 1.6;
 }
 
-/* Responsive Styles */
+/* Responsive Styles - Improved for all devices */
+@media (max-width: 1200px) {
+  .content-section {
+    gap: 3rem;
+    padding: 0 1rem;
+  }
+  
+  .plans-grid {
+    padding: 0 1rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero h1 {
     font-size: 3.5rem;
   }
   
   .content-section {
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+  
+  .section-image img {
+    height: 350px;
   }
   
   .plan-card.popular {
@@ -885,10 +906,27 @@ onMounted(() => {
   
   .faq-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .content-section:nth-child(even) {
+    direction: ltr;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+  
   .hero h1 {
     font-size: 2.8rem;
   }
@@ -897,13 +935,12 @@ onMounted(() => {
     font-size: 1.2rem;
   }
   
-  .content-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .section-image img {
+    height: 300px;
   }
   
-  .content-section:nth-child(even) {
-    direction: ltr;
+  .section-content h3 {
+    font-size: 1.8rem;
   }
   
   .payment-features {
@@ -921,11 +958,44 @@ onMounted(() => {
   .cta-section h2 {
     font-size: 2.2rem;
   }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .plan-card, .plan-card.popular {
+    transform: none;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .plan-card:hover, .plan-card.popular:hover {
+    transform: translateY(-5px);
+  }
+  
+  .payment-feature {
+    padding: 2rem 1.5rem;
+  }
+  
+  .section-image img {
+    height: 250px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 6rem 1.5rem;
+    padding: 5rem 1rem;
   }
   
   .hero h1 {
@@ -960,7 +1030,7 @@ onMounted(() => {
   }
   
   .testimonial {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
   }
   
   .testimonial-text {
@@ -968,7 +1038,7 @@ onMounted(() => {
   }
   
   .cta-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   
   .cta-section h2 {
@@ -985,6 +1055,40 @@ onMounted(() => {
   
   .faq-item h3 {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .entertainment-sections h2, .payment-section h2, .how-it-works h2, 
+  .testimonials-section h2, .faq-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .plan-card h4 {
+    font-size: 1.6rem;
+  }
+  
+  .price {
+    font-size: 2.2rem;
+  }
+  
+  .step-number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
   }
 }
 </style>

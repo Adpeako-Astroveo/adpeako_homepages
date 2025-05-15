@@ -136,7 +136,7 @@ provide('siteName', siteName);
       </RouterLink>
       
       <!-- Mobile menu toggle button -->
-      <button class="mobile-menu-toggle" @click="toggleMobileMenu" aria-label="Toggle Menu">
+      <button class="mobile-menu-toggle" @click="toggleMobileMenu" aria-label="Toggle Menu" :class="{ 'open': isMobileMenuOpen }">
         <span class="menu-icon"></span>
       </button>
       
@@ -235,6 +235,11 @@ body, html {
 .yellow-racoon\.com {
   background: #FFB800;
   background: linear-gradient(135deg, #FFB800 0%, #FFA200 100%);
+}
+
+.switch-runner\.com {
+  background: #FF6347;
+  background: linear-gradient(135deg, #FF6347 0%, #FFA07A 100%);
 }
 
 .default {
