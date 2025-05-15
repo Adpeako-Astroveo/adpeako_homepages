@@ -242,6 +242,11 @@ body, html {
   background: linear-gradient(135deg, #FF6347 0%, #FFA07A 100%);
 }
 
+.confused-eliphant\.com {
+  background: #6C63FF;
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+}
+
 .default {
   background: #4CAF50;
   background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
@@ -294,6 +299,7 @@ body, html {
   position: relative;
   cursor: pointer;
   padding: 0;
+  z-index: 1010;
 }
 
 .menu-icon {
@@ -374,7 +380,6 @@ footer {
   
   .mobile-menu-toggle {
     display: block;
-    z-index: 1010;
   }
   
   .nav-links {
@@ -383,7 +388,7 @@ footer {
     right: 0;
     bottom: 0;
     width: 250px;
-    background: #FFB800;
+    background: #6C63FF;
     flex-direction: column;
     padding: 5rem 2rem 2rem;
     transform: translateX(100%);

@@ -250,8 +250,11 @@ const handleLogin = () => {
 <style scoped>
 .confused-eliphant-homepage {
   color: #1a202c;
+  /* Updated to ensure better header visibility */
   padding-top: 64px;
+  margin-top: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
 }
 
 /* Hero Section */
@@ -262,6 +265,7 @@ const handleLogin = () => {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero::before {
@@ -836,6 +840,7 @@ const handleLogin = () => {
 @media (max-width: 768px) {
   .hero {
     padding: 6rem 1.5rem;
+    margin-top: 0;
   }
   
   .hero h1 {

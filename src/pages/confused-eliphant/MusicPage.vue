@@ -308,7 +308,9 @@ const navigateToLogin = () => {
 .music-page {
   color: #1a202c;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Make sure the content starts below the fixed header */
   padding-top: 64px;
+  margin-top: 0;
 }
 
 /* Hero Section */
@@ -317,6 +319,8 @@ const navigateToLogin = () => {
   color: white;
   padding: 8rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -884,6 +888,11 @@ const navigateToLogin = () => {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+    margin-top: 0;
+  }
+  
   .hero h1 {
     font-size: 3rem;
   }
