@@ -10,6 +10,7 @@ import waveViewDesign from './designs/wave-view.js';
 import yellowRacoonDesign from './designs/yellow-racoon.js';
 import switchRunnerDesign from './designs/switch-runner.js';
 import confusedEliphantDesign from './designs/confused-eliphant.js';
+import heightWaysDesign from './designs/height-ways.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -22,6 +23,7 @@ export default {
   "yellow-racoon.com": "yellow-racoon.com",
   "switch-runner.com": "switch-runner.com",
   "confused-eliphant.com": "confused-eliphant.com",
+  "height-ways.com": "height-ways.com",
   "localhost": "jazzy-mango.com",
   "127.0.0.1": "jazzy-mango.com"
 };
@@ -37,6 +39,7 @@ export const designs = {
   "yellow-racoon.com": yellowRacoonDesign,
   "switch-runner.com": switchRunnerDesign,
   "confused-eliphant.com": confusedEliphantDesign,
+  "height-ways.com": heightWaysDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };
