@@ -26,6 +26,13 @@ import ConfusedEliphantSportsPage from './pages/confused-eliphant/SportsPage.vue
 import ConfusedEliphantGamesPage from './pages/confused-eliphant/GamesPage.vue';
 import ConfusedEliphantAudiobooksPage from './pages/confused-eliphant/AudiobooksPage.vue';
 
+// Height Ways specific pages
+import HeightWaysMusicPage from './pages/height-ways/MusicPage.vue';
+import HeightWaysVideoPage from './pages/height-ways/VideoPage.vue';
+import HeightWaysSportsPage from './pages/height-ways/SportsPage.vue';
+import HeightWaysGamesPage from './pages/height-ways/GamesPage.vue';
+import HeightWaysAudiobooksPage from './pages/height-ways/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -133,6 +140,32 @@ const routes = [
     path: '/confused-eliphant/audiobooks',
     component: ConfusedEliphantAudiobooksPage,
     name: 'confused-eliphant-audiobooks'
+  },
+  // Height Ways specific routes
+  {
+    path: '/height-ways/music',
+    component: HeightWaysMusicPage,
+    name: 'height-ways-music'
+  },
+  {
+    path: '/height-ways/video',
+    component: HeightWaysVideoPage,
+    name: 'height-ways-video'
+  },
+  {
+    path: '/height-ways/sports',
+    component: HeightWaysSportsPage,
+    name: 'height-ways-sports'
+  },
+  {
+    path: '/height-ways/games',
+    component: HeightWaysGamesPage,
+    name: 'height-ways-games'
+  },
+  {
+    path: '/height-ways/audiobooks',
+    component: HeightWaysAudiobooksPage,
+    name: 'height-ways-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',

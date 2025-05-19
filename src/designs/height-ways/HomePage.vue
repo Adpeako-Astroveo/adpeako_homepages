@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -7,50 +7,45 @@ const router = useRouter();
 const entertainmentSections = ref([
   {
     title: 'Music Streaming',
-    description: 'Millions of tracks at your fingertips. Dive into playlists curated by experts or create your own collection of favorites.',
-    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
-    features: ['Hi-Fi Audio Quality', 'Offline Listening', 'Personalized Playlists', 'Lyrics Support'],
-    action: 'Start Listening',
-    route: '/entertainment/music'
+    description: 'Access millions of songs with crystal-clear audio quality. From chart-topping hits to indie gems, discover your next favorite track.',
+    image: 'https://images.pexels.com/photos/4090902/pexels-photo-4090902.jpeg',
+    link: '/height-ways/music',
+    features: ['HD Audio Quality', 'Personalized Playlists', 'Offline Downloads', 'Lyrics Support']
   },
   {
     title: 'Video Streaming',
-    description: 'Unlimited movies, TV shows, and exclusive content. From blockbusters to independent gems, there\'s something for everyone.',
+    description: 'Enjoy unlimited access to movies, TV shows, and exclusive series in stunning 4K quality. Your personal cinema, anywhere.',
     image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
-    features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'No Ads'],
-    action: 'Start Watching',
-    route: '/entertainment/video'
+    link: '/height-ways/video',
+    features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'No Ads']
   },
   {
     title: 'Live Sports',
-    description: 'Never miss a game with comprehensive coverage of major leagues and tournaments from around the world.',
+    description: 'Never miss a moment of action. Watch live matches, catch highlights, and follow your favorite teams across all major sports.',
     image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
-    features: ['Live HD Streaming', 'Instant Replays', 'Multi-view Options', 'Stats & Analysis'],
-    action: 'Watch Sports',
-    route: '/entertainment/sports'
+    link: '/height-ways/sports',
+    features: ['Live HD Streaming', 'Multi-view Options', 'Real-time Stats', 'Expert Commentary']
   },
   {
     title: 'Mobile Games',
-    description: 'Premium gaming without the hassle of in-app purchases or ads. Access a vast library of high-quality games.',
+    description: 'Dive into a world of premium gaming without ads or in-app purchases. From casual fun to competitive multiplayer.',
     image: 'https://images.pexels.com/photos/159393/gamepad-video-game-controller-game-controller-controller-159393.jpeg',
-    features: ['No In-app Purchases', 'Cloud Saves', 'Multiplayer Support', 'Regular Updates'],
-    action: 'Play Games',
-    route: '/entertainment/games'
+    link: '/height-ways/games',
+    features: ['No In-app Purchases', 'Cloud Saves', 'Multiplayer Support', 'Regular Updates']
   },
   {
     title: 'Audiobook Library',
-    description: 'Listen to bestsellers and classics narrated by top voice actors. Perfect for commutes, workouts, or relaxing at home.',
+    description: 'Transform your commute with our vast collection of audiobooks narrated by world-class voice artists.',
     image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
-    features: ['Huge Selection', 'Offline Mode', 'Sleep Timer', 'Bookmarks'],
-    action: 'Explore Books',
-    route: '/entertainment/audiobooks'
+    link: '/height-ways/audiobooks',
+    features: ['Huge Selection', 'Offline Mode', 'Sleep Timer', 'Bookmarks']
   }
 ]);
 
 const paymentFeatures = ref([
   {
     icon: '📱',
-    title: 'Phone Billing Simplicity',
+    title: 'Mobile Billing Simplicity',
     description: 'No credit card required. Charges are conveniently added directly to your monthly phone bill.'
   },
   {
@@ -65,7 +60,7 @@ const paymentFeatures = ref([
   },
   {
     icon: '🌐',
-    title: 'Universal Compatibility',
+    title: 'Global Compatibility',
     description: 'Works with all major mobile carriers worldwide for seamless billing.'
   }
 ]);
@@ -74,28 +69,28 @@ const howItWorks = ref([
   {
     step: 1,
     title: 'Choose Your Plan',
-    description: 'Select from our flexible subscription options to suit your preferences.'
+    description: 'Select the entertainment package that suits your needs from our flexible subscription options.'
   },
   {
     step: 2,
-    title: 'Verify Your Number',
-    description: 'Complete a simple one-time verification with your mobile phone.'
+    title: 'Enter Your Number',
+    description: 'Provide your mobile number for secure verification and billing integration.'
   },
   {
     step: 3,
     title: 'Enjoy Premium Content',
-    description: 'Instantly access all entertainment services across your devices.'
+    description: 'Instantly gain access to our complete entertainment library across all your devices.'
   }
 ]);
 
 const testimonials = ref([
   {
-    text: "Height Ways has transformed my entertainment experience. Everything I need is in one place, and the phone billing is incredibly convenient!",
+    text: "Height Ways has completely transformed my entertainment experience. Everything I need is in one place, and the phone billing is incredibly convenient!",
     author: "Sarah M.",
     location: "London, UK"
   },
   {
-    text: "The quality of content is outstanding. From 4K movies to hi-fi music, everything streams perfectly even with average internet.",
+    text: "The quality of streaming content is outstanding. From 4K movies to hi-fi music, everything performs perfectly even with average internet.",
     author: "Thomas K.",
     location: "Berlin, Germany"
   },
@@ -129,13 +124,9 @@ const stopAutoRotate = () => {
   }
 };
 
-const handleNavigate = (route) => {
-  router.push(route);
+const handleNavigate = (path) => {
+  router.push(path);
 };
-
-onMounted(() => {
-  startAutoRotate();
-});
 
 const plans = ref([
   {
@@ -205,6 +196,9 @@ const handleLogin = () => {
         class="content-row" :class="{ 'reverse': index % 2 !== 0 }">
         <div class="content-image">
           <img :src="section.image" :alt="section.title">
+          <div class="content-overlay">
+            <button class="explore-btn" @click="handleNavigate(section.link)">Explore</button>
+          </div>
         </div>
         <div class="content-info">
           <h3>{{ section.title }}</h3>
@@ -215,7 +209,7 @@ const handleLogin = () => {
               {{ feature }}
             </li>
           </ul>
-          <button class="secondary-btn" @click="handleNavigate(section.route)">{{ section.action }}</button>
+          <button class="secondary-btn" @click="handleNavigate(section.link)">Learn More</button>
         </div>
       </div>
     </section>
@@ -432,6 +426,40 @@ const handleLogin = () => {
 }
 
 .content-row:hover .content-image img {
+  transform: scale(1.05);
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-row:hover .content-overlay {
+  opacity: 1;
+}
+
+.explore-btn {
+  background: #007BFF;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #0069d9;
   transform: scale(1.05);
 }
 

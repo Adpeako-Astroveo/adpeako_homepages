@@ -188,6 +188,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #007BFF; /* Static color for Height Ways header */
 }
 
 .login-btn {
@@ -245,6 +246,10 @@ body, html {
 .confused-eliphant\.com {
   background: #6C63FF;
   background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+}
+
+.height-ways\.com {
+  background: #007BFF; /* Static blue color */
 }
 
 .default {
@@ -369,7 +374,7 @@ footer {
 }
 
 .footer-nav a.router-link-active {
-  color: #FFB800;
+  color: #007BFF;
 }
 
 /* Improved Responsive Styles */
@@ -388,7 +393,7 @@ footer {
     right: 0;
     bottom: 0;
     width: 250px;
-    background: #6C63FF;
+    background: #007BFF; /* Match header color for Height Ways */
     flex-direction: column;
     padding: 5rem 2rem 2rem;
     transform: translateX(100%);
