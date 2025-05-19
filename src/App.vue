@@ -29,7 +29,7 @@ const getFormattedDomainName = (domain) => {
 
 const getLogoPath = (hostname) => {
   // Remove .com and create logo path
-  const domain = hostname.replace(/\.com$/, '');
+  const domain = hostname.replace(/\.[a-z]{2,3}$/, '');
   const logoPath = `/${domain}-logo.svg`;
   
   // Create a new Image to check if the logo exists
