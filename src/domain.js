@@ -13,6 +13,7 @@ import confusedEliphantDesign from './designs/confused-eliphant.js';
 import heightWaysDesign from './designs/height-ways.js';
 import timberTubeDesign from './designs/timber-tube.js';
 import gameonliveDesign from './designs/gameonlive.js';
+import nextlevelstreamsDesign from './designs/nextlevelstreams.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -28,6 +29,7 @@ export default {
   "height-ways.com": "height-ways.com",
   "timber-tube.com": "timber-tube.com",
   "gameonlive.tv": "gameonlive.tv",
+  "nextlevelstreams.com": "nextlevelstreams.com",
   "localhost": "gameonlive.tv",
   "127.0.0.1": "gameonlive.tv"
 };
@@ -46,6 +48,7 @@ export const designs = {
   "height-ways.com": heightWaysDesign,
   "timber-tube.com": timberTubeDesign,
   "gameonlive.tv": gameonliveDesign,
+  "nextlevelstreams.com": nextlevelstreamsDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };

@@ -47,6 +47,13 @@ import GameOnLiveSportsPage from './pages/gameonlive/SportsPage.vue';
 import GameOnLiveGamesPage from './pages/gameonlive/GamesPage.vue';
 import GameOnLiveAudiobooksPage from './pages/gameonlive/AudiobooksPage.vue';
 
+// NextLevelStreams specific pages
+import NextLevelStreamsMusicPage from './pages/nextlevelstreams/MusicPage.vue';
+import NextLevelStreamsVideoPage from './pages/nextlevelstreams/VideoPage.vue';
+import NextLevelStreamsSportsPage from './pages/nextlevelstreams/SportsPage.vue';
+import NextLevelStreamsGamesPage from './pages/nextlevelstreams/GamesPage.vue';
+import NextLevelStreamsAudiobooksPage from './pages/nextlevelstreams/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -232,6 +239,32 @@ const routes = [
     path: '/gameonlive/audiobooks',
     component: GameOnLiveAudiobooksPage,
     name: 'gameonlive-audiobooks'
+  },
+  // NextLevelStreams specific routes
+  {
+    path: '/nextlevelstreams/music',
+    component: NextLevelStreamsMusicPage,
+    name: 'nextlevelstreams-music'
+  },
+  {
+    path: '/nextlevelstreams/video',
+    component: NextLevelStreamsVideoPage,
+    name: 'nextlevelstreams-video'
+  },
+  {
+    path: '/nextlevelstreams/sports',
+    component: NextLevelStreamsSportsPage,
+    name: 'nextlevelstreams-sports'
+  },
+  {
+    path: '/nextlevelstreams/games',
+    component: NextLevelStreamsGamesPage,
+    name: 'nextlevelstreams-games'
+  },
+  {
+    path: '/nextlevelstreams/audiobooks',
+    component: NextLevelStreamsAudiobooksPage,
+    name: 'nextlevelstreams-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',
