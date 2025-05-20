@@ -172,7 +172,6 @@ const navigateToLogin = () => {
         <p>One platform for all your entertainment needs - billed directly to your phone</p>
         <div class="hero-buttons">
           <button class="primary-btn" @click="navigateToLogin">Login Now</button>
-          <button class="secondary-btn" @click="navigateToLogin">Sign Up Free</button>
         </div>
       </div>
       <div class="hero-overlay"></div>
@@ -400,7 +399,6 @@ const navigateToLogin = () => {
 
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
 }
 
@@ -414,6 +412,7 @@ const navigateToLogin = () => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .primary-btn:hover {
@@ -425,24 +424,6 @@ const navigateToLogin = () => {
 .primary-btn.large {
   padding: 1.2rem 3rem;
   font-size: 1.3rem;
-}
-
-.secondary-btn {
-  background: transparent;
-  color: white;
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  border: 2px solid white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.secondary-btn:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* Features Section */
@@ -1070,11 +1051,6 @@ const navigateToLogin = () => {
     font-size: 1.2rem;
   }
   
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
   .testimonial-slider {
     flex-direction: column;
     gap: 1rem;
@@ -1106,7 +1082,7 @@ const navigateToLogin = () => {
     font-size: 2rem;
   }
   
-  .primary-btn, .secondary-btn {
+  .primary-btn {
     width: 100%;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
