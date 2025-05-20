@@ -18,38 +18,38 @@ onMounted(() => {
 const entertainmentSections = ref([
   {
     title: 'Music Streaming',
-    description: 'Access millions of songs across all genres. Enjoy crystal-clear sound quality, create personalized playlists, and discover new music tailored to your taste.',
+    description: 'Access millions of songs across all genres. From chart-topping hits to indie gems, discover your next favorite track.',
     image: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg',
     path: '/gameonlive/music',
     features: ['HD Audio Quality', 'Personalized Playlists', 'Offline Mode', 'Lyrics Support']
   },
   {
     title: 'Video Streaming',
-    description: 'Watch thousands of movies, TV shows, and exclusive content in stunning HD or 4K. Enjoy the latest releases and timeless classics on any device.',
+    description: 'Enjoy unlimited access to movies, TV shows, and exclusive content in stunning 4K quality. Your personal cinema, anywhere.',
     image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
     path: '/gameonlive/video',
-    features: ['4K Ultra HD', 'Multiple Languages', 'Offline Downloads', 'Smart Recommendations']
+    features: ['4K Ultra HD', 'Multiple Languages', 'Download & Watch', 'No Ads']
   },
   {
     title: 'Live Sports',
-    description: 'Never miss a game with our comprehensive coverage of major sporting events worldwide. Watch live matches, catch highlights, and follow your favorite teams.',
+    description: 'Never miss a moment of action with our comprehensive coverage of major sporting events worldwide. Watch live matches, catch highlights, and follow your favorite teams.',
     image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
     path: '/gameonlive/sports',
-    features: ['Live HD Streaming', 'Multi-view Options', 'Real-time Stats', 'Instant Replays']
+    features: ['Live HD Streaming', 'Multi-view Options', 'Real-time Stats', 'Expert Commentary']
   },
   {
     title: 'Mobile Games',
-    description: 'Access a vast library of premium games without ads or in-app purchases. From casual fun to immersive RPGs, there\'s something for every type of gamer.',
+    description: 'Dive into a world of premium gaming without ads or in-app purchases. From casual fun to competitive multiplayer.',
     image: 'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg',
     path: '/gameonlive/games',
-    features: ['No In-app Purchases', 'Cloud Saves', 'Multiplayer Support', 'New Games Monthly']
+    features: ['No In-app Purchases', 'Cloud Saves', 'Multiplayer Support', 'Regular Updates']
   },
   {
     title: 'Audiobook Library',
-    description: 'Listen to bestsellers and classics narrated by world-class voice artists. Our vast collection spans all genres from fiction to self-improvement.',
-    image: 'https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg',
+    description: 'Transform your commute with our vast audiobook collection. Listen to bestsellers narrated by world-class voice artists wherever you are.',
+    image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
     path: '/gameonlive/audiobooks',
-    features: ['Professional Narration', 'Offline Listening', 'Sleep Timer', 'Bookmarks & Notes']
+    features: ['Professional Narration', 'Offline Listening', 'Sleep Timer', 'Adjustable Speed']
   }
 ]);
 
@@ -57,66 +57,42 @@ const entertainmentSections = ref([
 const paymentFeatures = ref([
   {
     title: 'Easy Phone Billing',
-    description: 'Charges added directly to your phone bill with no credit card required',
+    description: 'No credit card required. Charges are conveniently added directly to your monthly phone bill.',
     icon: '📱'
   },
   {
     title: 'Secure Transactions',
-    description: 'Advanced encryption and secure payment processing protect your information',
+    description: 'Your information is protected with advanced encryption and security protocols.',
     icon: '🔒'
   },
   {
-    title: 'Simple Management',
-    description: 'Easily manage your subscription through your mobile service provider',
-    icon: '⚙️'
+    title: 'Instant Access',
+    description: 'Get immediate access to all premium content after quick mobile verification.',
+    icon: '⚡'
   },
   {
-    title: 'Flexible Plans',
-    description: 'Choose from a variety of subscription options to fit your needs',
-    icon: '📝'
+    title: 'Global Compatibility',
+    description: 'Works with all major mobile carriers worldwide for seamless billing.',
+    icon: '🌐'
   }
 ]);
 
-// Subscription plans
-const plans = ref([
+// How it works steps
+const howItWorks = ref([
   {
-    name: 'Basic',
-    price: '9.99',
-    period: '/month',
-    features: [
-      'Access to all entertainment categories',
-      'HD streaming quality',
-      'Single device streaming',
-      'Ad-free experience'
-    ],
-    color: '#0055FF'
+    step: 1,
+    title: 'Choose Your Plan',
+    description: 'Select the entertainment package that suits your needs from our flexible subscription options.'
   },
   {
-    name: 'Premium',
-    price: '14.99',
-    period: '/month',
-    features: [
-      'Everything in Basic',
-      '4K Ultra HD where available',
-      'Stream on up to 3 devices',
-      'Unlimited downloads',
-      'Priority customer support'
-    ],
-    color: '#00CCFF',
-    recommended: true
+    step: 2,
+    title: 'Enter Your Number',
+    description: 'Provide your mobile number for secure verification and billing integration.'
   },
   {
-    name: 'Family',
-    price: '19.99',
-    period: '/month',
-    features: [
-      'Everything in Premium',
-      'Up to 6 user profiles',
-      'Parental controls',
-      'Stream on up to 6 devices',
-      'Personalized recommendations'
-    ],
-    color: '#0055FF'
+    step: 3,
+    title: 'Enjoy Premium Content',
+    description: 'Instantly gain access to our complete entertainment library across all your devices.'
   }
 ]);
 
@@ -140,6 +116,7 @@ const testimonials = ref([
 ]);
 
 const currentTestimonial = ref(0);
+const intervalId = ref(null);
 
 const nextTestimonial = () => {
   currentTestimonial.value = (currentTestimonial.value + 1) % testimonials.value.length;
@@ -149,37 +126,16 @@ const prevTestimonial = () => {
   currentTestimonial.value = (currentTestimonial.value - 1 + testimonials.value.length) % testimonials.value.length;
 };
 
-// FAQ section
-const faqs = ref([
-  {
-    question: "How does phone billing work?",
-    answer: "When you subscribe to GameOnLive, the charges are added directly to your monthly mobile phone bill. There's no need for credit cards or bank details - simply confirm your subscription and you'll be billed through your mobile service provider.",
-    open: true
-  },
-  {
-    question: "Can I use GameOnLive on multiple devices?",
-    answer: "Yes! Depending on your subscription plan, you can use GameOnLive on multiple devices. Our Basic plan supports single device streaming, Premium supports up to 3 devices, and Family allows up to 6 devices simultaneously.",
-    open: false
-  },
-  {
-    question: "Is offline content available?",
-    answer: "Absolutely. You can download music, videos, games, and audiobooks for offline enjoyment. This is perfect for travel or areas with limited connectivity. Simply look for the download icon on eligible content.",
-    open: false
-  },
-  {
-    question: "How do I cancel my subscription?",
-    answer: "Cancellation is easy and hassle-free. You can cancel your subscription at any time through your account settings or by contacting your mobile service provider. There are no cancellation fees or lengthy processes.",
-    open: false
-  },
-  {
-    question: "Which mobile carriers support GameOnLive billing?",
-    answer: "GameOnLive works with all major mobile carriers worldwide. As long as your carrier supports direct carrier billing (most do), you'll be able to subscribe and enjoy our services.",
-    open: false
-  }
-]);
+const startAutoRotate = () => {
+  intervalId.value = setInterval(() => {
+    nextTestimonial();
+  }, 5000);
+};
 
-const toggleFaq = (index) => {
-  faqs.value[index].open = !faqs.value[index].open;
+const stopAutoRotate = () => {
+  if (intervalId.value) {
+    clearInterval(intervalId.value);
+  }
 };
 
 // Navigation
@@ -202,7 +158,6 @@ const handleGetStarted = () => {
           <p>One subscription for all your entertainment needs - pay through your phone bill</p>
           <div class="hero-btns">
             <button class="primary-btn" @click="handleGetStarted">Get Started</button>
-            <button class="secondary-btn" @click="navigateTo('/gameonlive/plans')">View Plans</button>
           </div>
         </div>
         <div class="hero-shape"></div>
@@ -227,7 +182,7 @@ const handleGetStarted = () => {
                class="category-card" :class="{'reverse': index % 2 !== 0}">
             <div class="category-image">
               <img :src="category.image" :alt="category.title">
-              <div class="image-overlay">
+              <div class="category-overlay">
                 <button class="explore-btn" @click="navigateTo(category.path)">Explore</button>
               </div>
             </div>
@@ -256,12 +211,16 @@ const handleGetStarted = () => {
 
         <div class="payment-features">
           <div v-for="feature in paymentFeatures" :key="feature.title" class="payment-feature">
-            <div class="feature-icon">{{ feature.icon }}</div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
+            <div class="icon-wrapper">
+              <span class="feature-icon">{{ feature.icon }}</span>
+            </div>
+            <div class="feature-content">
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.description }}</p>
+            </div>
           </div>
         </div>
-
+        
         <div class="payment-process">
           <div class="process-step">
             <div class="step-number">1</div>
@@ -325,7 +284,7 @@ const handleGetStarted = () => {
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
+    <section class="testimonials-section">
       <div class="section-container">
         <div class="section-header">
           <h2>What Our Users Say</h2>
@@ -356,33 +315,9 @@ const handleGetStarted = () => {
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-      <div class="section-container">
-        <div class="section-header">
-          <h2>Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-container">
-          <div v-for="(faq, index) in faqs" :key="index" class="faq-item">
-            <div class="faq-question" @click="toggleFaq(index)">
-              <h3>{{ faq.question }}</h3>
-              <div class="toggle-icon" :class="{ 'open': faq.open }">
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="faq-answer" :class="{ 'open': faq.open }">
-              <p>{{ faq.answer }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="section-container">
+      <div class="cta-content">
         <h2>Ready for Ultimate Entertainment?</h2>
         <p>Join millions of users enjoying premium content with simple mobile billing</p>
         <button class="primary-btn large" @click="handleGetStarted">Get Started Now</button>
@@ -405,6 +340,10 @@ const handleGetStarted = () => {
   padding-top: 6rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
 }
 
 .hero-container {
@@ -414,13 +353,19 @@ const handleGetStarted = () => {
   display: flex;
   position: relative;
   z-index: 5;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 800px;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-content.active {
@@ -469,23 +414,6 @@ const handleGetStarted = () => {
 .primary-btn.large {
   font-size: 1.2rem;
   padding: 1.1rem 2.5rem;
-}
-
-.secondary-btn {
-  background: transparent;
-  color: white;
-  font-size: 1rem;
-  padding: 0.9rem 2rem;
-  border-radius: 50px;
-  border: 2px solid white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.secondary-btn:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-3px);
 }
 
 .hero-wave {
@@ -565,7 +493,7 @@ const handleGetStarted = () => {
   transform: scale(1.05);
 }
 
-.image-overlay {
+.category-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -579,14 +507,14 @@ const handleGetStarted = () => {
   transition: opacity 0.3s ease;
 }
 
-.category-card:hover .image-overlay {
+.category-card:hover .category-overlay {
   opacity: 1;
 }
 
 .explore-btn {
   background: #0055FF;
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 50px;
   border: none;
   font-weight: 600;
@@ -600,16 +528,16 @@ const handleGetStarted = () => {
 }
 
 .category-content h3 {
-  color: #0055FF;
   font-size: 2rem;
+  color: #0055FF;
   margin-bottom: 1rem;
 }
 
 .category-content p {
-  color: #444;
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  color: #555;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .features-list {
@@ -619,24 +547,30 @@ const handleGetStarted = () => {
 }
 
 .features-list li {
-  padding-left: 2rem;
-  position: relative;
-  margin-bottom: 0.8rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
   color: #444;
 }
 
 .check-icon {
-  position: absolute;
-  left: 0;
   color: #0055FF;
   font-weight: bold;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.plan-features li .check-icon {
+  color: #0055FF;
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
 }
 
 .category-btn {
   background: #0055FF;
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 50px;
   border: none;
   font-weight: 600;
@@ -646,7 +580,7 @@ const handleGetStarted = () => {
 
 .category-btn:hover {
   background: #00CCFF;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 /* Phone Billing Section */
@@ -659,25 +593,35 @@ const handleGetStarted = () => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .payment-feature {
   background: white;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   border-radius: 1rem;
-  text-align: center;
   box-shadow: 0 10px 25px rgba(0, 85, 255, 0.07);
   transition: transform 0.3s ease;
 }
 
 .payment-feature:hover {
   transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 85, 255, 0.15);
+}
+
+.icon-wrapper {
+  background: #f0f4f9;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
 .payment-feature h3 {
@@ -687,8 +631,8 @@ const handleGetStarted = () => {
 }
 
 .payment-feature p {
-  color: #666;
-  line-height: 1.6;
+  color: #555;
+  line-height: 1.5;
 }
 
 .payment-process {
@@ -727,7 +671,7 @@ const handleGetStarted = () => {
 
 .process-step p {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .process-arrow {
@@ -757,8 +701,8 @@ const handleGetStarted = () => {
   background: white;
   padding: 2.5rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 15px 30px rgba(0, 85, 255, 0.07);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 85, 255, 0.07);
+  transition: transform 0.3s ease;
   text-align: center;
   position: relative;
   border: 3px solid transparent;
@@ -767,7 +711,7 @@ const handleGetStarted = () => {
 
 .plan-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 85, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 85, 255, 0.15);
 }
 
 .plan-card.recommended {
@@ -831,9 +775,9 @@ const handleGetStarted = () => {
 
 .plan-features li {
   padding: 0.8rem 0;
-  border-bottom: 1px solid #f0f0f0;
   padding-left: 1.5rem;
   position: relative;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .plan-features li:last-child {
@@ -866,7 +810,7 @@ const handleGetStarted = () => {
 }
 
 /* Testimonials */
-.testimonials {
+.testimonials-section {
   background: white;
 }
 
@@ -951,8 +895,8 @@ const handleGetStarted = () => {
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: #ddd;
   border-radius: 50%;
   cursor: pointer;
@@ -964,81 +908,6 @@ const handleGetStarted = () => {
   transform: scale(1.2);
 }
 
-/* FAQ Section */
-.faq-section {
-  background: #f5f8ff;
-}
-
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  background: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0, 85, 255, 0.05);
-}
-
-.faq-question {
-  padding: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-question h3 {
-  color: #333;
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.toggle-icon {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.toggle-icon span {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: #0055FF;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
-}
-
-.toggle-icon span:nth-child(2) {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.toggle-icon.open span:nth-child(2) {
-  transform: translateY(-50%) rotate(0deg);
-  opacity: 0;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-answer.open {
-  max-height: 300px;
-}
-
-.faq-answer p {
-  padding: 0 1.5rem 1.5rem;
-  color: #666;
-  line-height: 1.6;
-}
-
 /* CTA Section */
 .cta-section {
   background: linear-gradient(135deg, #0055FF 0%, #00CCFF 100%);
@@ -1047,24 +916,49 @@ const handleGetStarted = () => {
   padding: 5rem 2rem;
 }
 
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .cta-section h2 {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta-section p {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
   opacity: 0.9;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.cta-section .primary-btn {
+  background: white;
+  color: #0055FF;
+}
+
+.cta-section .primary-btn:hover {
+  background: #f5f5f5;
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .category-card {
+    gap: 3rem;
+  }
+  
+  .plan-card.recommended {
+    transform: scale(1.03);
+  }
+  
+  .plan-card.recommended:hover {
+    transform: scale(1.03) translateY(-10px);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .section-header h2 {
@@ -1072,7 +966,19 @@ const handleGetStarted = () => {
   }
   
   .category-card {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .category-card {
+    grid-template-columns: 1fr;
     gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .category-card.reverse {
+    direction: ltr;
   }
 }
 
@@ -1090,15 +996,6 @@ const handleGetStarted = () => {
     font-size: 1.1rem;
   }
   
-  .category-card {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .category-card.reverse {
-    direction: ltr;
-  }
-  
   .payment-process {
     flex-direction: column;
     gap: 2rem;
@@ -1106,6 +1003,7 @@ const handleGetStarted = () => {
   
   .process-arrow {
     transform: rotate(90deg);
+    margin: -1rem 0;
   }
   
   .plans-grid {
@@ -1139,9 +1037,15 @@ const handleGetStarted = () => {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
   
   .hero-btns {
@@ -1151,6 +1055,7 @@ const handleGetStarted = () => {
   
   .primary-btn, .secondary-btn {
     width: 100%;
+    padding: 0.8rem 1.5rem;
   }
   
   .payment-features {
@@ -1163,6 +1068,63 @@ const handleGetStarted = () => {
   
   .cta-section h2 {
     font-size: 1.8rem;
+  }
+  
+  .category-content h3 {
+    font-size: 1.7rem;
+  }
+  
+  .category-content p {
+    font-size: 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .category-image {
+    aspect-ratio: 16/9;
+  }
+  
+  .payment-feature {
+    padding: 1.5rem 1rem;
+  }
+  
+  .testimonial-content {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .plans-grid {
+    max-width: 100%;
+  }
+  
+  .primary-btn.large {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
   }
 }
 </style>
