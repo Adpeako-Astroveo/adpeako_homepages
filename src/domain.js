@@ -11,6 +11,7 @@ import yellowRacoonDesign from './designs/yellow-racoon.js';
 import switchRunnerDesign from './designs/switch-runner.js';
 import confusedEliphantDesign from './designs/confused-eliphant.js';
 import heightWaysDesign from './designs/height-ways.js';
+import timberTubeDesign from './designs/timber-tube.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -24,8 +25,9 @@ export default {
   "switch-runner.com": "switch-runner.com",
   "confused-eliphant.com": "confused-eliphant.com",
   "height-ways.com": "height-ways.com",
-  "localhost": "jazzy-mango.com",
-  "127.0.0.1": "jazzy-mango.com"
+  "timber-tube.com": "timber-tube.com",
+  "localhost": "timber-tube.com",
+  "127.0.0.1": "timber-tube.com"
 };
 
 export const designs = {
@@ -40,6 +42,7 @@ export const designs = {
   "switch-runner.com": switchRunnerDesign,
   "confused-eliphant.com": confusedEliphantDesign,
   "height-ways.com": heightWaysDesign,
+  "timber-tube.com": timberTubeDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };

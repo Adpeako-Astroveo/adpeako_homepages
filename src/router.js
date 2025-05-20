@@ -33,6 +33,13 @@ import HeightWaysSportsPage from './pages/height-ways/SportsPage.vue';
 import HeightWaysGamesPage from './pages/height-ways/GamesPage.vue';
 import HeightWaysAudiobooksPage from './pages/height-ways/AudiobooksPage.vue';
 
+// Timber Tube specific pages
+import TimberTubeMusicPage from './pages/timber-tube/MusicPage.vue';
+import TimberTubeVideoPage from './pages/timber-tube/VideoPage.vue';
+import TimberTubeSportsPage from './pages/timber-tube/SportsPage.vue';
+import TimberTubeGamesPage from './pages/timber-tube/GamesPage.vue';
+import TimberTubeAudiobooksPage from './pages/timber-tube/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -166,6 +173,32 @@ const routes = [
     path: '/height-ways/audiobooks',
     component: HeightWaysAudiobooksPage,
     name: 'height-ways-audiobooks'
+  },
+  // Timber Tube specific routes
+  {
+    path: '/timber-tube/music',
+    component: TimberTubeMusicPage,
+    name: 'timber-tube-music'
+  },
+  {
+    path: '/timber-tube/video',
+    component: TimberTubeVideoPage,
+    name: 'timber-tube-video'
+  },
+  {
+    path: '/timber-tube/sports',
+    component: TimberTubeSportsPage,
+    name: 'timber-tube-sports'
+  },
+  {
+    path: '/timber-tube/games',
+    component: TimberTubeGamesPage,
+    name: 'timber-tube-games'
+  },
+  {
+    path: '/timber-tube/audiobooks',
+    component: TimberTubeAudiobooksPage,
+    name: 'timber-tube-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',
