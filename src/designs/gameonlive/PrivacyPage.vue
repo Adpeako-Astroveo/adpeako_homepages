@@ -2,39 +2,45 @@
   <div class="privacy-page">
     <div class="privacy-container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: July 15, 2025</p>
+      <p class="last-updated">Last updated: June 15, 2025</p>
 
       <section>
         <h2>Introduction</h2>
-        <p>Welcome to GameOnLive. We respect your privacy and are committed to protecting your personal data. This Privacy Statement describes how your personal data is processed when using our mobile entertainment services and visiting our website.</p>
+        <p>Berg Online Marketing B.V. (hereinafter also referred to as 'we') treats your personal data with great care. This Privacy Statement describes how your personal data is processed when using our streaming entertainment services and visiting our website.</p>
+        <p>At GameOnLive, we are committed to protecting your privacy and ensuring your data is handled responsibly. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information.</p>
       </section>
 
       <section>
-        <h2>Who We Are</h2>
-        <p>GameOnLive is operated by GameOn Media Group, which is also referred to as 'we', 'us', or 'our' in this privacy policy. We are responsible for processing your personal data when you visit our website or use our services.</p>
+        <h2>Who is responsible for processing my personal data?</h2>
+        <p>We are responsible for processing your personal data when you visit our website. For any questions you may have about the processing of your personal data, you can reach us at our general postal address or via email:</p>
         <div class="contact-details">
-          <p><strong>Organization:</strong> GameOn Media Group</p>
-          <p><strong>Address:</strong> 123 Tech Boulevard</p>
-          <p><strong>Postal Code:</strong> EC1V 9NR</p>
-          <p><strong>City:</strong> London</p>
+          <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
+          <p><strong>Postal Code:</strong> 1056JV</p>
+          <p><strong>City:</strong> Amsterdam</p>
           <p><strong>Email:</strong> privacy@gameonlive.tv</p>
         </div>
       </section>
 
       <section>
-        <h2>Information We Collect</h2>
+        <h2>What personal data do we collect?</h2>
+        <p>When you visit our website or use our services, we collect and process various personal data. These include:</p>
         <div class="data-grid">
           <div class="data-card">
             <h3>Account Information</h3>
-            <p>Basic details needed for account creation and management, including your mobile number for billing</p>
+            <p>Name, email address, and password (encrypted) for account creation and management</p>
+          </div>
+          <div class="data-card">
+            <h3>Entertainment Preferences</h3>
+            <p>Your viewing history, music preferences, gaming activity, and content interactions to provide personalized recommendations</p>
           </div>
           <div class="data-card">
             <h3>Usage Data</h3>
-            <p>Information about how you interact with our entertainment platforms to improve recommendations</p>
+            <p>Information about how you use our services, including access times, pages viewed, and features used</p>
           </div>
           <div class="data-card">
-            <h3>Technical Data</h3>
-            <p>Device information and connection details to optimize streaming quality and troubleshoot issues</p>
+            <h3>Device Information</h3>
+            <p>Device type, operating system, browser type, IP address, and mobile device identifiers</p>
           </div>
           <div class="data-card">
             <h3>Billing Information</h3>
@@ -44,14 +50,74 @@
       </section>
 
       <section>
-        <h2>How We Use Your Data</h2>
+        <h2>Cookies and Similar Technologies</h2>
+        <p>When you visit our website, cookies and similar technologies may be placed on your device. Cookies are small text files that allow the website to remember your preferences and actions. If you do not want this, you can set your browser to refuse all cookies or to notify you when a cookie is sent.</p>
+        <p>We use the following types of cookies:</p>
+        <ul class="cookie-list">
+          <li>Essential cookies: Necessary for the website to function properly</li>
+          <li>Preference cookies: Remember your settings and preferences</li>
+          <li>Analytics cookies: Help us understand how visitors interact with our website</li>
+          <li>Marketing cookies: Used to track visitors across websites to display relevant advertisements</li>
+        </ul>
+        <p>In our cookie statement, we explain in detail which cookies we use and for what purposes.</p>
+      </section>
+
+      <section>
+        <h2>For what purposes is my personal data used?</h2>
         <ul class="usage-list">
-          <li>Providing our entertainment services and personalizing content recommendations</li>
-          <li>Processing mobile billing payments securely</li>
-          <li>Improving our platform based on user feedback and behavior</li>
-          <li>Ensuring optimal streaming performance across devices</li>
-          <li>Preventing unauthorized access and maintaining security</li>
-          <li>Communicating service updates and relevant information</li>
+          <li>Providing and personalizing our entertainment services</li>
+          <li>Processing subscriptions and mobile billing payments</li>
+          <li>Creating and managing your account</li>
+          <li>Improving our content recommendations based on your preferences</li>
+          <li>Enhancing your user experience and our services</li>
+          <li>Ensuring technical functionality and security</li>
+          <li>Communicating important updates and information</li>
+          <li>Detecting and preventing fraud and unauthorized access</li>
+          <li>Complying with legal obligations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>On what legal basis is this processing based?</h2>
+        <p>We process your personal data based on various legal grounds:</p>
+        <ul class="legal-basis-list">
+          <li>
+            <strong>Contractual Necessity:</strong> Processing necessary for the performance of our contract with you (e.g., providing our streaming services).
+          </li>
+          <li>
+            <strong>Consent:</strong> Processing based on your specific consent (e.g., sending marketing communications).
+          </li>
+          <li>
+            <strong>Legitimate Interests:</strong> Processing based on our legitimate interests, such as improving our services and security measures.
+          </li>
+          <li>
+            <strong>Legal Obligations:</strong> Processing necessary to comply with legal requirements.
+          </li>
+        </ul>
+        <p>If you have given consent for the processing of your personal data, you can always withdraw that consent by sending us an email (see the contact information above). The withdrawal of consent does not affect the lawfulness of the processing up until the moment of withdrawal.</p>
+      </section>
+
+      <section>
+        <h2>Is my personal data shared with third parties?</h2>
+        <p>We only share your personal data with other parties if it is necessary for the performance of our work. This may include:</p>
+        <ul class="sharing-list">
+          <li>Service providers (e.g., hosting, customer support, analytics)</li>
+          <li>Payment processors to facilitate mobile billing</li>
+          <li>Mobile carriers for billing verification</li>
+          <li>Content providers and licensors</li>
+          <li>Legal authorities when required by law</li>
+        </ul>
+        <p>When we engage third parties, we make the necessary written agreements with them about the processing and security of your personal data.</p>
+      </section>
+
+      <section>
+        <h2>International Data Transfers</h2>
+        <p>We try to process your personal data only within the European Economic Area (EEA) and store your data as much as possible on a server in the EEA. Sometimes this is not possible. In that case, we take the necessary organizational, technical, and contractual measures to provide an adequate level of protection for your personal data.</p>
+        <p>When transferring data outside the EEA, we ensure appropriate safeguards are in place, such as:</p>
+        <ul class="transfer-list">
+          <li>Standard Contractual Clauses approved by the European Commission</li>
+          <li>Adequacy decisions for countries with adequate data protection</li>
+          <li>Additional technical and organizational security measures</li>
         </ul>
       </section>
 
@@ -62,7 +128,7 @@
           <ul>
             <li>We process payments through secure carrier integrations</li>
             <li>Your mobile number is encrypted and stored securely</li>
-            <li>Billing details appear on your carrier statement with clear identification</li>
+            <li>Billing details appear on your carrier statement in a clear manner</li>
             <li>We maintain strict security standards for payment processing</li>
             <li>We do not store complete payment information on our servers</li>
           </ul>
@@ -70,66 +136,66 @@
       </section>
 
       <section>
+        <h2>How is my personal data protected?</h2>
+        <p>We implement robust security measures to protect your data:</p>
+        <ul class="security-measures">
+          <li>End-to-end encryption for data transmission</li>
+          <li>Regular security audits and vulnerability assessments</li>
+          <li>Strict access controls and authentication</li>
+          <li>Continuous monitoring and threat detection</li>
+          <li>Employee security training and awareness programs</li>
+          <li>Data minimization and purpose limitation practices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How long is my data retained?</h2>
+        <p>We do not retain your personal data longer than necessary for the purposes for which we use your personal data. Below are the retention periods we apply in case you no longer use our services:</p>
+        <ul class="retention-list">
+          <li>Account information: 12 months after account inactivity</li>
+          <li>Usage data: 24 months for analysis purposes</li>
+          <li>Payment information: As required by tax and financial regulations (typically 7 years)</li>
+          <li>Communication records: 12 months after last interaction</li>
+        </ul>
+        <p>If you indicate that you no longer wish to receive communications or request deletion of your data, we will process your request promptly.</p>
+      </section>
+
+      <section>
         <h2>Your Rights</h2>
         <div class="rights-section">
-          <p>Under applicable data protection laws, you have the following rights:</p>
+          <p>Under the GDPR and other applicable data protection laws, you have the following rights:</p>
           <ul>
-            <li>Right to access your personal data</li>
-            <li>Right to correct inaccurate information</li>
-            <li>Right to request deletion of your data</li>
-            <li>Right to restrict processing of your data</li>
-            <li>Right to data portability</li>
-            <li>Right to object to processing</li>
+            <li><strong>Right to Access</strong> - Request a copy of your personal data</li>
+            <li><strong>Right to Rectification</strong> - Correct any inaccurate personal data</li>
+            <li><strong>Right to Erasure</strong> - Request deletion of your personal data</li>
+            <li><strong>Right to Restriction</strong> - Limit how we use your data</li>
+            <li><strong>Right to Portability</strong> - Transfer your data to another service</li>
+            <li><strong>Right to Object</strong> - Object to processing of your personal data</li>
+            <li><strong>Right to Withdraw Consent</strong> - Withdraw previously given consent</li>
           </ul>
-          <p>To exercise these rights, please contact us using the details provided in the "Contact Us" section.</p>
+          <p>To exercise these rights, please contact us using the details provided in the "Contact Us" section. We will respond to your request within 30 days.</p>
         </div>
       </section>
 
       <section>
-        <h2>Data Security</h2>
-        <p>We implement robust security measures to protect your data:</p>
-        <ul class="security-list">
-          <li>End-to-end encryption for all sensitive data transmission</li>
-          <li>Regular security audits and vulnerability assessments</li>
-          <li>Strict access controls and authentication procedures</li>
-          <li>Continuous monitoring and threat detection systems</li>
-          <li>Employee training on data protection and security best practices</li>
-        </ul>
+        <h2>Children's Privacy</h2>
+        <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information without parental consent, please contact us. If we become aware that we have collected personal data from a child without verification of parental consent, we will take steps to remove that information from our servers.</p>
       </section>
 
       <section>
-        <h2>International Data Transfers</h2>
-        <p>We try to process your personal data only within the European Economic Area (EEA). When this is not possible, we take appropriate safeguards to ensure the protection of your personal data, including:</p>
-        <ul>
-          <li>Standard Contractual Clauses approved by the European Commission</li>
-          <li>Data Protection Impact Assessments for high-risk transfers</li>
-          <li>Vendor assessment and regular compliance reviews</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Data Retention</h2>
-        <p>We retain your personal data only for as long as necessary for the purposes for which it was collected, including legal, accounting, or reporting requirements. Typical retention periods include:</p>
-        <ul>
-          <li>Account information: For the duration of your account plus 12 months</li>
-          <li>Transaction data: 7 years as required by tax regulations</li>
-          <li>Usage data: 24 months for service improvement</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Changes to This Policy</h2>
-        <p>We may update this privacy policy from time to time to reflect changes in our practices or for regulatory reasons. We will notify you of any significant changes through a service notification or email.</p>
+        <h2>Changes to this Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes through our service or via email before they become effective.</p>
+        <p>We recommend that you regularly review this privacy statement to stay informed about our data processing activities.</p>
       </section>
 
       <section>
         <h2>Contact Us</h2>
-        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact our Data Protection Officer:</p>
+        <p>For privacy-related inquiries, please contact our Data Protection Officer:</p>
         <div class="contact-section">
-          <p><strong>Email:</strong> dpo@gameonlive.tv</p>
-          <p><strong>Address:</strong> 123 Tech Boulevard, London, EC1V 9NR, United Kingdom</p>
+          <p><strong>Email:</strong> privacy@gameonlive.tv</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam</p>
         </div>
-        <p class="response-note">We aim to respond to all inquiries within 48 hours.</p>
+        <p>If you are not satisfied with how we process your personal data and we cannot resolve it together, you have the right to file a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens) or the data protection authority in your country of residence.</p>
       </section>
     </div>
   </div>
@@ -137,7 +203,7 @@
 
 <style scoped>
 .privacy-page {
-  background: #f5f8ff;
+  background: #f8fafc;
   min-height: 100vh;
   padding: 8rem 2rem 4rem;
 }
@@ -148,7 +214,7 @@
   background: white;
   padding: 3rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 h1 {
@@ -161,12 +227,11 @@ h1 {
 .last-updated {
   text-align: center;
   color: #666;
-  margin-bottom: 2.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
 
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -174,32 +239,24 @@ h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 p {
-  color: #444;
+  color: #4a5568;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
-.contact-details, 
-.mobile-billing-section, 
-.contact-section {
-  background: #f5f8ff;
+.contact-details, .mobile-billing-section, .contact-section {
+  background: #f7fafc;
   padding: 1.5rem;
   border-radius: 0.5rem;
   margin: 1rem 0;
 }
 
-.contact-details p, 
-.contact-section p {
+.contact-details p, .contact-section p {
   margin-bottom: 0.5rem;
-}
-
-.contact-details p:last-child, 
-.contact-section p:last-child {
-  margin-bottom: 0;
 }
 
 .data-grid {
@@ -210,7 +267,7 @@ p {
 }
 
 .data-card {
-  background: #f5f8ff;
+  background: #f7fafc;
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
@@ -222,28 +279,37 @@ p {
 }
 
 .usage-list,
-.security-list,
-.rights-section ul,
-ul {
+.security-measures,
+.legal-basis-list,
+.sharing-list,
+.transfer-list,
+.retention-list,
+.cookie-list {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
 }
 
 .usage-list li,
-.security-list li,
-.rights-section ul li,
-ul li {
+.security-measures li,
+.legal-basis-list li,
+.sharing-list li,
+.transfer-list li,
+.retention-list li,
+.cookie-list li {
   padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
-  color: #444;
+  color: #4a5568;
   line-height: 1.5;
 }
 
 .usage-list li::before,
-.security-list li::before,
-.rights-section ul li::before,
-ul li::before {
+.security-measures li::before,
+.legal-basis-list li::before,
+.sharing-list li::before,
+.transfer-list li::before,
+.retention-list li::before,
+.cookie-list li::before {
   content: "•";
   color: #0055FF;
   position: absolute;
@@ -251,16 +317,27 @@ ul li::before {
   font-weight: bold;
 }
 
-.mobile-billing-section ul li::before {
-  content: "✓";
-  color: #0055FF;
+.mobile-billing-section ul, .rights-section ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
 }
 
-.response-note {
-  font-style: italic;
-  text-align: center;
-  color: #777;
-  margin-top: 1rem;
+.mobile-billing-section li, .rights-section li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: #4a5568;
+}
+
+.mobile-billing-section li::before, .rights-section li::before {
+  content: "✓";
+  color: #0055FF;
+  position: absolute;
+  left: 0;
+}
+
+.rights-section strong {
+  color: #2d3748;
 }
 
 @media (max-width: 768px) {
@@ -303,9 +380,7 @@ ul li::before {
     font-size: 1.2rem;
   }
 
-  .contact-details, 
-  .mobile-billing-section, 
-  .contact-section {
+  .contact-details, .mobile-billing-section, .contact-section {
     padding: 1rem;
   }
 }

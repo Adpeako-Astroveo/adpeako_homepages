@@ -77,6 +77,49 @@ const paymentFeatures = ref([
   }
 ]);
 
+// Subscription plans
+const plans = ref([
+  {
+    name: 'Basic',
+    price: '9.99',
+    period: '/month',
+    features: [
+      'Access to all entertainment categories',
+      'HD streaming quality',
+      'Single device streaming',
+      'Ad-free experience'
+    ],
+    color: '#0055FF'
+  },
+  {
+    name: 'Premium',
+    price: '14.99',
+    period: '/month',
+    features: [
+      'Everything in Basic',
+      '4K Ultra HD where available',
+      'Stream on up to 3 devices',
+      'Unlimited downloads',
+      'Priority customer support'
+    ],
+    color: '#00CCFF',
+    recommended: true
+  },
+  {
+    name: 'Family',
+    price: '19.99',
+    period: '/month',
+    features: [
+      'Everything in Premium',
+      'Up to 6 user profiles',
+      'Parental controls',
+      'Stream on up to 6 devices',
+      'Personalized recommendations'
+    ],
+    color: '#0055FF'
+  }
+]);
+
 // How it works steps
 const howItWorks = ref([
   {
@@ -138,7 +181,6 @@ const stopAutoRotate = () => {
   }
 };
 
-// Navigation
 const navigateTo = (path) => {
   router.push(path);
 };
@@ -705,8 +747,6 @@ const handleGetStarted = () => {
   transition: transform 0.3s ease;
   text-align: center;
   position: relative;
-  border: 3px solid transparent;
-  overflow: hidden;
 }
 
 .plan-card:hover {
@@ -775,9 +815,9 @@ const handleGetStarted = () => {
 
 .plan-features li {
   padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
   padding-left: 1.5rem;
   position: relative;
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .plan-features li:last-child {
@@ -900,7 +940,7 @@ const handleGetStarted = () => {
   background: #ddd;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .indicator.active {
@@ -960,7 +1000,7 @@ const handleGetStarted = () => {
   .hero h1 {
     font-size: 3.5rem;
   }
-
+  
   .section-header h2 {
     font-size: 2.2rem;
   }
@@ -989,7 +1029,7 @@ const handleGetStarted = () => {
   }
   
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
   
   .hero p {
