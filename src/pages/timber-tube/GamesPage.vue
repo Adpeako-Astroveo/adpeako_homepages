@@ -371,7 +371,7 @@ const navigateToLogin = () => {
         <div class="billing-info">
           <h3>Premium Games Package</h3>
           <div class="price-tag">
-            <span class="price-amount">€12.99</span>
+            <span class="price-amount">฿12.99</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="billing-features">
@@ -651,7 +651,7 @@ section h2 {
 /* Game Categories */
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -738,7 +738,7 @@ section h2 {
 /* New Releases */
 .releases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;

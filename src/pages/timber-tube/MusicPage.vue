@@ -75,7 +75,7 @@ const newAlbums = ref([
   {
     title: 'Electric Skies',
     artist: 'Neon Pulse',
-    image: 'https://images.pexels.com/photos/1694900/pexels-photo-1694900.jpeg',
+    image: 'https://images.pexels.com/photos/2111015/pexels-photo-2111015.jpeg',
     releaseDate: 'May 8, 2025',
     genre: 'Electronic'
   },
@@ -321,7 +321,7 @@ const navigateToLogin = () => {
         <div class="billing-info">
           <h3>Music Premium Subscription</h3>
           <div class="price-tag">
-            <span class="price-amount">€9.99</span>
+            <span class="price-amount">฿9.99</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="billing-features">

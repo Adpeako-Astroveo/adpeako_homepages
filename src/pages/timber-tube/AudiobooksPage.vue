@@ -284,7 +284,7 @@ const navigateToLogin = () => {
           <div class="book-image">
             <img :src="book.image" :alt="book.title">
             <div class="book-overlay">
-              <button class="listen-button small" @click="navigateToLogin">Listen</button>
+              <button class="listen-button" @click="navigateToLogin">Listen</button>
             </div>
             <div class="new-badge">NEW</div>
           </div>
@@ -308,7 +308,7 @@ const navigateToLogin = () => {
           <div class="book-image">
             <img :src="book.image" :alt="book.title">
             <div class="book-overlay">
-              <button class="listen-button small" @click="navigateToLogin">Listen</button>
+              <button class="listen-button" @click="navigateToLogin">Listen</button>
             </div>
           </div>
           <div class="book-info">
@@ -366,16 +366,16 @@ const navigateToLogin = () => {
         <div class="billing-info">
           <h3>Unlimited Listening</h3>
           <div class="price-tag">
-            <span class="price-amount">€11.99</span>
+            <span class="price-amount">฿11.99</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="billing-features">
-            <li><span class="check-icon">✓</span> Access to 100,000+ premium audiobooks</li>
-            <li><span class="check-icon">✓</span> New titles added weekly</li>
-            <li><span class="check-icon">✓</span> Unlimited listening on any device</li>
-            <li><span class="check-icon">✓</span> Offline downloads for on-the-go listening</li>
-            <li><span class="check-icon">✓</span> High-quality audio (up to 320kbps)</li>
-            <li><span class="check-icon">✓</span> Cancel anytime with no penalties</li>
+            <li><span class="check">✓</span> Access to 100,000+ premium audiobooks</li>
+            <li><span class="check">✓</span> New titles added weekly</li>
+            <li><span class="check">✓</span> Unlimited listening on any device</li>
+            <li><span class="check">✓</span> Offline downloads for on-the-go listening</li>
+            <li><span class="check">✓</span> High-quality audio (up to 320kbps)</li>
+            <li><span class="check">✓</span> Cancel anytime with no penalties</li>
           </ul>
           <p class="billing-note">Billed directly to your phone - no credit card required</p>
           <button class="billing-button" @click="navigateToLogin">Subscribe Now</button>
@@ -650,7 +650,7 @@ section h2 {
 /* Categories */
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -703,7 +703,7 @@ section h2 {
 /* New Releases */
 .releases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -741,7 +741,7 @@ section h2 {
 /* Best Sellers */
 .bestsellers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -916,8 +916,8 @@ section h2 {
 
 .billing-info h3 {
   font-size: 2rem;
-  color: #3B52A5;
   margin-bottom: 1.5rem;
+  color: #3B52A5;
 }
 
 .price-tag {
@@ -949,11 +949,10 @@ section h2 {
   font-size: 1.1rem;
 }
 
-.check-icon {
+.check {
   color: #3B52A5;
-  margin-right: 1rem;
-  font-size: 1.2rem;
   font-weight: bold;
+  margin-right: 0.8rem;
 }
 
 .billing-note {
@@ -977,7 +976,7 @@ section h2 {
 .billing-button:hover {
   background: #5D72D9;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(59, 82, 165, 0.2);
+  box-shadow: 0 10px 20px rgba(59, 82, 165, 0.3);
 }
 
 .billing-image {
@@ -1032,7 +1031,7 @@ section h2 {
   }
   
   .bestsellers-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
@@ -1067,11 +1066,11 @@ section h2 {
   }
   
   .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   
   .releases-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   
   .testimonials-container {
@@ -1116,7 +1115,7 @@ section h2 {
   
   .releases-grid,
   .bestsellers-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   
   .features-grid {

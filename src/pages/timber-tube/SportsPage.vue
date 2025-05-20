@@ -399,7 +399,7 @@ const navigateToLogin = () => {
         <div class="billing-info">
           <h3>Premium Sports Access</h3>
           <div class="price-box">
-            <span class="price-amount">€14.99</span>
+            <span class="price-amount">฿14.99</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="billing-features">

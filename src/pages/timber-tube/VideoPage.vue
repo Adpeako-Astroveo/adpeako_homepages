@@ -183,7 +183,7 @@ const features = ref([
 const plans = ref([
   {
     name: 'Basic',
-    price: '€7.99',
+    price: '฿7.99',
     period: '/month',
     quality: 'HD',
     devices: '1 device',
@@ -192,7 +192,7 @@ const plans = ref([
   },
   {
     name: 'Standard',
-    price: '€11.99',
+    price: '฿11.99',
     period: '/month',
     quality: 'Full HD',
     devices: '2 devices',
@@ -201,7 +201,7 @@ const plans = ref([
   },
   {
     name: 'Premium',
-    price: '€15.99',
+    price: '฿15.99',
     period: '/month',
     quality: '4K Ultra HD',
     devices: '4 devices',
@@ -578,7 +578,7 @@ section h2 {
 /* Continue Watching */
 .continue-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -1194,11 +1194,11 @@ section h2 {
   }
   
   .releases-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   
   .features-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   
   .plans-grid {
@@ -1271,7 +1271,7 @@ section h2 {
   }
   
   .categories-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   
   .continue-grid {
