@@ -40,6 +40,13 @@ import TimberTubeSportsPage from './pages/timber-tube/SportsPage.vue';
 import TimberTubeGamesPage from './pages/timber-tube/GamesPage.vue';
 import TimberTubeAudiobooksPage from './pages/timber-tube/AudiobooksPage.vue';
 
+// GameOnLive specific pages
+import GameOnLiveMusicPage from './pages/gameonlive/MusicPage.vue';
+import GameOnLiveVideoPage from './pages/gameonlive/VideoPage.vue';
+import GameOnLiveSportsPage from './pages/gameonlive/SportsPage.vue';
+import GameOnLiveGamesPage from './pages/gameonlive/GamesPage.vue';
+import GameOnLiveAudiobooksPage from './pages/gameonlive/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -199,6 +206,32 @@ const routes = [
     path: '/timber-tube/audiobooks',
     component: TimberTubeAudiobooksPage,
     name: 'timber-tube-audiobooks'
+  },
+  // GameOnLive specific routes
+  {
+    path: '/gameonlive/music',
+    component: GameOnLiveMusicPage,
+    name: 'gameonlive-music'
+  },
+  {
+    path: '/gameonlive/video',
+    component: GameOnLiveVideoPage,
+    name: 'gameonlive-video'
+  },
+  {
+    path: '/gameonlive/sports',
+    component: GameOnLiveSportsPage,
+    name: 'gameonlive-sports'
+  },
+  {
+    path: '/gameonlive/games',
+    component: GameOnLiveGamesPage,
+    name: 'gameonlive-games'
+  },
+  {
+    path: '/gameonlive/audiobooks',
+    component: GameOnLiveAudiobooksPage,
+    name: 'gameonlive-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',
