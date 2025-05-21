@@ -1,0 +1,17 @@
+public/*
+!public/logo.svg
+!public/lofty-sprout.svg
+
+src/designs/*
+!src/designs/default/*
+!src/designs/default.js
+!src/designs/lofty-sprout.js
+
+src/pages/confused-eliphant/*
+src/pages/gameonlive/*
+src/pages/height-ways/*
+src/pages/nextlevelstreams/*
+src/pages/switch-runner/*
+src/pages/tomber-tube/*
+
+
