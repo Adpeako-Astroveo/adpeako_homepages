@@ -272,8 +272,8 @@ body, html {
 }
 
 .timber-content\.com {
-  background: #0f172a;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
 }
 
 .default {
@@ -448,7 +448,7 @@ footer {
 
   /* Match mobile nav background to header design */
   .timber-content\.com .nav-links {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
   }
 }
 
