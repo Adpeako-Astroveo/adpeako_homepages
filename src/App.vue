@@ -144,6 +144,16 @@ provide('siteName', siteName);
       <nav class="nav-links" :class="{ 'open': isMobileMenuOpen }">
         <RouterLink to="/" class="nav-link">Home</RouterLink>
         <RouterLink to="/privacy" class="nav-link">Privacy</RouterLink>
+        
+        <!-- Domain-specific links -->
+        <template v-if="designId === 'timber-content.com'">
+          <RouterLink to="/timber-content/music" class="nav-link">Music</RouterLink>
+          <RouterLink to="/timber-content/video" class="nav-link">Video</RouterLink>
+          <RouterLink to="/timber-content/sports" class="nav-link">Sports</RouterLink>
+          <RouterLink to="/timber-content/games" class="nav-link">Games</RouterLink>
+          <RouterLink to="/timber-content/audiobooks" class="nav-link">Audiobooks</RouterLink>
+        </template>
+        
         <RouterLink to="/login" class="login-btn">Login</RouterLink>
       </nav>
     </header>
@@ -152,6 +162,15 @@ provide('siteName', siteName);
       <nav class="footer-nav">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/privacy">Privacy</RouterLink>
+        
+        <!-- Domain-specific links in footer -->
+        <template v-if="designId === 'timber-content.com'">
+          <RouterLink to="/timber-content/music">Music</RouterLink>
+          <RouterLink to="/timber-content/video">Video</RouterLink>
+          <RouterLink to="/timber-content/sports">Sports</RouterLink>
+          <RouterLink to="/timber-content/games">Games</RouterLink>
+          <RouterLink to="/timber-content/audiobooks">Audiobooks</RouterLink>
+        </template>
       </nav>
     </footer>
   </div>
@@ -250,6 +269,11 @@ body, html {
 
 .height-ways\.com {
   background: #007BFF; /* Static blue color */
+}
+
+.timber-content\.com {
+  background: #0f172a;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .default {
@@ -420,6 +444,11 @@ footer {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+  }
+
+  /* Match mobile nav background to header design */
+  .timber-content\.com .nav-links {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
 }
 

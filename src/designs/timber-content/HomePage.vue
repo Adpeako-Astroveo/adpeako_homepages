@@ -4,1137 +4,767 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-// Define sections for content types
-const contentSections = ref([
+const featuredContent = ref([
   {
-    id: 'music',
     title: 'Music Streaming',
-    subtitle: 'Millions of songs at your fingertips',
-    description: 'Discover new artists, create playlists, and enjoy crystal-clear audio quality. Stream anywhere or download for offline listening.',
-    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
-    color: '#3B52A5',
-    features: [
-      'Unlimited streaming of 70M+ songs',
-      'HD audio quality (up to 320kbps)',
-      'Personalized playlists & recommendations',
-      'Offline downloads for on-the-go listening'
-    ],
-    ctaText: 'Start Listening',
-    path: '/timber-content/music'
+    description: 'Millions of songs. Zero ads. Crystal-clear quality.',
+    image: 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg',
+    link: '/timber-content/music'
   },
   {
-    id: 'video',
     title: 'Video Streaming',
-    subtitle: 'Movies, TV shows & more',
-    description: 'Thousands of titles in stunning HD and 4K quality. From the latest blockbusters to classic TV series and exclusive content.',
+    description: 'Unlimited movies, TV shows, and documentaries in 4K.',
     image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
-    color: '#FF6B6B',
-    features: [
-      'Extensive library of movies & TV shows',
-      'Up to 4K Ultra HD quality',
-      'New releases added weekly',
-      'Multi-device streaming'
-    ],
-    ctaText: 'Start Watching',
-    path: '/timber-content/video'
+    link: '/timber-content/video'
   },
   {
-    id: 'sports',
     title: 'Live Sports',
-    subtitle: 'Never miss a game',
-    description: 'Stream live matches from top leagues and tournaments worldwide. Catch up with highlights, analysis, and exclusive sports content.',
+    description: 'Stream live sports from around the world.',
     image: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg',
-    color: '#38B2AC',
-    features: [
-      'Live coverage of major sporting events',
-      'Multi-view for watching several games',
-      'Real-time statistics and commentary',
-      'Instant replays & highlights'
-    ],
-    ctaText: 'Watch Sports',
-    path: '/timber-content/sports'
+    link: '/timber-content/sports'
+  }
+]);
+
+const entertainmentCategories = ref([
+  {
+    title: 'Music',
+    icon: '🎵',
+    description: 'Stream millions of songs with premium audio quality.',
+    link: '/timber-content/music',
+    color: '#3a1d58'
   },
   {
-    id: 'games',
-    title: 'Mobile Games',
-    subtitle: 'Premium gaming without limits',
-    description: 'Access a growing library of premium games with no ads or in-app purchases. From casual puzzles to immersive adventures.',
-    image: 'https://images.pexels.com/photos/159393/gamepad-video-game-controller-game-controller-controller-159393.jpeg',
-    color: '#ED8936',
-    features: [
-      '1000+ premium games without ads',
-      'No in-app purchases needed',
-      'New games added monthly',
-      'Cloud saves across devices'
-    ],
-    ctaText: 'Start Playing',
-    path: '/timber-content/games'
+    title: 'Video',
+    icon: '🎬',
+    description: 'Watch exclusive movies and TV shows in 4K HDR.',
+    link: '/timber-content/video',
+    color: '#0f0f0f'
   },
   {
-    id: 'audiobooks',
-    title: 'Audiobook Library',
-    subtitle: 'Stories brought to life',
-    description: 'Thousands of audiobooks narrated by world-class voice actors. From bestsellers to classics, find your next great listen.',
-    image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
-    color: '#805AD5',
-    features: [
-      'Extensive library of audiobooks',
-      'Professional narration',
-      'Customizable playback speed',
-      'Offline listening & bookmarks'
-    ],
-    ctaText: 'Start Listening',
-    path: '/timber-content/audiobooks'
+    title: 'Sports',
+    icon: '⚽',
+    description: 'Never miss a game with live sports coverage.',
+    link: '/timber-content/sports',
+    color: '#0a192f'
+  },
+  {
+    title: 'Games',
+    icon: '🎮',
+    description: 'Play hundreds of premium mobile games.',
+    link: '/timber-content/games',
+    color: '#6d28d9'
+  },
+  {
+    title: 'Audiobooks',
+    icon: '🎧',
+    description: 'Listen to bestsellers narrated by award-winning voices.',
+    link: '/timber-content/audiobooks',
+    color: '#3a1d58'
   }
 ]);
 
 const testimonials = ref([
   {
-    quote: "Timber Content has completely transformed how I enjoy entertainment. Having everything in one place with simple phone billing is exactly what I needed!",
-    author: "Sophie K.",
-    location: "Berlin, Germany"
+    quote: "The audio quality on Timber Content's music streaming is unmatched. I hear details in my favorite songs that I never noticed before.",
+    author: "Sarah J.",
+    role: "Music Enthusiast"
   },
   {
-    quote: "The audio quality for music is fantastic, and being able to switch over to a movie or audiobook seamlessly is incredibly convenient.",
-    author: "James T.",
-    location: "London, UK"
+    quote: "Being able to download games and play them offline has been a game-changer for my commute. No more connectivity issues!",
+    author: "Michael T.",
+    role: "Mobile Gamer"
   },
   {
-    quote: "I love the mobile games selection! No ads or in-app purchases means I can just enjoy playing without interruptions.",
-    author: "Marco P.",
-    location: "Milan, Italy"
+    quote: "The sports streaming feature has revolutionized how I watch games. Multiple camera angles and real-time stats enhance the experience.",
+    author: "David K.",
+    role: "Sports Fan"
   }
 ]);
 
-const currentTestimonialIndex = ref(0);
-
-const pricingPlans = ref([
-  {
-    name: "Basic",
-    price: "€9.99",
-    period: "/month",
-    features: [
-      "Access to one content category",
-      "HD quality streaming",
-      "Single device access",
-      "Limited downloads"
-    ],
-    recommended: false
-  },
-  {
-    name: "Premium",
-    price: "€14.99",
-    period: "/month",
-    features: [
-      "Access to all content categories",
-      "HD & 4K streaming where available",
-      "Stream on up to 3 devices",
-      "Unlimited downloads",
-      "Priority customer support"
-    ],
-    recommended: true
-  },
-  {
-    name: "Family",
-    price: "€19.99",
-    period: "/month",
-    features: [
-      "Everything in Premium",
-      "Up to 5 user profiles",
-      "Stream on up to 5 devices",
-      "Parental controls",
-      "Content sharing"
-    ],
-    recommended: false
-  }
-]);
-
-const phoneBillingAdvantages = ref([
-  {
-    title: "No Credit Card Required",
-    description: "Simply charge to your phone bill - no need for credit card details",
-    icon: "💳"
-  },
-  {
-    title: "Quick & Simple Setup",
-    description: "Sign up in seconds with just your phone number",
-    icon: "⚡"
-  },
-  {
-    title: "Secure Payments",
-    description: "Trusted and secure payment method through your mobile carrier",
-    icon: "🔒"
-  },
-  {
-    title: "Convenient Billing",
-    description: "All charges appear on your regular phone bill",
-    icon: "📱"
-  }
-]);
-
-const nextTestimonial = () => {
-  currentTestimonialIndex.value = (currentTestimonialIndex.value + 1) % testimonials.value.length;
-};
-
-const prevTestimonial = () => {
-  currentTestimonialIndex.value = (currentTestimonialIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
-};
-
-const navigateToSection = (path) => {
+const navigateTo = (path) => {
   router.push(path);
 };
 
-const startSubscription = () => {
+const handleSubscribe = () => {
   router.push('/login');
 };
 </script>
 
 <template>
-  <div class="homepage">
+  <div class="timber-content-home">
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>All Your Entertainment in One Place</h1>
-        <p class="hero-subtitle">Stream music, watch videos, enjoy games, follow sports, and listen to audiobooks - all with one simple subscription</p>
+        <h1>Your Ultimate Entertainment Hub</h1>
+        <p class="tagline">Music. Videos. Games. Sports. Audiobooks. All in one premium subscription.</p>
         <div class="hero-buttons">
-          <button class="primary-button" @click="startSubscription">Get Started</button>
-          <button class="secondary-button" @click="startSubscription">Explore Content</button>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="hero-gradient-overlay"></div>
-        <div class="devices-illustration">
-          <div class="device phone"></div>
-          <div class="device tablet"></div>
+          <button @click="handleSubscribe" class="cta-button primary">Start Free Trial</button>
+          <button @click="navigateTo('/timber-content/music')" class="cta-button secondary">Explore Content</button>
         </div>
       </div>
     </section>
 
-    <!-- Content Sections -->
-    <section v-for="(section, index) in contentSections" 
-             :key="section.id" 
-             :class="['content-section', `bg-${index % 2 === 0 ? 'light' : 'dark'}`]">
-      <div class="section-container" :class="{ 'reverse': index % 2 !== 0 }">
-        <div class="section-image">
-          <img :src="section.image" :alt="section.title">
-          <div class="image-overlay" :style="{ background: `linear-gradient(to right, ${section.color}99, ${section.color}22)` }"></div>
-        </div>
-        <div class="section-content">
-          <h2 :style="{ color: section.color }">{{ section.title }}</h2>
-          <p class="section-subtitle">{{ section.subtitle }}</p>
-          <p class="section-description">{{ section.description }}</p>
-          <ul class="features-list">
-            <li v-for="feature in section.features" :key="feature">
-              <span class="feature-check" :style="{ color: section.color }">✓</span>
-              {{ feature }}
-            </li>
-          </ul>
-          <button class="section-cta" 
-                  :style="{ background: section.color }"
-                  @click="navigateToSection(section.path)">
-            {{ section.ctaText }}
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-      <div class="section-header">
-        <h2>Simple Pricing, Incredible Value</h2>
-        <p>Choose the plan that's right for you</p>
-      </div>
-      
-      <div class="pricing-container">
-        <div v-for="plan in pricingPlans" 
-             :key="plan.name" 
-             class="pricing-plan"
-             :class="{ 'recommended': plan.recommended }">
-          <div v-if="plan.recommended" class="recommended-badge">Best Value</div>
-          <h3>{{ plan.name }}</h3>
-          <div class="price">
-            <span class="amount">{{ plan.price }}</span>
-            <span class="period">{{ plan.period }}</span>
+    <!-- Featured Content Carousel -->
+    <section class="featured-content">
+      <h2>Featured Content</h2>
+      <div class="content-carousel">
+        <div v-for="content in featuredContent" :key="content.title" class="carousel-card">
+          <div class="card-image">
+            <img :src="content.image" :alt="content.title">
+            <div class="card-overlay"></div>
           </div>
-          <ul class="plan-features">
-            <li v-for="feature in plan.features" :key="feature">
-              <span class="feature-check">✓</span> {{ feature }}
-            </li>
-          </ul>
-          <button class="plan-cta" @click="startSubscription">Subscribe Now</button>
+          <div class="card-content">
+            <h3>{{ content.title }}</h3>
+            <p>{{ content.description }}</p>
+            <button @click="navigateTo(content.link)" class="explore-button">Explore</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Mobile Billing Section -->
-    <section class="mobile-billing-section">
-      <div class="billing-container">
-        <div class="billing-content">
-          <h2>Easy Payment with Phone Billing</h2>
-          <p>No credit card? No problem. Enjoy hassle-free billing directly to your mobile phone account.</p>
-          
-          <div class="advantages-grid">
-            <div v-for="advantage in phoneBillingAdvantages" :key="advantage.title" class="advantage-card">
-              <div class="advantage-icon">{{ advantage.icon }}</div>
-              <h3>{{ advantage.title }}</h3>
-              <p>{{ advantage.description }}</p>
+    <!-- Entertainment Categories -->
+    <section class="entertainment-categories">
+      <h2>Entertainment Categories</h2>
+      <div class="categories-grid">
+        <div 
+          v-for="category in entertainmentCategories" 
+          :key="category.title" 
+          class="category-card"
+          @click="navigateTo(category.link)"
+          :style="{ '--category-color': category.color }"
+        >
+          <div class="category-icon">{{ category.icon }}</div>
+          <h3>{{ category.title }}</h3>
+          <p>{{ category.description }}</p>
+          <span class="arrow-icon">→</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="features-content">
+        <h2>One Subscription, Unlimited Entertainment</h2>
+        <p class="features-subtitle">Join Timber Content and enjoy all these premium benefits:</p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h3>Ad-Free Experience</h3>
+              <p>Enjoy uninterrupted entertainment across all platforms.</p>
             </div>
           </div>
           
-          <div class="billing-steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <p>Choose your plan</p>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h3>Offline Access</h3>
+              <p>Download content for offline enjoyment anywhere.</p>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <p>Enter your phone number</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h3>Premium Quality</h3>
+              <p>4K video, HD audio, and high-performance gaming.</p>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <p>Confirm with SMS</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h3>Family Sharing</h3>
+              <p>Share your subscription with up to 6 family members.</p>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step">
-              <div class="step-number">4</div>
-              <p>Start enjoying content</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h3>Cross-Device Sync</h3>
+              <p>Seamlessly switch between all your devices.</p>
             </div>
           </div>
         </div>
         
-        <div class="carrier-logos">
-          <p>Compatible with all major mobile carriers</p>
-        </div>
+        <button @click="handleSubscribe" class="cta-button primary">Get Started</button>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="testimonial-container">
-        <h2>What Our Users Say</h2>
-        
-        <div class="testimonial-carousel">
-          <button @click="prevTestimonial" class="carousel-arrow prev">&lsaquo;</button>
-          
-          <div class="testimonial-card">
-            <div class="testimonial-quote">{{ testimonials[currentTestimonialIndex].quote }}</div>
-            <div class="testimonial-author">
-              <div class="author-name">{{ testimonials[currentTestimonialIndex].author }}</div>
-              <div class="author-location">{{ testimonials[currentTestimonialIndex].location }}</div>
-            </div>
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="testimonials-grid">
+        <div v-for="testimonial in testimonials" :key="testimonial.quote" class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="quote">{{ testimonial.quote }}</p>
+          <div class="author-info">
+            <p class="author-name">{{ testimonial.author }}</p>
+            <p class="author-role">{{ testimonial.role }}</p>
           </div>
-          
-          <button @click="nextTestimonial" class="carousel-arrow next">&rsaquo;</button>
-        </div>
-        
-        <div class="testimonial-dots">
-          <span v-for="(_, index) in testimonials" 
-                :key="index" 
-                @click="currentTestimonialIndex = index"
-                :class="{ active: currentTestimonialIndex === index }"></span>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="cta-container">
-        <h2>Ready to Experience Premium Entertainment?</h2>
-        <p>Join millions of satisfied users enjoying unlimited content with Timber Content</p>
-        <button class="primary-button large" @click="startSubscription">Get Started Today</button>
+      <div class="cta-content">
+        <h2>Ready to experience premium entertainment?</h2>
+        <p>Join millions of satisfied subscribers. Cancel anytime.</p>
+        <button @click="handleSubscribe" class="cta-button primary">Start Your Free Trial</button>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.homepage {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1F2937;
+.timber-content-home {
+  min-height: 100vh;
+  color: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 12rem 2rem 8rem;
+  text-align: center;
   position: relative;
-  min-height: 90vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: linear-gradient(135deg, #3B52A5 0%, #4C6EF5 100%);
-  color: white;
   overflow: hidden;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.pexels.com/photos/6283213/pexels-photo-6283213.jpeg') center/cover no-repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+
 .hero-content {
-  padding: 8rem 3rem;
+  position: relative;
   z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
+  font-size: 4rem;
+  font-weight: 800;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-.hero-subtitle {
-  font-size: 1.3rem;
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
   opacity: 0.9;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-  max-width: 600px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.primary-button {
-  background: white;
-  color: #3B52A5;
-  font-size: 1.1rem;
-  padding: 1rem 2.5rem;
+.cta-button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
   border-radius: 50px;
   border: none;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.primary-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.primary-button.large {
-  padding: 1.2rem 3rem;
-  font-size: 1.2rem;
-}
-
-.secondary-button {
-  background: rgba(255, 255, 255, 0.2);
+.cta-button.primary {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
   color: white;
-  font-size: 1.1rem;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  border: 2px solid white;
-  font-weight: 600;
-  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Featured Content */
+.featured-content {
+  padding: 6rem 2rem;
+  background: #1e293b;
+}
+
+.featured-content h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.featured-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
+  border-radius: 2px;
+}
+
+.content-carousel {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.carousel-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: #0f172a;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   transition: all 0.3s ease;
 }
 
-.secondary-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-3px);
+.carousel-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-.hero-image {
+.card-image {
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.hero-gradient-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, rgba(59, 82, 165, 0.9) 0%, rgba(59, 82, 165, 0) 100%);
-  z-index: 1;
-}
-
-.devices-illustration {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.device {
-  position: absolute;
-  background: #1F2937;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-  border: 8px solid #374151;
-  border-radius: 20px;
-}
-
-.phone {
-  width: 180px;
-  height: 350px;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%) rotate(-15deg);
-}
-
-.tablet {
-  width: 300px;
-  height: 220px;
-  top: 60%;
-  right: -10%;
-  transform: translate(-50%, -50%) rotate(15deg);
-}
-
-/* Content Sections */
-.content-section {
-  padding: 7rem 2rem;
+  height: 250px;
   overflow: hidden;
 }
 
-.bg-light {
-  background: white;
-}
-
-.bg-dark {
-  background: #F9FAFB;
-}
-
-.section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.section-container.reverse {
-  direction: rtl;
-}
-
-.section-container.reverse .section-content {
-  direction: ltr;
-}
-
-.section-image {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  max-height: 500px;
-}
-
-.section-image img {
+.card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.5s ease;
 }
 
-.section-container:hover .section-image img {
+.carousel-card:hover .card-image img {
   transform: scale(1.05);
 }
 
-.image-overlay {
+.card-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.8) 100%);
 }
 
-.section-content {
-  padding: 2rem 0;
+.card-content {
+  padding: 2rem;
 }
 
-.section-content h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.section-subtitle {
+.card-content h3 {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #4B5563;
-  margin-bottom: 1.5rem;
-}
-
-.section-description {
-  color: #6B7280;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.features-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.features-list li {
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.1rem;
-  color: #4B5563;
-}
-
-.feature-check {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.section-cta {
+  margin-bottom: 1rem;
   color: white;
-  font-size: 1.1rem;
-  padding: 0.8rem 2rem;
+}
+
+.card-content p {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.explore-button {
+  background: transparent;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
-  border: none;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.section-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.explore-button:hover {
+  background: rgba(56, 189, 248, 0.1);
 }
 
-/* Pricing Section */
-.pricing-section {
-  padding: 7rem 2rem;
-  background: linear-gradient(135deg, #F5F9FF 0%, #E6F0FF 100%);
+/* Entertainment Categories */
+.entertainment-categories {
+  padding: 6rem 2rem;
+  background: #0f172a;
 }
 
-.section-header {
+.entertainment-categories h2 {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 4rem;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.section-header h2 {
-  font-size: 3rem;
-  color: #3B52A5;
-  margin-bottom: 1rem;
-  font-weight: 800;
+.entertainment-categories h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
+  border-radius: 2px;
 }
 
-.section-header p {
-  color: #6B7280;
-  font-size: 1.2rem;
-}
-
-.pricing-container {
-  display: flex;
-  justify-content: center;
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.pricing-plan {
-  background: white;
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  max-width: 350px;
-  position: relative;
+.category-card {
+  background: #1e293b;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
-}
-
-.pricing-plan:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-plan.recommended {
-  border: 3px solid #3B52A5;
-  padding-top: 4rem;
-}
-
-.recommended-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #3B52A5;
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-.pricing-plan h3 {
-  font-size: 1.8rem;
-  color: #3B52A5;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.price {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.amount {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #1F2937;
-}
-
-.period {
-  color: #6B7280;
-  font-size: 1.2rem;
-}
-
-.plan-features {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.plan-features li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #F3F4F6;
-  color: #4B5563;
-}
-
-.plan-features li:last-child {
-  border-bottom: none;
-}
-
-.plan-cta {
-  width: 100%;
-  background: #3B52A5;
-  color: white;
-  padding: 1rem;
-  border-radius: 50px;
-  border: none;
-  font-weight: 600;
-  font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
+  border-top: 4px solid var(--category-color, #38bdf8);
 }
 
-.plan-cta:hover {
-  background: #4C6EF5;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(59, 82, 165, 0.2);
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-/* Mobile Billing Section */
-.mobile-billing-section {
-  padding: 7rem 2rem;
-  background: white;
+.category-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.billing-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.category-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: white;
 }
 
-.billing-content {
-  max-width: 900px;
-  margin: 0 auto;
+.category-card p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.arrow-icon {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: #38bdf8;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Features Section */
+.features {
+  padding: 6rem 2rem;
+  background: #1e293b;
   text-align: center;
 }
 
-.billing-content h2 {
-  font-size: 3rem;
-  color: #3B52A5;
+.features-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.features h2 {
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  font-weight: 800;
+  color: white;
 }
 
-.billing-content p {
-  color: #6B7280;
+.features-subtitle {
   font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.6;
+  margin-bottom: 4rem;
+  color: #cbd5e1;
 }
 
-.advantages-grid {
+.features-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
 
-.advantage-card {
-  background: #F9FAFB;
-  padding: 2rem;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
-}
-
-.advantage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.advantage-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.advantage-card h3 {
-  color: #3B52A5;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.advantage-card p {
-  color: #6B7280;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.billing-steps {
+.feature-item {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  text-align: left;
   gap: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.step-number {
-  width: 3rem;
-  height: 3rem;
-  background: #3B52A5;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
   border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.step p {
-  color: #4B5563;
-  font-weight: 500;
-  margin: 0;
-  max-width: 130px;
-}
-
-.step-arrow {
-  color: #3B52A5;
-  font-size: 2rem;
-  margin-top: -1rem;
-}
-
-.carrier-logos {
-  margin-top: 4rem;
-  text-align: center;
-  color: #6B7280;
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-/* Testimonials Section */
-.testimonials-section {
-  padding: 7rem 2rem;
-  background: #F9FAFB;
-}
-
-.testimonial-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonial-container h2 {
-  font-size: 3rem;
-  color: #3B52A5;
-  margin-bottom: 3rem;
-  font-weight: 800;
-}
-
-.testimonial-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.feature-text p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 6rem 2rem;
+  background: #0f172a;
+}
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.testimonials h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
+  border-radius: 2px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .testimonial-card {
-  background: white;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-width: 700px;
+  background: #1e293b;
+  border-radius: 1rem;
+  padding: 3rem 2rem 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   position: relative;
 }
 
-.testimonial-card::before {
-  content: '"';
+.quote-mark {
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
   left: 2rem;
   font-size: 5rem;
-  font-family: 'Georgia', serif;
-  color: #E5E7EB;
   line-height: 0;
+  color: rgba(56, 189, 248, 0.2);
 }
 
-.testimonial-quote {
-  font-size: 1.3rem;
-  font-style: italic;
-  color: #4B5563;
+.quote {
+  font-size: 1.1rem;
   line-height: 1.8;
+  color: #f8fafc;
   margin-bottom: 2rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-.testimonial-author {
-  text-align: right;
+.author-info {
+  border-top: 1px solid rgba(203, 213, 225, 0.1);
+  padding-top: 1.5rem;
 }
 
 .author-name {
-  font-weight: 700;
-  color: #3B52A5;
-  font-size: 1.1rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 0.25rem;
 }
 
-.author-location {
-  color: #6B7280;
+.author-role {
+  color: #cbd5e1;
   font-size: 0.9rem;
-}
-
-.carousel-arrow {
-  background: #3B52A5;
-  color: white;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: none;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.carousel-arrow:hover {
-  background: #4C6EF5;
-  transform: scale(1.1);
-}
-
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-}
-
-.testimonial-dots span {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background: #D1D5DB;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.testimonial-dots span.active {
-  background: #3B52A5;
-  transform: scale(1.2);
 }
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #3B52A5 0%, #4C6EF5 100%);
-  color: white;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 6rem 2rem;
   text-align: center;
-  padding: 7rem 2rem;
+  position: relative;
 }
 
-.cta-container {
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.pexels.com/photos/6283213/pexels-photo-6283213.jpeg') center/cover no-repeat;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .cta-section h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  font-weight: 800;
+  color: white;
 }
 
 .cta-section p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 2.5rem;
-  opacity: 0.9;
+  color: #cbd5e1;
 }
 
-/* Responsive Styling */
-@media (max-width: 1200px) {
-  .section-container {
-    gap: 3rem;
-  }
-  
-  .pricing-container {
-    flex-wrap: wrap;
-  }
-  
-  .pricing-plan {
-    flex-basis: calc(50% - 2rem);
-    max-width: none;
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 1024px) {
-  .hero {
+  .features-list {
     grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .hero-content {
-    padding: 5rem 2rem 3rem;
-  }
-  
-  .hero-subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-  
-  .pricing-plan {
-    flex-basis: 100%;
-    max-width: 350px;
   }
 }
 
 @media (max-width: 768px) {
-  .section-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .hero {
+    padding: 8rem 1.5rem 6rem;
   }
   
-  .section-container.reverse {
-    direction: ltr;
+  .hero h1 {
+    font-size: 2.8rem;
   }
   
-  .section-content h2 {
-    font-size: 2.5rem;
+  .tagline {
+    font-size: 1.2rem;
   }
   
-  .section-subtitle {
-    font-size: 1.3rem;
+  .carousel-card,
+  .testimonial-card {
+    min-width: 100%;
   }
   
-  .advantages-grid {
-    grid-template-columns: 1fr;
+  .features-list {
     gap: 1.5rem;
   }
   
-  .billing-steps {
+  .feature-item {
     flex-direction: column;
-    gap: 0;
-  }
-  
-  .step-arrow {
-    transform: rotate(90deg);
-  }
-  
-  .carousel-arrow {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .primary-button, .secondary-button {
-    width: 100%;
-  }
-  
-  .section-content h2 {
-    font-size: 2rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .section-description {
-    font-size: 1rem;
-  }
-  
-  .features-list li {
-    font-size: 1rem;
-  }
-  
-  .testimonial-card {
-    padding: 2rem;
-  }
-  
-  .testimonial-quote {
-    font-size: 1.1rem;
+    align-items: center;
+    text-align: center;
   }
   
   .cta-section h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .cta-section p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .content-section {
-    padding: 5rem 1.5rem;
+  .hero {
+    padding: 6rem 1rem 4rem;
   }
   
-  .section-cta {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .featured-content h2,
+  .entertainment-categories h2,
+  .features h2,
+  .testimonials h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
     width: 100%;
   }
   
-  .testimonial-carousel {
-    gap: 1rem;
+  .hero-buttons {
+    flex-direction: column;
   }
   
-  .carousel-arrow {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1rem;
+  .category-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .feature-icon {
+    width: 35px;
+    height: 35px;
   }
 }
 </style>

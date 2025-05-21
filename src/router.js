@@ -54,6 +54,13 @@ import NextLevelStreamsSportsPage from './pages/nextlevelstreams/SportsPage.vue'
 import NextLevelStreamsGamesPage from './pages/nextlevelstreams/GamesPage.vue';
 import NextLevelStreamsAudiobooksPage from './pages/nextlevelstreams/AudiobooksPage.vue';
 
+// Timber Content specific pages
+import TimberContentMusicPage from './pages/timber-content/MusicPage.vue';
+import TimberContentVideoPage from './pages/timber-content/VideoPage.vue';
+import TimberContentSportsPage from './pages/timber-content/SportsPage.vue';
+import TimberContentGamesPage from './pages/timber-content/GamesPage.vue';
+import TimberContentAudiobooksPage from './pages/timber-content/AudiobooksPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -265,6 +272,32 @@ const routes = [
     path: '/nextlevelstreams/audiobooks',
     component: NextLevelStreamsAudiobooksPage,
     name: 'nextlevelstreams-audiobooks'
+  },
+  // Timber Content specific routes
+  {
+    path: '/timber-content/music',
+    component: TimberContentMusicPage,
+    name: 'timber-content-music'
+  },
+  {
+    path: '/timber-content/video',
+    component: TimberContentVideoPage,
+    name: 'timber-content-video'
+  },
+  {
+    path: '/timber-content/sports',
+    component: TimberContentSportsPage,
+    name: 'timber-content-sports'
+  },
+  {
+    path: '/timber-content/games',
+    component: TimberContentGamesPage,
+    name: 'timber-content-games'
+  },
+  {
+    path: '/timber-content/audiobooks',
+    component: TimberContentAudiobooksPage,
+    name: 'timber-content-audiobooks'
   },
   {
     path: '/:pathMatch(.*)*',
