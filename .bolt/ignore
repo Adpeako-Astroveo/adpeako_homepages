@@ -3,6 +3,7 @@ public/*
 !public/jazzy-mango-logo.svg
 src/designs/*
 !src/designs/default/*
+!src/designs/jazzy-mango/*
 !src/designs/default.js
 !src/designs/jazzy-mango.js
 src/pages/confused-eliphant/*
