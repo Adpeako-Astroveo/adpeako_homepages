@@ -14,6 +14,7 @@ import heightWaysDesign from './designs/height-ways.js';
 import timberTubeDesign from './designs/timber-tube.js';
 import gameonliveDesign from './designs/gameonlive.js';
 import nextlevelstreamsDesign from './designs/nextlevelstreams.js';
+import timberContentDesign from './designs/timber-content.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -30,6 +31,7 @@ export default {
   "timber-tube.com": "timber-tube.com",
   "gameonlive.tv": "gameonlive.tv",
   "nextlevelstreams.com": "nextlevelstreams.com",
+  "timber-content.com": "timber-content.com",
   "localhost": "gameonlive.tv",
   "127.0.0.1": "gameonlive.tv"
 };
@@ -49,6 +51,7 @@ export const designs = {
   "timber-tube.com": timberTubeDesign,
   "gameonlive.tv": gameonliveDesign,
   "nextlevelstreams.com": nextlevelstreamsDesign,
+  "timber-content.com": timberContentDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };

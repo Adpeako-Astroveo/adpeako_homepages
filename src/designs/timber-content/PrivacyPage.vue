@@ -1,0 +1,308 @@
+<script setup>
+// Privacy page component for Timber Content
+</script>
+
+<template>
+  <div class="privacy-page">
+    <div class="privacy-container">
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: May 25, 2025</p>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>At Timber Content, we respect your privacy and are committed to protecting your personal data. This Privacy Statement describes how your personal data is processed when using our mobile entertainment services and visiting our website.</p>
+      </section>
+
+      <section>
+        <h2>Who We Are</h2>
+        <p>Timber Content is operated by Berg Online Marketing B.V., which is also referred to as 'we', 'us', or 'our' in this privacy policy. We are responsible for processing your personal data when you visit our website or use our services.</p>
+        <div class="contact-details">
+          <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
+          <p><strong>Postal Code:</strong> 1056JV</p>
+          <p><strong>City:</strong> Amsterdam</p>
+          <p><strong>Email:</strong> privacy@timber-content.com</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Information We Collect</h2>
+        <div class="data-grid">
+          <div class="data-card">
+            <h3>Account Information</h3>
+            <p>Basic details needed for account creation and management, including your mobile number for billing</p>
+          </div>
+          <div class="data-card">
+            <h3>Content Preferences</h3>
+            <p>Your viewing, listening, and playing history to provide personalized recommendations</p>
+          </div>
+          <div class="data-card">
+            <h3>Technical Information</h3>
+            <p>Device details and connection information to optimize content delivery</p>
+          </div>
+          <div class="data-card">
+            <h3>Billing Information</h3>
+            <p>Mobile carrier details for payment processing</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>How We Use Your Information</h2>
+        <ul class="usage-list">
+          <li>Providing our entertainment services and personalizing content</li>
+          <li>Processing mobile billing payments securely</li>
+          <li>Improving our platform based on usage patterns</li>
+          <li>Ensuring optimal streaming performance</li>
+          <li>Communicating service updates and information</li>
+          <li>Preventing unauthorized access and fraud</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Mobile Billing Privacy</h2>
+        <div class="mobile-billing-section">
+          <p>When using our mobile billing service:</p>
+          <ul>
+            <li>We process payments through secure carrier integrations</li>
+            <li>Your mobile number is encrypted and stored securely</li>
+            <li>Billing details appear on your carrier statement with clear identification</li>
+            <li>We maintain strict security standards for payment processing</li>
+            <li>No credit card information is stored on our servers</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Your Rights</h2>
+        <div class="rights-section">
+          <p>Under applicable data protection laws, you have the following rights:</p>
+          <ul>
+            <li>Right to access your personal data</li>
+            <li>Right to correct inaccurate information</li>
+            <li>Right to request deletion of your data</li>
+            <li>Right to restrict processing of your data</li>
+            <li>Right to data portability</li>
+            <li>Right to object to processing</li>
+          </ul>
+          <p>To exercise these rights, please contact us using the details provided in the "Contact Us" section.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Data Security</h2>
+        <p>We implement comprehensive security measures to protect your information:</p>
+        <ul class="security-list">
+          <li>End-to-end encryption for data transmission</li>
+          <li>Regular security audits and vulnerability assessments</li>
+          <li>Strict access controls and authentication measures</li>
+          <li>Continuous monitoring and threat detection systems</li>
+          <li>Employee training on data protection and security best practices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>International Data Transfers</h2>
+        <p>We primarily process your personal data within the European Economic Area (EEA). When this is not possible, we implement appropriate safeguards to ensure the protection of your data, including:</p>
+        <ul>
+          <li>Standard Contractual Clauses approved by the European Commission</li>
+          <li>Data Protection Impact Assessments for high-risk transfers</li>
+          <li>Vendor assessment and regular compliance reviews</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Data Retention</h2>
+        <p>We retain your personal data only for as long as necessary for the purposes for which it was collected, including:</p>
+        <ul>
+          <li>Account information: For the duration of your account plus 12 months</li>
+          <li>Transaction data: 7 years as required by tax regulations</li>
+          <li>Usage data: 24 months for service improvement</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time to reflect changes in our practices or for regulatory reasons. We will notify you of any significant changes through our service or via email.</p>
+      </section>
+
+      <section>
+        <h2>Contact Us</h2>
+        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact our Data Protection Officer:</p>
+        <div class="contact-section">
+          <p><strong>Email:</strong> dpo@timber-content.com</p>
+          <p><strong>Address:</strong> Willem de Zwijgerlaan 150, 1056JV Amsterdam, Netherlands</p>
+        </div>
+        <p class="response-note">We aim to respond to all inquiries within 48 hours.</p>
+      </section>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.privacy-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #F9FAFB;
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  color: #1F2937;
+}
+
+.privacy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #3B52A5;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.last-updated {
+  text-align: center;
+  color: #6B7280;
+  margin-bottom: 3rem;
+  font-size: 0.9rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  color: #3B52A5;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+p {
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.contact-details, 
+.mobile-billing-section, 
+.contact-section {
+  background: #F9FAFB;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.data-card {
+  background: #F9FAFB;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+}
+
+.data-card h3 {
+  color: #3B52A5;
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.usage-list,
+.security-list,
+.rights-section ul,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0;
+}
+
+.usage-list li,
+.security-list li,
+.rights-section ul li,
+ul li {
+  padding: 0.5rem 0 0.5rem 1.8rem;
+  position: relative;
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+.usage-list li::before,
+.security-list li::before,
+.rights-section ul li::before,
+ul li::before {
+  content: "•";
+  color: #3B52A5;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.mobile-billing-section ul li::before {
+  content: "✓";
+  color: #3B52A5;
+}
+
+.response-note {
+  font-style: italic;
+  text-align: center;
+  color: #6B7280;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .privacy-page {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .privacy-container {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-page {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .privacy-container {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-details, 
+  .mobile-billing-section, 
+  .contact-section {
+    padding: 1.2rem;
+  }
+}
+</style>
