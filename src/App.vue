@@ -154,6 +154,16 @@ provide('siteName', siteName);
           <RouterLink to="/timber-content/audiobooks" class="nav-link">Audiobooks</RouterLink>
         </template>
         
+        <!-- IQ Champion Hub specific links -->
+        <template v-if="designId === 'iqchampionhub.com'">
+          <RouterLink to="/iqchampionhub/music" class="nav-link">Music</RouterLink>
+          <RouterLink to="/iqchampionhub/video" class="nav-link">Video</RouterLink>
+          <RouterLink to="/iqchampionhub/sports" class="nav-link">Sports</RouterLink>
+          <RouterLink to="/iqchampionhub/games" class="nav-link">Games</RouterLink>
+          <RouterLink to="/iqchampionhub/audiobooks" class="nav-link">Audiobooks</RouterLink>
+          <RouterLink to="/iqchampionhub/payment" class="nav-link">Payment</RouterLink>
+        </template>
+        
         <RouterLink to="/login" class="login-btn">Login</RouterLink>
       </nav>
     </header>
@@ -170,6 +180,16 @@ provide('siteName', siteName);
           <RouterLink to="/timber-content/sports">Sports</RouterLink>
           <RouterLink to="/timber-content/games">Games</RouterLink>
           <RouterLink to="/timber-content/audiobooks">Audiobooks</RouterLink>
+        </template>
+        
+        <!-- IQ Champion Hub specific links in footer -->
+        <template v-if="designId === 'iqchampionhub.com'">
+          <RouterLink to="/iqchampionhub/music">Music</RouterLink>
+          <RouterLink to="/iqchampionhub/video">Video</RouterLink>
+          <RouterLink to="/iqchampionhub/sports">Sports</RouterLink>
+          <RouterLink to="/iqchampionhub/games">Games</RouterLink>
+          <RouterLink to="/iqchampionhub/audiobooks">Audiobooks</RouterLink>
+          <RouterLink to="/iqchampionhub/payment">Payment</RouterLink>
         </template>
       </nav>
     </footer>
@@ -274,6 +294,11 @@ body, html {
 .timber-content\.com {
   background: #38bdf8;
   background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+}
+
+.iqchampionhub\.com {
+  background: #6C63FF;
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
 }
 
 .default {
@@ -449,6 +474,10 @@ footer {
   /* Match mobile nav background to header design */
   .timber-content\.com .nav-links {
     background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  }
+  
+  .iqchampionhub\.com .nav-links {
+    background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
   }
 }
 

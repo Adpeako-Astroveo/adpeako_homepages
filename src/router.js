@@ -61,6 +61,14 @@ import TimberContentSportsPage from './pages/timber-content/SportsPage.vue';
 import TimberContentGamesPage from './pages/timber-content/GamesPage.vue';
 import TimberContentAudiobooksPage from './pages/timber-content/AudiobooksPage.vue';
 
+// IQ Champion Hub specific pages
+import IQChampionHubMusicPage from './pages/iqchampionhub/MusicPage.vue';
+import IQChampionHubVideoPage from './pages/iqchampionhub/VideoPage.vue';
+import IQChampionHubSportsPage from './pages/iqchampionhub/SportsPage.vue';
+import IQChampionHubGamesPage from './pages/iqchampionhub/GamesPage.vue';
+import IQChampionHubAudiobooksPage from './pages/iqchampionhub/AudiobooksPage.vue';
+import IQChampionHubPaymentPage from './pages/iqchampionhub/PaymentPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -298,6 +306,37 @@ const routes = [
     path: '/timber-content/audiobooks',
     component: TimberContentAudiobooksPage,
     name: 'timber-content-audiobooks'
+  },
+  // IQ Champion Hub specific routes
+  {
+    path: '/iqchampionhub/music',
+    component: IQChampionHubMusicPage,
+    name: 'iqchampionhub-music'
+  },
+  {
+    path: '/iqchampionhub/video',
+    component: IQChampionHubVideoPage,
+    name: 'iqchampionhub-video'
+  },
+  {
+    path: '/iqchampionhub/sports',
+    component: IQChampionHubSportsPage,
+    name: 'iqchampionhub-sports'
+  },
+  {
+    path: '/iqchampionhub/games',
+    component: IQChampionHubGamesPage,
+    name: 'iqchampionhub-games'
+  },
+  {
+    path: '/iqchampionhub/audiobooks',
+    component: IQChampionHubAudiobooksPage,
+    name: 'iqchampionhub-audiobooks'
+  },
+  {
+    path: '/iqchampionhub/payment',
+    component: IQChampionHubPaymentPage,
+    name: 'iqchampionhub-payment'
   },
   {
     path: '/:pathMatch(.*)*',
