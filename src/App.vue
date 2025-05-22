@@ -164,6 +164,16 @@ provide('siteName', siteName);
           <RouterLink to="/iqchampionhub/payment" class="nav-link">Payment</RouterLink>
         </template>
         
+        <!-- Jewel Video Content specific links -->
+        <template v-if="designId === 'jewel-video-content.com'">
+          <RouterLink to="/jewel-video-content/music" class="nav-link">Music</RouterLink>
+          <RouterLink to="/jewel-video-content/video" class="nav-link">Video</RouterLink>
+          <RouterLink to="/jewel-video-content/sports" class="nav-link">Sports</RouterLink>
+          <RouterLink to="/jewel-video-content/games" class="nav-link">Games</RouterLink>
+          <RouterLink to="/jewel-video-content/audiobooks" class="nav-link">Audiobooks</RouterLink>
+          <RouterLink to="/jewel-video-content/payment" class="nav-link">Payment</RouterLink>
+        </template>
+        
         <RouterLink to="/login" class="login-btn">Login</RouterLink>
       </nav>
     </header>
@@ -190,6 +200,16 @@ provide('siteName', siteName);
           <RouterLink to="/iqchampionhub/games">Games</RouterLink>
           <RouterLink to="/iqchampionhub/audiobooks">Audiobooks</RouterLink>
           <RouterLink to="/iqchampionhub/payment">Payment</RouterLink>
+        </template>
+        
+        <!-- Jewel Video Content specific links in footer -->
+        <template v-if="designId === 'jewel-video-content.com'">
+          <RouterLink to="/jewel-video-content/music">Music</RouterLink>
+          <RouterLink to="/jewel-video-content/video">Video</RouterLink>
+          <RouterLink to="/jewel-video-content/sports">Sports</RouterLink>
+          <RouterLink to="/jewel-video-content/games">Games</RouterLink>
+          <RouterLink to="/jewel-video-content/audiobooks">Audiobooks</RouterLink>
+          <RouterLink to="/jewel-video-content/payment">Payment</RouterLink>
         </template>
       </nav>
     </footer>
@@ -299,6 +319,11 @@ body, html {
 .iqchampionhub\.com {
   background: #6C63FF;
   background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+}
+
+.jewel-video-content\.com {
+  background: #9333ea;
+  background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
 }
 
 .default {
@@ -478,6 +503,10 @@ footer {
   
   .iqchampionhub\.com .nav-links {
     background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  }
+  
+  .jewel-video-content\.com .nav-links {
+    background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
   }
 }
 

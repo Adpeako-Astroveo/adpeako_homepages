@@ -69,6 +69,14 @@ import IQChampionHubGamesPage from './pages/iqchampionhub/GamesPage.vue';
 import IQChampionHubAudiobooksPage from './pages/iqchampionhub/AudiobooksPage.vue';
 import IQChampionHubPaymentPage from './pages/iqchampionhub/PaymentPage.vue';
 
+// Jewel Video Content specific pages
+import JewelVideoContentMusicPage from './pages/jewel-video-content/MusicPage.vue';
+import JewelVideoContentVideoPage from './pages/jewel-video-content/VideoPage.vue';
+import JewelVideoContentSportsPage from './pages/jewel-video-content/SportsPage.vue';
+import JewelVideoContentGamesPage from './pages/jewel-video-content/GamesPage.vue';
+import JewelVideoContentAudiobooksPage from './pages/jewel-video-content/AudiobooksPage.vue';
+import JewelVideoContentPaymentPage from './pages/jewel-video-content/PaymentPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -337,6 +345,37 @@ const routes = [
     path: '/iqchampionhub/payment',
     component: IQChampionHubPaymentPage,
     name: 'iqchampionhub-payment'
+  },
+  // Jewel Video Content specific routes
+  {
+    path: '/jewel-video-content/music',
+    component: JewelVideoContentMusicPage,
+    name: 'jewel-video-content-music'
+  },
+  {
+    path: '/jewel-video-content/video',
+    component: JewelVideoContentVideoPage,
+    name: 'jewel-video-content-video'
+  },
+  {
+    path: '/jewel-video-content/sports',
+    component: JewelVideoContentSportsPage,
+    name: 'jewel-video-content-sports'
+  },
+  {
+    path: '/jewel-video-content/games',
+    component: JewelVideoContentGamesPage,
+    name: 'jewel-video-content-games'
+  },
+  {
+    path: '/jewel-video-content/audiobooks',
+    component: JewelVideoContentAudiobooksPage,
+    name: 'jewel-video-content-audiobooks'
+  },
+  {
+    path: '/jewel-video-content/payment',
+    component: JewelVideoContentPaymentPage,
+    name: 'jewel-video-content-payment'
   },
   {
     path: '/:pathMatch(.*)*',

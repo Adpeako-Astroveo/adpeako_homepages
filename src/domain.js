@@ -16,6 +16,7 @@ import gameonliveDesign from './designs/gameonlive.js';
 import nextlevelstreamsDesign from './designs/nextlevelstreams.js';
 import timberContentDesign from './designs/timber-content.js';
 import iqchampionhubDesign from './designs/iqchampionhub.js';
+import jewelVideoContentDesign from './designs/jewel-video-content.js';
 
 export default {
   "jazzy-mango.com": "jazzy-mango.com",
@@ -34,6 +35,7 @@ export default {
   "nextlevelstreams.com": "nextlevelstreams.com",
   "timber-content.com": "timber-content.com",
   "iqchampionhub.com": "iqchampionhub.com",
+  "jewel-video-content.com": "jewel-video-content.com",
   "localhost": "gameonlive.tv",
   "127.0.0.1": "gameonlive.tv"
 };
@@ -55,6 +57,7 @@ export const designs = {
   "nextlevelstreams.com": nextlevelstreamsDesign,
   "timber-content.com": timberContentDesign,
   "iqchampionhub.com": iqchampionhubDesign,
+  "jewel-video-content.com": jewelVideoContentDesign,
   "design_local001": localhostDesign,
   "default": defaultDesign
 };
