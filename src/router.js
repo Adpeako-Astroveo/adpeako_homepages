@@ -76,6 +76,13 @@ import JewelVideoContentSportsPage from './pages/jewel-video-content/SportsPage.
 import JewelVideoContentGamesPage from './pages/jewel-video-content/GamesPage.vue';
 import JewelVideoContentAudiobooksPage from './pages/jewel-video-content/AudiobooksPage.vue';
 import JewelVideoContentPaymentPage from './pages/jewel-video-content/PaymentPage.vue';
+import JewelVideoContentPrivacyPage from './pages/jewel-video-content/PrivacyPage.vue';
+
+// BriskVideos specific pages
+import BriskVideosGamesPage from './pages/briskvideos/GamesPage.vue';
+import BriskVideosCategoryPage from './pages/briskvideos/CategoryPage.vue';
+import BriskVideosLoginPage from './pages/briskvideos/LoginPage.vue';
+import BriskVideosSignUpPage from './pages/briskvideos/SignUpPage.vue';
 
 const routes = [
   {
@@ -376,6 +383,32 @@ const routes = [
     path: '/jewel-video-content/payment',
     component: JewelVideoContentPaymentPage,
     name: 'jewel-video-content-payment'
+  },
+  {
+    path: '/jewel-video-content/privacy',
+    component: JewelVideoContentPrivacyPage,
+    name: 'jewel-video-content-privacy'
+  },
+  // BriskVideos specific routes
+  {
+    path: '/games',
+    component: BriskVideosGamesPage,
+    name: 'briskvideos-games'
+  },
+  {
+    path: '/categories/:categoryId',
+    component: BriskVideosCategoryPage,
+    name: 'briskvideos-category'
+  },
+  {
+    path: '/login',
+    component: BriskVideosLoginPage,
+    name: 'briskvideos-login'
+  },
+  {
+    path: '/signup',
+    component: BriskVideosSignUpPage,
+    name: 'briskvideos-signup'
   },
   {
     path: '/:pathMatch(.*)*',
