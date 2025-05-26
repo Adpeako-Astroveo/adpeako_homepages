@@ -4,8 +4,21 @@ import { resolve } from 'path'
 import fs from 'fs'
 
 // Function to get all domain HTML files
+function getDomainHtmlFiles() {
+  const domainHtmlDir = resolve(__dirname, 'domain-html')
+  if (!fs.existsSync(domainHtmlDir)) {
+    return []
+  }
+  return fs.readdirSync(domainHtmlDir)
+    .filter(file => file.endsWith('.html'))
+    .map(file => file.replace('.html', ''))
+}
+
+// Get list of all domains
+const domains = getDomainHtmlFiles()
+
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/', // 🟢 ADD THIS LINE
   plugins: [vue()],
   build: {
     rollupOptions: {
