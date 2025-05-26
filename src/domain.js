@@ -1,66 +1,93 @@
-import jazzyMangoDesign from './designs/jazzy-mango.js';
-import briskOtterDesign from './designs/brisk-otter.js';
-import briskElmDesign from './designs/brisk-elm.js';
-import gleamingFernDesign from './designs/gleaming-fern.js';
-import mellowLynxDesign from './designs/mellow-lynx.js';
-import loftySproutDesign from './designs/lofty-sprout.js';
-import localhostDesign from './designs/localhost.js';
-import defaultDesign from './designs/default.js';
-import waveViewDesign from './designs/wave-view.js';
-import yellowRacoonDesign from './designs/yellow-racoon.js';
-import switchRunnerDesign from './designs/switch-runner.js';
-import confusedEliphantDesign from './designs/confused-eliphant.js';
-import heightWaysDesign from './designs/height-ways.js';
-import timberTubeDesign from './designs/timber-tube.js';
-import gameonliveDesign from './designs/gameonlive.js';
-import nextlevelstreamsDesign from './designs/nextlevelstreams.js';
-import timberContentDesign from './designs/timber-content.js';
-import iqchampionhubDesign from './designs/iqchampionhub.js';
-import jewelVideoContentDesign from './designs/jewel-video-content.js';
-import briskVideosDesign from './designs/briskvideos.js';
+// Import all domain metadata
+import jazzyMangoMeta from './domains/jazzy-mango.js';
+import briskOtterMeta from './domains/brisk-otter.js';
+import briskElmMeta from './domains/brisk-elm.js';
+import gleamingFernMeta from './domains/gleaming-fern.js';
+import loftySproutMeta from './domains/lofty-sprout.js';
+import localhostMeta from './domains/localhost.js';
+import defaultMeta from './domains/default.js';
+import waveViewMeta from './domains/wave-view.js';
+import yellowRacoonMeta from './domains/yellow-racoon.js';
+import switchRunnerMeta from './domains/switch-runner.js';
+import confusedEliphantMeta from './domains/confused-eliphant.js';
+import heightWaysMeta from './domains/height-ways.js';
+import timberTubeMeta from './domains/timber-tube.js';
+import gameonliveMeta from './domains/gameonlive.js';
+import nextlevelstreamsMeta from './domains/nextlevelstreams.js';
+import timberContentMeta from './domains/timber-content.js';
+import iqchampionhubMeta from './domains/iqchampionhub.js';
+import jewelVideoContentMeta from './domains/jewel-video-content.js';
+import briskvideosMeta from './domains/briskvideos.js';
 
-export default {
-  "jazzy-mango.com": "jazzy-mango.com",
-  "brisk-otter.com": "brisk-otter.com",
-  "brisk-elm.com": "brisk-elm.com",
-  "gleaming-fern.com": "gleaming-fern.com",
-  "mellow-lynx.com": "mellow-lynx.com",
-  "lofty-sprout.com": "lofty-sprout.com",
-  "wave-view.com": "wave-view.com",
-  "yellow-racoon.com": "yellow-racoon.com",
-  "switch-runner.com": "switch-runner.com",
-  "confused-eliphant.com": "confused-eliphant.com",
-  "height-ways.com": "height-ways.com",
-  "timber-tube.com": "timber-tube.com",
-  "gameonlive.tv": "gameonlive.tv",
-  "nextlevelstreams.com": "nextlevelstreams.com",
-  "timber-content.com": "timber-content.com",
-  "iqchampionhub.com": "iqchampionhub.com",
-  "jewel-video-content.com": "jewel-video-content.com",
-  "briskvideos.com": "briskvideos.com",
-  "localhost": "gameonlive.tv",
-  "127.0.0.1": "gameonlive.tv"
+// Domain mapping
+const domainMapping = {
+  "jazzy-mango.com": jazzyMangoMeta.id,
+  "brisk-otter.com": briskOtterMeta.id,
+  "brisk-elm.com": briskElmMeta.id,
+  "gleaming-fern.com": gleamingFernMeta.id,
+  "lofty-sprout.com": loftySproutMeta.id,
+  "wave-view.com": waveViewMeta.id,
+  "yellow-racoon.com": yellowRacoonMeta.id,
+  "switch-runner.com": switchRunnerMeta.id,
+  "confused-eliphant.com": confusedEliphantMeta.id,
+  "height-ways.com": heightWaysMeta.id,
+  "timber-tube.com": timberTubeMeta.id,
+  "gameonlive.tv": gameonliveMeta.id,
+  "nextlevelstreams.com": nextlevelstreamsMeta.id,
+  "timber-content.com": timberContentMeta.id,
+  "iqchampionhub.com": iqchampionhubMeta.id,
+  "jewel-video-content.com": jewelVideoContentMeta.id,
+  "briskvideos.com": briskvideosMeta.id,
+  "localhost": localhostMeta.id,
+  "127.0.0.1": localhostMeta.id
 };
 
-export const designs = {
-  "jazzy-mango.com": jazzyMangoDesign,
-  "brisk-otter.com": briskOtterDesign,
-  "brisk-elm.com": briskElmDesign,
-  "gleaming-fern.com": gleamingFernDesign,
-  "mellow-lynx.com": mellowLynxDesign,
-  "lofty-sprout.com": loftySproutDesign,
-  "wave-view.com": waveViewDesign,
-  "yellow-racoon.com": yellowRacoonDesign,
-  "switch-runner.com": switchRunnerDesign,
-  "confused-eliphant.com": confusedEliphantDesign,
-  "height-ways.com": heightWaysDesign,
-  "timber-tube.com": timberTubeDesign,
-  "gameonlive.tv": gameonliveDesign,
-  "nextlevelstreams.com": nextlevelstreamsDesign,
-  "timber-content.com": timberContentDesign,
-  "iqchampionhub.com": iqchampionhubDesign,
-  "jewel-video-content.com": jewelVideoContentDesign,
-  "briskvideos.com": briskVideosDesign,
-  "design_local001": localhostDesign,
-  "default": defaultDesign
+// Designs mapping
+const designs = {
+  [jazzyMangoMeta.id]: jazzyMangoMeta.design,
+  [briskOtterMeta.id]: briskOtterMeta.design,
+  [briskElmMeta.id]: briskElmMeta.design,
+  [gleamingFernMeta.id]: gleamingFernMeta.design,
+  [loftySproutMeta.id]: loftySproutMeta.design,
+  [waveViewMeta.id]: waveViewMeta.design,
+  [yellowRacoonMeta.id]: yellowRacoonMeta.design,
+  [switchRunnerMeta.id]: switchRunnerMeta.design,
+  [confusedEliphantMeta.id]: confusedEliphantMeta.design,
+  [heightWaysMeta.id]: heightWaysMeta.design,
+  [timberTubeMeta.id]: timberTubeMeta.design,
+  [gameonliveMeta.id]: gameonliveMeta.design,
+  [nextlevelstreamsMeta.id]: nextlevelstreamsMeta.design,
+  [timberContentMeta.id]: timberContentMeta.design,
+  [iqchampionhubMeta.id]: iqchampionhubMeta.design,
+  [jewelVideoContentMeta.id]: jewelVideoContentMeta.design,
+  [briskvideosMeta.id]: briskvideosMeta.design,
+  [localhostMeta.id]: localhostMeta.design,
+  [defaultMeta.id]: defaultMeta.design
 };
+
+// All domains metadata collection
+export const domainsMetadata = {
+  "jazzy-mango.com": jazzyMangoMeta,
+  "brisk-otter.com": briskOtterMeta,
+  "brisk-elm.com": briskElmMeta,
+  "gleaming-fern.com": gleamingFernMeta,
+  "lofty-sprout.com": loftySproutMeta,
+  "wave-view.com": waveViewMeta,
+  "yellow-racoon.com": yellowRacoonMeta,
+  "switch-runner.com": switchRunnerMeta,
+  "confused-eliphant.com": confusedEliphantMeta,
+  "height-ways.com": heightWaysMeta,
+  "timber-tube.com": timberTubeMeta,
+  "gameonlive.tv": gameonliveMeta,
+  "nextlevelstreams.com": nextlevelstreamsMeta,
+  "timber-content.com": timberContentMeta,
+  "iqchampionhub.com": iqchampionhubMeta,
+  "jewel-video-content.com": jewelVideoContentMeta,
+  "briskvideos.com": briskvideosMeta,
+  "localhost": localhostMeta,
+  "127.0.0.1": localhostMeta,
+  "default": defaultMeta
+};
+
+export default domainMapping;
+export { designs };

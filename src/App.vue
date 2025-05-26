@@ -1,8 +1,7 @@
 <script setup>
 import { ref, provide, onMounted, watch } from 'vue';
 import { RouterView, RouterLink, useRoute } from 'vue-router';
-import domainMapping from './domain.js';
-import { designs } from './domain.js';
+import domainMapping, { designs, domainsMetadata } from './domain.js';
 
 const designId = ref('default');
 const route = useRoute();
@@ -93,6 +92,9 @@ watch(
   () => {
     const currentDesign = designs[designId.value];
     if (!currentDesign) return;
+    
+    // Get domain metadata
+    const metadata = domainsMetadata[hostname] || domainsMetadata.default;
 
     let pageConfig;
     let uniqueSuffix = ` - ${siteName.value}`;
