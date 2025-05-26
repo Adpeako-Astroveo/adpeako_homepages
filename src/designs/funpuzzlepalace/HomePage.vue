@@ -1,444 +1,346 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-// Featured games data
-const featuredGames = ref([
-  {
-    id: 1,
-    title: 'Puzzle Master 3D',
-    category: 'Puzzle',
-    description: 'Challenge your spatial reasoning with intricate 3D puzzles that will test your problem-solving skills.',
-    image: 'https://images.pexels.com/photos/1314435/pexels-photo-1314435.jpeg',
-    rating: 4.8,
-    downloads: '5M+'
-  },
-  {
-    id: 2,
-    title: 'Jewel Quest: Legends',
-    category: 'Match-3',
-    description: 'Match gems in this addictive puzzle adventure through ancient temples and hidden kingdoms.',
-    image: 'https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg',
-    rating: 4.7,
-    downloads: '10M+'
-  },
-  {
-    id: 3,
-    title: 'Brain Teasers Ultimate',
-    category: 'Logic',
-    description: 'A collection of mind-bending puzzles designed to challenge your logical thinking and creativity.',
-    image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg',
-    rating: 4.9,
-    downloads: '3M+'
-  }
-]);
-
-// Game categories
-const categories = ref([
-  {
-    id: 'puzzle',
-    name: 'Puzzle',
-    count: 250,
-    icon: '🧩',
-    image: 'https://images.pexels.com/photos/1314435/pexels-photo-1314435.jpeg'
-  },
-  {
-    id: 'action',
-    name: 'Action',
-    count: 180,
-    icon: '💥',
-    image: 'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg'
-  },
-  {
-    id: 'adventure',
-    name: 'Adventure',
-    count: 120,
-    icon: '🗺️',
-    image: 'https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg'
-  },
-  {
-    id: 'strategy',
-    name: 'Strategy',
-    count: 95,
-    icon: '🧠',
-    image: 'https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg'
-  },
-  {
-    id: 'multiplayer',
-    name: 'Multiplayer',
-    count: 75,
-    icon: '👥',
-    image: 'https://images.pexels.com/photos/159354/video-game-controller-joystick-game-controller-159354.jpeg'
-  }
-]);
-
-// Popular games
-const popularGames = ref([
-  {
-    id: 101,
-    title: 'Cubic Rush',
-    category: 'Puzzle',
-    image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
-    rating: 4.7
-  },
-  {
-    id: 102,
-    title: 'Word Wizards',
-    category: 'Word',
-    image: 'https://images.pexels.com/photos/278887/pexels-photo-278887.jpeg',
-    rating: 4.9
-  },
-  {
-    id: 103,
-    title: 'Color Match',
-    category: 'Match-3',
-    image: 'https://images.pexels.com/photos/1329061/pexels-photo-1329061.jpeg',
-    rating: 4.6
-  },
-  {
-    id: 104,
-    title: 'Logic Masters',
-    category: 'Logic',
-    image: 'https://images.pexels.com/photos/6686103/pexels-photo-6686103.jpeg',
-    rating: 4.8
-  }
-]);
-
-// User testimonials
-const testimonials = ref([
-  {
-    id: 1,
-    name: 'Sarah L.',
-    quote: 'Fun Puzzle Palace has the best selection of puzzle games I\'ve ever seen! The no-ads experience makes it so much more enjoyable.',
-    image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg',
-    rating: 5
-  },
-  {
-    id: 2,
-    name: 'Mike T.',
-    quote: 'I love how easy the payment system is. One subscription through my phone bill gives me access to hundreds of premium games.',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
-    rating: 5
-  },
-  {
-    id: 3,
-    name: 'Elena R.',
-    quote: 'The puzzle games here are so addictive and challenging. Perfect for keeping my mind sharp during my commute!',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
-    rating: 4
-  }
-]);
-
-// Features
-const features = ref([
-  {
-    title: 'Premium Games Collection',
-    description: 'Access over 1,000 high-quality games with no ads or in-app purchases.',
-    icon: '🎮'
-  },
-  {
-    title: 'Phone Bill Payments',
-    description: 'Simple subscription billed directly through your mobile phone carrier.',
-    icon: '📱'
-  },
-  {
-    title: 'Daily Challenges',
-    description: 'New puzzles and challenges added daily to keep your mind sharp.',
-    icon: '🎯'
-  },
-  {
-    title: 'Cloud Saves',
-    description: 'Your progress is automatically saved across all your devices.',
-    icon: '☁️'
-  }
-]);
-
-const navigateToCategory = (categoryId) => {
-  router.push(`/funpuzzlepalace/category/${categoryId}`);
-};
-
-const navigateToGame = (gameId) => {
-  router.push('/funpuzzlepalace/login');
-};
-
-const navigateToPricing = () => {
-  router.push('/funpuzzlepalace/payment');
-};
-
-// Animation on scroll effect
-onMounted(() => {
-  const observerOptions = {
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.animate').forEach(el => {
-    observer.observe(el);
-  });
-});
-</script>
-
 <template>
-  <div class="funpuzzlepalace-home">
+  <div class="home-page">
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
-        <h1>Premium Mobile <span class="accent">Puzzle Games</span></h1>
+        <h1>Premium Mobile Gaming</h1>
         <p class="hero-subtitle">Thousands of games. No ads. No in-app purchases.</p>
         <div class="hero-buttons">
-          <button @click="navigateToPricing" class="primary-button">Start Free Trial</button>
-          <button @click="() => router.push('/funpuzzlepalace/category/puzzle')" class="secondary-button">Explore Games</button>
+          <router-link to="/funpuzzlepalace/category/puzzle" class="primary-button">Browse Games</router-link>
+          <router-link to="/funpuzzlepalace/signup" class="secondary-button">Sign Up Free</router-link>
         </div>
-        
         <div class="hero-features">
-          <div class="feature-tag">
+          <div class="feature-pill">
             <span class="feature-icon">🎮</span>
-            <span>1000+ Games</span>
+            <span>Unlimited Access</span>
           </div>
-          <div class="feature-tag">
-            <span class="feature-icon">🚫</span>
-            <span>No Ads</span>
-          </div>
-          <div class="feature-tag">
+          <div class="feature-pill">
             <span class="feature-icon">📱</span>
             <span>Phone Billing</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Games -->
-    <section class="featured-section animate">
-      <div class="section-container">
-        <h2>Featured Games</h2>
-        <div class="featured-games">
-          <div v-for="game in featuredGames" :key="game.id" class="game-card">
-            <div class="game-image-container">
-              <img :src="game.image" :alt="game.title" class="game-image">
-              <div class="game-overlay">
-                <button @click="navigateToGame(game.id)" class="play-button">Play Now</button>
-              </div>
-            </div>
-            <div class="game-info">
-              <div class="game-header">
-                <h3>{{ game.title }}</h3>
-                <div class="game-category">{{ game.category }}</div>
-              </div>
-              <div class="game-rating">
-                <div class="stars">★★★★★</div>
-                <div class="rating-value">{{ game.rating }}</div>
-              </div>
-              <p class="game-description">{{ game.description }}</p>
-              <div class="game-stats">
-                <span>{{ game.downloads }} Downloads</span>
-              </div>
-            </div>
+          <div class="feature-pill">
+            <span class="feature-icon">🔄</span>
+            <span>Cross-device Sync</span>
           </div>
         </div>
       </div>
+      <div class="hero-backdrop"></div>
     </section>
 
     <!-- Categories Section -->
-    <section class="categories-section animate">
+    <section class="categories-section">
       <div class="section-container">
         <h2>Game Categories</h2>
         <div class="categories-grid">
-          <div 
-            v-for="category in categories" 
-            :key="category.id" 
-            class="category-card"
-            @click="navigateToCategory(category.id)"
-          >
-            <div class="category-image-container">
-              <img :src="category.image" :alt="category.name" class="category-image">
-              <div class="category-overlay">
-                <span class="category-icon">{{ category.icon }}</span>
-                <h3>{{ category.name }}</h3>
-                <p>{{ category.count }}+ Games</p>
-              </div>
-            </div>
-          </div>
+          <router-link to="/funpuzzlepalace/category/puzzle" class="category-card">
+            <div class="category-icon">🧩</div>
+            <h3>Puzzle</h3>
+            <p>Brain-teasing challenges for all skill levels</p>
+          </router-link>
+          <router-link to="/funpuzzlepalace/category/action" class="category-card">
+            <div class="category-icon">🔥</div>
+            <h3>Action</h3>
+            <p>Fast-paced games with exciting gameplay</p>
+          </router-link>
+          <router-link to="/funpuzzlepalace/category/adventure" class="category-card">
+            <div class="category-icon">🌄</div>
+            <h3>Adventure</h3>
+            <p>Explore vast worlds and exciting stories</p>
+          </router-link>
+          <router-link to="/funpuzzlepalace/category/strategy" class="category-card">
+            <div class="category-icon">♟️</div>
+            <h3>Strategy</h3>
+            <p>Plan, build, and outsmart your opponents</p>
+          </router-link>
+          <router-link to="/funpuzzlepalace/category/multiplayer" class="category-card">
+            <div class="category-icon">👥</div>
+            <h3>Multiplayer</h3>
+            <p>Play and compete with friends online</p>
+          </router-link>
         </div>
       </div>
     </section>
 
-    <!-- Popular Games -->
-    <section class="popular-section animate">
+    <!-- Featured Games Section -->
+    <section class="featured-section">
       <div class="section-container">
-        <h2>Popular Games</h2>
-        <div class="popular-games">
-          <div v-for="game in popularGames" :key="game.id" class="popular-game-card">
-            <div class="popular-game-image">
+        <h2>Featured Games</h2>
+        <div class="games-grid">
+          <div v-for="game in featuredGames" :key="game.id" class="game-card">
+            <div class="game-image">
               <img :src="game.image" :alt="game.title">
               <div class="game-overlay">
-                <button @click="navigateToGame(game.id)" class="play-button">Play</button>
+                <div class="game-rating">{{ game.rating }}</div>
+                <router-link to="/funpuzzlepalace/login" class="play-button">Play Now</router-link>
               </div>
-              <div class="popular-game-rating">★ {{ game.rating }}</div>
             </div>
-            <div class="popular-game-info">
+            <div class="game-info">
               <h3>{{ game.title }}</h3>
-              <p>{{ game.category }}</p>
+              <p class="game-category">{{ game.category }}</p>
+              <p class="game-description">{{ game.description }}</p>
             </div>
           </div>
+        </div>
+        <div class="view-all-container">
+          <router-link to="/funpuzzlepalace/category/puzzle" class="view-all-button">View All Games</router-link>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section animate">
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
       <div class="section-container">
-        <h2>Why Choose Fun Puzzle Palace?</h2>
-        <div class="features-grid">
-          <div v-for="feature in features" :key="feature.title" class="feature-card">
-            <div class="feature-icon">{{ feature.icon }}</div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
+        <h2>How It Works</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Sign Up</h3>
+            <p>Create your account in seconds with just your phone number</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Choose Plan</h3>
+            <p>Select a subscription plan that fits your gaming needs</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Confirm via SMS</h3>
+            <p>Verify your subscription with a simple text message</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Start Playing</h3>
+            <p>Instantly access our entire library of premium games</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section animate">
+    <section class="testimonials-section">
       <div class="section-container">
-        <h2>What Players Say</h2>
+        <h2>What Gamers Say</h2>
         <div class="testimonials-grid">
           <div v-for="testimonial in testimonials" :key="testimonial.id" class="testimonial-card">
-            <div class="testimonial-content">
-              <div class="quotation-mark">"</div>
-              <p class="testimonial-quote">{{ testimonial.quote }}</p>
-              <div class="testimonial-rating">
-                <span v-for="i in 5" :key="i" class="star" :class="{ filled: i <= testimonial.rating }">★</span>
-              </div>
+            <div class="testimonial-rating">
+              <span v-for="i in 5" :key="i" class="star" :class="{ filled: i <= testimonial.rating }">★</span>
             </div>
+            <p class="testimonial-text">{{ testimonial.quote }}</p>
             <div class="testimonial-author">
-              <img :src="testimonial.image" :alt="testimonial.name" class="author-avatar">
-              <div class="author-name">{{ testimonial.name }}</div>
+              <img :src="testimonial.image" :alt="testimonial.name" class="author-image">
+              <div class="author-info">
+                <h4>{{ testimonial.name }}</h4>
+                <p>{{ testimonial.title }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="section-container">
+        <h2>Simple Pricing</h2>
+        <p class="pricing-subtitle">No credit card required. All plans billed directly to your phone.</p>
+        <div class="pricing-grid">
+          <div v-for="plan in pricingPlans" :key="plan.id" class="pricing-card" :class="{ 'recommended': plan.recommended }">
+            <div v-if="plan.recommended" class="recommended-badge">Most Popular</div>
+            <h3>{{ plan.name }}</h3>
+            <div class="price">
+              <span class="amount">{{ plan.price }}</span>
+              <span class="period">/month</span>
+            </div>
+            <ul class="features-list">
+              <li v-for="(feature, index) in plan.features" :key="index">
+                <span class="check-icon">✓</span>
+                {{ feature }}
+              </li>
+            </ul>
+            <router-link to="/funpuzzlepalace/payment" class="select-plan-button">Select Plan</router-link>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="cta-section animate">
+    <section class="cta-section">
       <div class="section-container">
         <h2>Ready to Start Playing?</h2>
-        <p>Get unlimited access to premium games with a simple subscription.</p>
+        <p>Join millions of gamers and experience the best premium mobile gaming platform</p>
         <div class="cta-buttons">
-          <button @click="navigateToPricing" class="primary-button">Start 7-Day Free Trial</button>
-          <button @click="() => router.push('/funpuzzlepalace/signup')" class="secondary-button">Create Account</button>
+          <router-link to="/funpuzzlepalace/signup" class="primary-button">Create Free Account</router-link>
+          <router-link to="/funpuzzlepalace/login" class="secondary-button">Sign In</router-link>
         </div>
-        <p class="cta-note">No credit card required. Cancel anytime.</p>
       </div>
     </section>
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue';
+
+const featuredGames = ref([
+  {
+    id: 1,
+    title: "Crystal Matcher",
+    category: "Puzzle",
+    rating: "★★★★★",
+    description: "Match colorful crystals in this addictive puzzle game with over 500 challenging levels.",
+    image: "https://images.pexels.com/photos/1314435/pexels-photo-1314435.jpeg"
+  },
+  {
+    id: 2,
+    title: "Space Commander",
+    category: "Strategy",
+    rating: "★★★★☆",
+    description: "Build your galactic empire and conquer the universe in this epic strategy game.",
+    image: "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg"
+  },
+  {
+    id: 3,
+    title: "Word Masters",
+    category: "Puzzle",
+    rating: "★★★★★",
+    description: "Test your vocabulary and word skills with thousands of challenging word puzzles.",
+    image: "https://images.pexels.com/photos/265072/pexels-photo-265072.jpeg"
+  }
+]);
+
+const testimonials = ref([
+  {
+    id: 1,
+    name: "Sarah L.",
+    quote: "Fun Puzzle Palace has the best selection of puzzle games I've ever seen! The no-ads experience makes it so much more enjoyable.",
+    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
+    rating: 5,
+    title: "Puzzle Enthusiast"
+  },
+  {
+    id: 2,
+    name: "Michael K.",
+    quote: "I love being able to play premium games without any in-app purchases. The phone billing option is super convenient too!",
+    image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+    rating: 5,
+    title: "Mobile Gamer"
+  },
+  {
+    id: 3,
+    name: "Jessica T.",
+    quote: "The variety of games is amazing! From puzzles to action games, there's something for everyone in my family to enjoy.",
+    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+    rating: 4,
+    title: "Casual Gamer"
+  }
+]);
+
+const pricingPlans = ref([
+  {
+    id: 1,
+    name: "Basic",
+    price: "$4.99",
+    features: [
+      "Access to 500+ games",
+      "No advertisements",
+      "Standard game quality",
+      "Mobile-only access",
+      "Email support"
+    ],
+    recommended: false
+  },
+  {
+    id: 2,
+    name: "Premium",
+    price: "$9.99",
+    features: [
+      "Access to ALL games (1000+)",
+      "No advertisements",
+      "HD game quality",
+      "Cross-device sync",
+      "Cloud saves",
+      "Priority support"
+    ],
+    recommended: true
+  },
+  {
+    id: 3,
+    name: "Family",
+    price: "$14.99",
+    features: [
+      "Everything in Premium",
+      "Up to 5 user profiles",
+      "Parental controls",
+      "Family game collection",
+      "24/7 premium support"
+    ],
+    recommended: false
+  }
+]);
+</script>
+
 <style scoped>
-.funpuzzlepalace-home {
-  background-color: #0f172a;
-  color: #e2e8f0;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+.home-page {
+  min-height: 100vh;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  color: #0F172A;
+  background-color: #F8FAFC;
 }
 
+/* Section Containers */
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #f8fafc;
-  position: relative;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #8B5CF6, #EC4899);
-  border-radius: 2px;
-}
-
 /* Hero Section */
 .hero-section {
-  min-height: 100vh;
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  max-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2rem;
-  background: #0f172a url('https://images.pexels.com/photos/1314435/pexels-photo-1314435.jpeg') no-repeat center center/cover;
-  position: relative;
   overflow: hidden;
+  background-color: #0F172A;
+  color: white;
 }
 
-.hero-section::before {
-  content: '';
+.hero-backdrop {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.85);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+              url('https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg') center/cover no-repeat;
   z-index: 1;
 }
 
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.4) 0%, rgba(15, 23, 42, 0.6) 60%);
-  z-index: 2;
-}
-
 .hero-content {
-  max-width: 800px;
-  text-align: center;
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
 }
 
-.hero-section h1 {
-  font-size: 4rem;
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
-  color: #f8fafc;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.accent {
-  background: linear-gradient(to right, #8B5CF6, #EC4899);
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
-  color: #e2e8f0;
+  color: #E2E8F0;
 }
 
 .hero-buttons {
@@ -449,113 +351,180 @@ h2::after {
 }
 
 .primary-button {
-  background: linear-gradient(to right, #8B5CF6, #EC4899);
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
   color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5);
 }
 
 .primary-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.7);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
 }
 
 .secondary-button {
   background: transparent;
   color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: 2px solid rgba(139, 92, 246, 0.7);
-  cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
+  border: 2px solid white;
 }
 
 .secondary-button:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
 }
 
 .hero-features {
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.feature-tag {
+.feature-pill {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(30, 41, 59, 0.8);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
-  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .feature-icon {
   font-size: 1.2rem;
 }
 
-/* Featured Games */
-.featured-section {
-  padding: 8rem 0;
+/* Categories Section */
+.categories-section {
+  padding: 5rem 0;
 }
 
-.featured-games {
+.categories-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #0F172A;
+}
+
+.categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.category-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #0F172A;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .category-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.category-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0F172A;
+}
+
+.category-card p {
+  color: #64748B;
+  font-size: 0.9rem;
+}
+
+/* Featured Games Section */
+.featured-section {
+  padding: 5rem 0;
+  background-color: #F1F5F9;
+}
+
+.featured-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #0F172A;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .game-card {
-  background: #1e293b;
-  border-radius: 1rem;
+  background: white;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .game-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-}
-
-.game-image-container {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
 }
 
 .game-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.game-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.game-card:hover .game-image {
-  transform: scale(1.05);
+.game-card:hover .game-image img {
+  transform: scale(1.1);
 }
 
 .game-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(15, 23, 42, 0.7);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -564,275 +533,147 @@ h2::after {
   opacity: 1;
 }
 
+.game-rating {
+  color: #FCD34D;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 .play-button {
-  background: linear-gradient(to right, #8B5CF6, #EC4899);
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
   font-weight: 600;
-  border: none;
-  cursor: pointer;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .play-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
 }
 
 .game-info {
   padding: 1.5rem;
 }
 
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.game-header h3 {
-  font-size: 1.5rem;
-  color: #f8fafc;
-  margin: 0;
+.game-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0F172A;
 }
 
 .game-category {
-  background: rgba(139, 92, 246, 0.2);
-  color: #a78bfa;
-  padding: 0.3rem 0.75rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
+  color: #8B5CF6;
+  font-size: 0.9rem;
   font-weight: 600;
-}
-
-.game-rating {
-  display: flex;
-  align-items: center;
   margin-bottom: 1rem;
-}
-
-.stars {
-  color: #fbbf24;
-  margin-right: 0.5rem;
-}
-
-.rating-value {
-  color: #f8fafc;
-  font-weight: 600;
 }
 
 .game-description {
-  color: #cbd5e1;
-  font-size: 0.95rem;
+  color: #64748B;
+  font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
 }
 
-.game-stats {
-  color: #94a3b8;
-  font-size: 0.85rem;
-}
-
-/* Categories Section */
-.categories-section {
-  padding: 8rem 0;
-  background: #1e293b;
-}
-
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.category-card {
-  position: relative;
-  border-radius: 1rem;
-  overflow: hidden;
-  height: 220px;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-}
-
-.category-image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.category-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.category-card:hover .category-image {
-  transform: scale(1.1);
-}
-
-.category-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 50%, rgba(15, 23, 42, 0.3) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  transition: background 0.3s ease;
-}
-
-.category-card:hover .category-overlay {
-  background: linear-gradient(to top, rgba(139, 92, 246, 0.9) 0%, rgba(139, 92, 246, 0.6) 50%, rgba(139, 92, 246, 0.3) 100%);
-}
-
-.category-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.category-overlay h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #f8fafc;
-  margin-bottom: 0.5rem;
+.view-all-container {
   text-align: center;
+  margin-top: 3rem;
 }
 
-.category-overlay p {
-  color: #e2e8f0;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* Popular Games */
-.popular-section {
-  padding: 8rem 0;
-}
-
-.popular-games {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.popular-game-card {
-  background: #1e293b;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.popular-game-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-}
-
-.popular-game-image {
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-}
-
-.popular-game-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.popular-game-card:hover .popular-game-image img {
-  transform: scale(1.05);
-}
-
-.popular-game-rating {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: rgba(15, 23, 42, 0.8);
-  color: #fbbf24;
-  padding: 0.25rem 0.6rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
+.view-all-button {
+  background: transparent;
+  color: #8B5CF6;
   font-weight: 600;
-  backdrop-filter: blur(4px);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #8B5CF6;
+  display: inline-block;
 }
 
-.popular-game-info {
-  padding: 1.2rem;
+.view-all-button:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateY(-3px);
 }
 
-.popular-game-info h3 {
-  font-size: 1.2rem;
-  color: #f8fafc;
-  margin-bottom: 0.5rem;
+/* How It Works Section */
+.how-it-works-section {
+  padding: 5rem 0;
 }
 
-.popular-game-info p {
-  color: #94a3b8;
-  font-size: 0.9rem;
+.how-it-works-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #0F172A;
 }
 
-/* Features Section */
-.features-section {
-  padding: 8rem 0;
-  background: #1e293b;
-}
-
-.features-grid {
+.steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-.feature-card {
-  background: #0f172a;
-  padding: 2.5rem;
-  border-radius: 1rem;
+.step-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.feature-card:hover {
+.step-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card .feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.feature-card h3 {
+.step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  color: white;
   font-size: 1.5rem;
-  color: #f8fafc;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
 }
 
-.feature-card p {
-  color: #cbd5e1;
-  font-size: 1rem;
+.step-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0F172A;
+}
+
+.step-card p {
+  color: #64748B;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: 8rem 0;
+  padding: 5rem 0;
+  background-color: #F1F5F9;
+}
+
+.testimonials-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #0F172A;
 }
 
 .testimonials-grid {
@@ -842,163 +683,252 @@ h2::after {
 }
 
 .testimonial-card {
-  background: #1e293b;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.testimonial-content {
+  background: white;
+  border-radius: 20px;
   padding: 2rem;
-  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.quotation-mark {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 4rem;
-  color: rgba(139, 92, 246, 0.2);
-  font-family: serif;
-  line-height: 1;
-}
-
-.testimonial-quote {
-  position: relative;
-  z-index: 1;
-  color: #e2e8f0;
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-rating {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .star {
-  color: #64748b;
-  margin-right: 2px;
+  color: #CBD5E1;
+  font-size: 1.2rem;
 }
 
 .star.filled {
-  color: #fbbf24;
+  color: #FCD34D;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: #0F172A;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
 }
 
 .testimonial-author {
-  padding: 1.5rem;
-  background: #0f172a;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.author-avatar {
+.author-image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.author-name {
-  color: #f8fafc;
+.author-info h4 {
   font-weight: 600;
+  color: #0F172A;
+  margin: 0 0 0.25rem;
+}
+
+.author-info p {
+  color: #64748B;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 5rem 0;
+}
+
+.pricing-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0F172A;
+}
+
+.pricing-subtitle {
+  text-align: center;
+  color: #64748B;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card.recommended {
+  border-color: #8B5CF6;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.recommended-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+}
+
+.pricing-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #0F172A;
+  margin-bottom: 1rem;
+}
+
+.price {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #8B5CF6;
+}
+
+.period {
+  font-size: 1.1rem;
+  color: #64748B;
+}
+
+.features-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #0F172A;
+  font-size: 0.95rem;
+}
+
+.check-icon {
+  color: #8B5CF6;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.select-plan-button {
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 0;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.select-plan-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
 }
 
 /* CTA Section */
 .cta-section {
-  padding: 8rem 0;
-  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  padding: 5rem 0;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  color: white;
   text-align: center;
 }
 
 .cta-section h2 {
-  color: white;
-  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
-.cta-section h2::after {
-  background: white;
-}
-
 .cta-section p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
 }
 
 .cta-section .primary-button {
   background: white;
   color: #8B5CF6;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
-}
-
-.cta-section .primary-button:hover {
-  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5);
 }
 
 .cta-section .secondary-button {
   border-color: white;
 }
 
-.cta-note {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-}
-
-/* Animation classes */
-.animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsive styles */
-@media screen and (max-width: 1024px) {
-  .hero-section h1 {
-    font-size: 3.5rem;
-  }
-  
-  .featured-games,
-  .categories-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-  
-  .popular-games {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-section {
-    padding: 6rem 2rem;
-  }
-  
-  .hero-section h1 {
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content h1 {
     font-size: 3rem;
   }
   
   .hero-subtitle {
     font-size: 1.3rem;
   }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
   
   .hero-buttons {
     flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero-features {
@@ -1006,66 +936,58 @@ h2::after {
     align-items: center;
   }
   
-  .featured-games,
-  .categories-grid,
-  .testimonials-grid {
-    grid-template-columns: 1fr;
+  .categories-section h2,
+  .featured-section h2,
+  .how-it-works-section h2,
+  .testimonials-section h2,
+  .pricing-section h2,
+  .cta-section h2 {
+    font-size: 2rem;
   }
   
-  .popular-games {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  .pricing-card.recommended {
+    transform: scale(1);
   }
   
   .cta-buttons {
     flex-direction: column;
-    gap: 1rem;
     max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
   }
   
   .section-container {
     padding: 0 1rem;
   }
   
-  h2 {
-    font-size: 2.2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .primary-button,
-  .secondary-button {
-    font-size: 1rem;
-    padding: 0.875rem 2rem;
-  }
-  
-  .popular-games {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .feature-card {
-    padding: 2rem 1.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
+  .categories-section h2,
+  .featured-section h2,
+  .how-it-works-section h2,
+  .testimonials-section h2,
+  .pricing-section h2,
   .cta-section h2 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
   
-  .cta-section p {
-    font-size: 1.1rem;
+  .pricing-card {
+    padding: 1.5rem;
+  }
+  
+  .amount {
+    font-size: 2.5rem;
   }
 }
 </style>
