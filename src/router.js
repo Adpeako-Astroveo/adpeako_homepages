@@ -79,10 +79,15 @@ import JewelVideoContentPaymentPage from './pages/jewel-video-content/PaymentPag
 import JewelVideoContentPrivacyPage from './pages/jewel-video-content/PrivacyPage.vue';
 
 // BriskVideos specific pages
+import BriskVideosHomePage from './pages/briskvideos/HomePage.vue';
 import BriskVideosGamesPage from './pages/briskvideos/GamesPage.vue';
 import BriskVideosCategoryPage from './pages/briskvideos/CategoryPage.vue';
 import BriskVideosLoginPage from './pages/briskvideos/LoginPage.vue';
 import BriskVideosSignUpPage from './pages/briskvideos/SignUpPage.vue';
+
+// BriskVideos Category specific pages
+import BriskVideosActionGamesPage from './pages/briskvideos/categories/ActionGamesPage.vue';
+import BriskVideosAdventureGamesPage from './pages/briskvideos/categories/AdventureGamesPage.vue';
 
 const routes = [
   {
@@ -391,6 +396,11 @@ const routes = [
   },
   // BriskVideos specific routes
   {
+    path: '/briskvideos',
+    component: BriskVideosHomePage,
+    name: 'briskvideos-home'
+  },
+  {
     path: '/games',
     component: BriskVideosGamesPage,
     name: 'briskvideos-games'
@@ -409,6 +419,17 @@ const routes = [
     path: '/signup',
     component: BriskVideosSignUpPage,
     name: 'briskvideos-signup'
+  },
+  // BriskVideos Category specific routes
+  {
+    path: '/categories/action',
+    component: BriskVideosActionGamesPage,
+    name: 'briskvideos-action-games'
+  },
+  {
+    path: '/categories/adventure',
+    component: BriskVideosAdventureGamesPage,
+    name: 'briskvideos-adventure-games'
   },
   {
     path: '/:pathMatch(.*)*',
