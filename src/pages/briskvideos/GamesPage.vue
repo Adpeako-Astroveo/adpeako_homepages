@@ -34,7 +34,7 @@
     </section>
 
     <section class="games-grid-section">
-      <h2 v-if="selectedCategory === 'all'">All Games</h2>
+      <h2 style="text-align: center;" v-if="selectedCategory === 'all'">All Games</h2>
       <h2 v-else>{{ getCategoryName(selectedCategory) }} Games</h2>
       
       <div v-if="filteredGames.length > 0" class="games-grid">
