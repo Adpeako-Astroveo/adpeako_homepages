@@ -497,7 +497,7 @@ const routes = [
   },
   // Add redirect for hastyreels domain to home page
   {
-    path: '/hastyreels/hastyreels',
+    path: '/hastyreels',
     redirect: '/hastyreels'
   },
   {
