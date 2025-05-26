@@ -18,6 +18,7 @@ import timberContentMeta from './domains/timber-content.js';
 import iqchampionhubMeta from './domains/iqchampionhub.js';
 import jewelVideoContentMeta from './domains/jewel-video-content.js';
 import briskvideosMeta from './domains/briskvideos.js';
+import funpuzzlepalaceMeta from './domains/funpuzzlepalace.js';
 
 // Domain mapping
 const domainMapping = {
@@ -38,6 +39,7 @@ const domainMapping = {
   "iqchampionhub.com": iqchampionhubMeta.id,
   "jewel-video-content.com": jewelVideoContentMeta.id,
   "briskvideos.com": briskvideosMeta.id,
+  "funpuzzlepalace.com": funpuzzlepalaceMeta.id,
   "localhost": localhostMeta.id,
   "127.0.0.1": localhostMeta.id
 };
@@ -61,6 +63,7 @@ const designs = {
   [iqchampionhubMeta.id]: iqchampionhubMeta.design,
   [jewelVideoContentMeta.id]: jewelVideoContentMeta.design,
   [briskvideosMeta.id]: briskvideosMeta.design,
+  [funpuzzlepalaceMeta.id]: funpuzzlepalaceMeta.design,
   [localhostMeta.id]: localhostMeta.design,
   [defaultMeta.id]: defaultMeta.design
 };
@@ -84,6 +87,7 @@ export const domainsMetadata = {
   "iqchampionhub.com": iqchampionhubMeta,
   "jewel-video-content.com": jewelVideoContentMeta,
   "briskvideos.com": briskvideosMeta,
+  "funpuzzlepalace.com": funpuzzlepalaceMeta,
   "localhost": localhostMeta,
   "127.0.0.1": localhostMeta,
   "default": defaultMeta

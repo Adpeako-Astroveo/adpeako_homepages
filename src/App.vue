@@ -2,6 +2,7 @@
 import { ref, provide, onMounted, watch } from 'vue';
 import { RouterView, RouterLink, useRoute } from 'vue-router';
 import domainMapping, { designs, domainsMetadata } from './domain.js';
+import FunPuzzlePalaceNavbar from './components/FunPuzzlePalaceNavbar.vue';
 
 const designId = ref('default');
 const route = useRoute();
@@ -180,7 +181,11 @@ provide('siteName', siteName);
 
 <template>
   <div class="app-container">
-    <header class="app-header" :class="[designId, {'scrolled': isScrolled}]">
+    <!-- Use FunPuzzlePalace navbar for that domain -->
+    <FunPuzzlePalaceNavbar v-if="designId === 'funpuzzlepalace.com'" />
+    
+    <!-- Default header for other domains -->
+    <header v-else class="app-header" :class="[designId, {'scrolled': isScrolled}]">
       <RouterLink to="/" class="logo-link">
         <img 
           :src="logoPath"
@@ -281,6 +286,14 @@ provide('siteName', siteName);
           <RouterLink to="/games">Games</RouterLink>
           <RouterLink to="/categories/action">Action</RouterLink>
           <RouterLink to="/categories/adventure">Adventure</RouterLink>
+        </template>
+        
+        <!-- FunPuzzlePalace specific links in footer -->
+        <template v-if="designId === 'funpuzzlepalace.com'">
+          <RouterLink to="/funpuzzlepalace/category/puzzle">Puzzle</RouterLink>
+          <RouterLink to="/funpuzzlepalace/category/action">Action</RouterLink>
+          <RouterLink to="/funpuzzlepalace/payment">Pricing</RouterLink>
+          <RouterLink to="/funpuzzlepalace/contact">Contact</RouterLink>
         </template>
       </nav>
       <div class="copyright">
@@ -408,6 +421,10 @@ body, html {
 
 .briskvideos\.com {
   background: linear-gradient(135deg, rgba(255, 0, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 100%);
+}
+
+.funpuzzlepalace\.com {
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
 }
 
 .default {
@@ -659,6 +676,10 @@ footer {
   
   .jewel-video-content\.com .nav-links {
     background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
+  }
+  
+  .funpuzzlepalace\.com .nav-links {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
   }
 }
 

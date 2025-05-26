@@ -47,7 +47,7 @@ domainFiles.forEach(domainFile => {
       .replace(/<title>.*<\/title>/, `<title>${title}</title>`)
       .replace(/<meta name="description" content=".*">/, `<meta name="description" content="${description}">`)
       .replace(/href="\/briskvideos-logo\.svg"/, `href="${favicon}"`)
-      .replace('    <title>Premium Entertainment Platform</title>', `    <title>${title}</title>
+      .replace('<!-- DOMAIN_METADATA -->', `
     <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">

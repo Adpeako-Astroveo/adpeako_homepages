@@ -1,8 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Import domain metadata from the domains directory
-const domainFiles = fs.readdirSync(path.join(__dirname, 'src', 'domains'))
+const domainsDir = path.join(__dirname, 'src', 'domains');
+const domainFiles = fs.readdirSync(domainsDir)
   .filter(file => file.endsWith('.js'));
 
 // Create output directory if it doesn't exist
@@ -21,7 +27,7 @@ domainFiles.forEach(domainFile => {
     const domainName = domainFile.replace('.js', '');
     
     // Read domain metadata (we'll parse it manually since we can't import ES modules)
-    const domainFilePath = path.join(__dirname, 'src', 'domains', domainFile);
+    const domainFilePath = path.join(domainsDir, domainFile);
     const domainFileContent = fs.readFileSync(domainFilePath, 'utf8');
     
     // Extract metadata using regex patterns

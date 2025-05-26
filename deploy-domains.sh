@@ -28,12 +28,13 @@ DOMAINS=(
     "wave-view.com"
     "yellow-racoon.com"
     "gameonlive.tv"
+    "funpuzzlepalace.com"
 )
 
 # Ensure domain-html directory exists
 if [ ! -d "$LOCAL_HTML_DIR" ]; then
     echo "Error: domain-html directory not found"
-    echo "Run node domain-html-generator.js to generate HTML files"
+    echo "Run node domain-html-generator.cjs to generate HTML files"
     exit 1
 fi
 
