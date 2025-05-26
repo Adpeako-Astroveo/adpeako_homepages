@@ -121,6 +121,7 @@ const navbarClass = computed(() => ({
     <div class="navbar-container">
       <!-- Logo -->
       <router-link to="/" class="navbar-logo">
+        <img src="/funpuzzlepalace-logo.svg" alt="FunPuzzlePalace Logo" class="logo-image">
         <span class="logo-text">FunPuzzle<span class="accent">Palace</span></span>
       </router-link>
       
@@ -291,6 +292,13 @@ const navbarClass = computed(() => ({
   z-index: 1001; /* Above mobile menu */
 }
 
+.logo-image {
+  height: 40px;
+  width: auto;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+}
+
 .logo-text {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
@@ -313,6 +321,10 @@ const navbarClass = computed(() => ({
 
 .navbar-scrolled .logo-text {
   font-size: 1.3rem;
+}
+
+.navbar-scrolled .logo-image {
+  height: 35px;
 }
 
 /* Navigation Links */
@@ -618,6 +630,14 @@ const navbarClass = computed(() => ({
   
   .navbar-scrolled .logo-text {
     font-size: 1.1rem;
+  }
+  
+  .logo-image {
+    height: 35px;
+  }
+  
+  .navbar-scrolled .logo-image {
+    height: 30px;
   }
 }
 </style>
