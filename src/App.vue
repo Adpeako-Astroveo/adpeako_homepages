@@ -96,6 +96,7 @@ watch(
     
     // Get domain metadata
     const metadata = domainsMetadata[hostname] || domainsMetadata.default;
+    if (!metadata) return;
 
     let pageConfig;
     let uniqueSuffix = ` - ${siteName.value}`;
@@ -152,6 +153,10 @@ watch(
     } else {
       pageConfig = currentDesign.pages.notFound;
     }
+
+    // Add safety check for pageConfig
+    if (!pageConfig) return;
+    if (!pageConfig.title || !pageConfig.description) return;
 
     // Update title
     const finalTitle = pageConfig.title.replace('Your Domain', siteName.value);

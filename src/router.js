@@ -90,6 +90,7 @@ import BriskVideosActionGamesPage from './pages/briskvideos/categories/ActionGam
 import BriskVideosAdventureGamesPage from './pages/briskvideos/categories/AdventureGamesPage.vue';
 
 // Fun Puzzle Palace specific pages
+import FunPuzzlePalaceHomePage from './designs/funpuzzlepalace/HomePage.vue';
 import FunPuzzlePalaceCategoryPage from './designs/funpuzzlepalace/CategoryPage.vue';
 import FunPuzzlePalaceLoginPage from './designs/funpuzzlepalace/LoginPage.vue';
 import FunPuzzlePalaceSignUpPage from './designs/funpuzzlepalace/SignUpPage.vue';
@@ -441,6 +442,11 @@ const routes = [
   },
   
   // Fun Puzzle Palace specific routes
+  {
+    path: '/funpuzzlepalace',
+    component: FunPuzzlePalaceHomePage,
+    name: 'funpuzzlepalace-home'
+  },
   {
     path: '/funpuzzlepalace/category/:categoryId',
     component: FunPuzzlePalaceCategoryPage,
