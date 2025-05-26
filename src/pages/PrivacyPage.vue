@@ -27,8 +27,8 @@ onMounted(async () => {
   <div>
     <component :is="PrivacyComponent" v-if="PrivacyComponent" />
     <div v-else>
-      <h1>{{ design.pages.privacy.title }}</h1>
-      <p>{{ design.pages.privacy.content }}</p>
+      <h1>{{ design.value?.pages?.privacy?.title || 'Privacy Policy' }}</h1>
+      <p>{{ design.value?.pages?.privacy?.content || 'Privacy policy content not available.' }}</p>
     </div>
   </div>
 </template>

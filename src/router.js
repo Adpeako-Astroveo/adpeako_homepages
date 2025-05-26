@@ -99,15 +99,15 @@ import FunPuzzlePalacePaymentPage from './designs/funpuzzlepalace/PaymentPage.vu
 import FunPuzzlePalacePrivacyPage from './designs/funpuzzlepalace/PrivacyPage.vue';
 
 // HastyReels specific pages
-import HastyReelsHomePage from './pages/hastyreels/HomePage.vue';
-import HastyReelsCategoriesPage from './pages/hastyreels/CategoriesPage.vue';
-import HastyReelsCategoryPage from './pages/hastyreels/CategoryPage.vue';
-import HastyReelsWatchPage from './pages/hastyreels/WatchPage.vue';
-import HastyReelsCreatorsPage from './pages/hastyreels/CreatorsPage.vue';
-import HastyReelsTrendingPage from './pages/hastyreels/TrendingPage.vue';
-import HastyReelsLoginPage from './pages/hastyreels/LoginPage.vue';
-import HastyReelsSignUpPage from './pages/hastyreels/SignUpPage.vue';
-import HastyReelsPrivacyPage from './pages/hastyreels/PrivacyPage.vue';
+import HastyReelsHomePage from './designs/hastyreels/HomePage.vue';
+import HastyReelsCategoriesPage from './designs/hastyreels/CategoriesPage.vue';
+import HastyReelsCategoryPage from './designs/hastyreels/CategoryPage.vue';
+import HastyReelsWatchPage from './designs/hastyreels/WatchPage.vue';
+import HastyReelsCreatorsPage from './designs/hastyreels/CreatorsPage.vue';
+import HastyReelsTrendingPage from './designs/hastyreels/TrendingPage.vue';
+import HastyReelsLoginPage from './designs/hastyreels/LoginPage.vue';
+import HastyReelsSignUpPage from './designs/hastyreels/SignUpPage.vue';
+import HastyReelsPrivacyPage from './designs/hastyreels/PrivacyPage.vue';
 
 const routes = [
   {
@@ -495,7 +495,7 @@ const routes = [
     component: HastyReelsHomePage,
     name: 'hastyreels-home'
   },
-  // Add redirect for hastyreels.com/hastyreels to home page
+  // Add redirect for hastyreels domain to home page
   {
     path: '/hastyreels/hastyreels',
     redirect: '/hastyreels'
