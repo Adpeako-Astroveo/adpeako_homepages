@@ -3,6 +3,17 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import fs from 'fs'
 
+export default defineConfig({
+  base: '/', // <-- This line fixes your root path issue
+  plugins: [vue()],
+  build: {
+    ...
+  },
+  server: {
+    open: true
+  }
+})
+
 // Function to get all domain HTML files
 function getDomainHtmlFiles() {
   const domainHtmlDir = resolve(__dirname, 'domain-html')
