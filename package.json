@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "generate-html": "node domain-html-generator.cjs",
-    "test-domains": "node domain-html-server.cjs"
+    "test-domains": "node domain-html-server.cjs",
+    "test-domains-prod": "node update-domain-html-server.js"
   },
   "dependencies": {
     "vue": "^3.4.38",

@@ -1,0 +1,63 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name DOMAIN_NAME www.DOMAIN_NAME;
+    
+    # Redirect to HTTPS
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name DOMAIN_NAME www.DOMAIN_NAME;
+    
+    # SSL configuration
+    ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem;
+    
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+    ssl_dhparam /etc/nginx/dhparams.pem;
+    
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+    
+    # Set document root
+    root /var/www/html;
+    
+    # Set the domain HTML file as index
+    index $domain_html_file;
+    
+    location / {
+        # First try the domain-specific HTML file
+        try_files /$domain_html_file $uri $uri/ /index.html;
+        add_header Cache-Control "no-cache";
+    }
+    
+    # Handle static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)$ {
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+    }
+    
+    location = /favicon.ico { 
+        access_log off; 
+        log_not_found off; 
+    }
+    
+    location = /robots.txt { 
+        access_log off; 
+        log_not_found off; 
+    }
+    
+    access_log /var/log/nginx/DOMAIN_NAME-access.log;
+    error_log /var/log/nginx/DOMAIN_NAME-error.log error;
+    
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
