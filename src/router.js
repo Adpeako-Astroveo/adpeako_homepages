@@ -99,7 +99,7 @@ import FunPuzzlePalacePaymentPage from './designs/funpuzzlepalace/PaymentPage.vu
 import FunPuzzlePalacePrivacyPage from './designs/funpuzzlepalace/PrivacyPage.vue';
 
 // HastyReels specific pages
-import HastyReelsHomePage from './designs/HomePage.vue';
+import HastyReelsHomePage from './designs/hastyreels/HomePage.vue';
 import HastyReelsCategoriesPage from './designs/hastyreels/CategoriesPage.vue';
 import HastyReelsCategoryPage from './designs/hastyreels/CategoryPage.vue';
 import HastyReelsWatchPage from './designs/hastyreels/WatchPage.vue';
