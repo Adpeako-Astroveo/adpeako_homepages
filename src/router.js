@@ -495,11 +495,7 @@ const routes = [
     component: HastyReelsHomePage,
     name: 'hastyreels-home'
   },
-  // Add redirect for hastyreels domain to home page
-  {
-    path: '/hastyreels',
-    redirect: '/hastyreels'
-  },
+ 
   {
     path: '/hastyreels/categories',
     component: HastyReelsCategoriesPage,
