@@ -95,10 +95,13 @@ watch(
     if (!currentDesign) return;
 
     let pageConfig;
+    let uniqueSuffix = ` - ${siteName.value}`;
     
     // Determine page config based on route path
     if (route.path === '/') {
       pageConfig = currentDesign.pages.home;
+      // For home pages, usually the site name comes first
+      uniqueSuffix = '';
     } else if (route.path === '/privacy') {
       pageConfig = currentDesign.pages.privacy;
     } else if (route.path.includes('/games') || 
@@ -108,19 +111,48 @@ watch(
                route.path.includes('/sports') || 
                route.path.includes('/audiobooks') ||
                route.path.includes('/payment')) {
-      // For domain-specific pages use the home page config but modify for the specific section
+      // Extract section from path
       const pathParts = route.path.split('/');
       const pageName = pathParts[pathParts.length - 1];
+      const pageTitle = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+      
+      // Create unique config for each domain and section combination
       pageConfig = {
-        title: `${siteName.value} - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`,
-        description: currentDesign.pages.home.description
+        title: `${pageTitle}${uniqueSuffix}`,
+        description: `Access premium ${pageTitle.toLowerCase()} content on ${siteName.value}. Enjoy high-quality streaming and exclusive content.`
       };
+      
+      // Special handling for different domains
+      if (designId.value === 'briskvideos.com') {
+        if (pageName === 'games') {
+          pageConfig.description = `Play hundreds of premium games on ${siteName.value}. No ads, no in-app purchases, just pure gaming fun.`;
+        } else if (pageName.includes('action')) {
+          pageConfig.title = `Action Games${uniqueSuffix}`;
+          pageConfig.description = `Explore thrilling action games on ${siteName.value}. Fast-paced gameplay, immersive worlds, and adrenaline-pumping challenges.`;
+        } else if (pageName.includes('adventure')) {
+          pageConfig.title = `Adventure Games${uniqueSuffix}`;
+          pageConfig.description = `Embark on epic adventures with ${siteName.value}. Explore vast worlds, solve puzzles, and uncover mysteries in our premium adventure games.`;
+        }
+      } else if (designId.value === 'jewel-video-content.com') {
+        pageConfig.description = `Premium ${pageTitle.toLowerCase()} on ${siteName.value}. Experience high-quality entertainment with our extensive library of ${pageName.toLowerCase()} content.`;
+      } else if (designId.value === 'iqchampionhub.com') {
+        pageConfig.description = `Enjoy unlimited ${pageTitle.toLowerCase()} on ${siteName.value}. Access our premium library of ${pageName.toLowerCase()} content for entertainment on the go.`;
+      } else if (designId.value === 'timber-content.com') {
+        pageConfig.description = `Stream ${pageTitle.toLowerCase()} content on ${siteName.value}. Discover our selection of premium ${pageName.toLowerCase()} for all devices.`;
+      }
+      
+      // Special handling for payment pages
+      if (pageName === 'payment') {
+        pageConfig.title = `Subscription Plans${uniqueSuffix}`;
+        pageConfig.description = `Choose your subscription plan for ${siteName.value}. Secure payment options with mobile phone billing.`;
+      }
     } else {
       pageConfig = currentDesign.pages.notFound;
     }
 
     // Update title
-    document.title = pageConfig.title.replace('Your Domain', siteName.value);
+    const finalTitle = pageConfig.title.replace('Your Domain', siteName.value);
+    document.title = finalTitle.includes(siteName.value) ? finalTitle : finalTitle + uniqueSuffix;
 
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
