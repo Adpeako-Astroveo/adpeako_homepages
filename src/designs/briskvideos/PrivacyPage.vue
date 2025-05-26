@@ -1,400 +1,571 @@
-<template>
-  <div class="briskvideos-privacy">
-    <div class="privacy-container">
-      <h1>Privacy Policy</h1>
-      
-      <div class="policy-navigation">
-        <button 
-          v-for="section in sections" 
-          :key="section.id"
-          @click="scrollToSection(section.id)"
-          class="nav-button"
-          :class="{ 'active': activeSection === section.id }"
-        >
-          {{ section.title }}
-        </button>
-      </div>
-      
-      <div class="policy-content">
-        <section id="introduction" class="policy-section">
-          <h2>Introduction</h2>
-          <div class="content-wrapper">
-            <p>Welcome to BriskVideos. We are committed to protecting your privacy and handling your data with transparency. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services.</p>
-            <p>By accessing or using BriskVideos, you agree to the collection and use of information in accordance with this policy. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
-          </div>
-        </section>
-        
-        <section id="information-collection" class="policy-section">
-          <h2>Information We Collect</h2>
-          <div class="content-wrapper">
-            <h3>Personal Information</h3>
-            <p>We may collect personally identifiable information, including but not limited to:</p>
-            <ul>
-              <li>Email address</li>
-              <li>First and last name</li>
-              <li>Phone number</li>
-              <li>Address</li>
-              <li>Gaming preferences and history</li>
-            </ul>
-            
-            <h3>Usage Data</h3>
-            <p>We may also collect information on how the service is accessed and used. This data may include:</p>
-            <ul>
-              <li>Your computer's IP address</li>
-              <li>Browser type and version</li>
-              <li>Pages of our service that you visit</li>
-              <li>Time and date of your visit</li>
-              <li>Time spent on those pages</li>
-              <li>Game statistics and preferences</li>
-              <li>Other diagnostic data</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section id="data-usage" class="policy-section">
-          <h2>How We Use Your Data</h2>
-          <div class="content-wrapper">
-            <p>BriskVideos uses the collected data for various purposes:</p>
-            <ul>
-              <li>To provide and maintain our service</li>
-              <li>To notify you about changes to our service</li>
-              <li>To provide customer support</li>
-              <li>To gather analysis or valuable information so that we can improve our service</li>
-              <li>To monitor the usage of our service</li>
-              <li>To detect, prevent and address technical issues</li>
-              <li>To personalize your gaming experience</li>
-              <li>To offer you new games based on your preferences</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section id="data-sharing" class="policy-section">
-          <h2>Sharing of Data</h2>
-          <div class="content-wrapper">
-            <p>We may share your personal information in the following situations:</p>
-            <ul>
-              <li><strong>With Service Providers:</strong> We may share your information with third-party service providers to facilitate our service, provide the service on our behalf, perform service-related activities, or assist us in analyzing how our service is used.</li>
-              <li><strong>For Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
-              <li><strong>With Your Consent:</strong> We may disclose your personal information for any other purpose with your consent.</li>
-              <li><strong>With Other Users:</strong> When you share personal information or otherwise interact in public areas with other users, such information may be viewed by all users and may be publicly distributed.</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section id="cookies" class="policy-section">
-          <h2>Cookies and Tracking</h2>
-          <div class="content-wrapper">
-            <p>We use cookies and similar tracking technologies to track activity on our service and hold certain information.</p>
-            <p>Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device.</p>
-            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
-            <p>Examples of Cookies we use:</p>
-            <ul>
-              <li><strong>Session Cookies:</strong> We use Session Cookies to operate our service.</li>
-              <li><strong>Preference Cookies:</strong> We use Preference Cookies to remember your preferences and various settings.</li>
-              <li><strong>Security Cookies:</strong> We use Security Cookies for security purposes.</li>
-              <li><strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section id="security" class="policy-section">
-          <h2>Data Security</h2>
-          <div class="content-wrapper">
-            <p>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal data, we cannot guarantee its absolute security.</p>
-            <p>We implement various security measures when a user enters, submits, or accesses their information to maintain the safety of your personal data. All transactions are processed through a secure gateway provider and are not stored or processed on our servers.</p>
-          </div>
-        </section>
-        
-        <section id="your-rights" class="policy-section">
-          <h2>Your Data Protection Rights</h2>
-          <div class="content-wrapper">
-            <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
-            <ul>
-              <li><strong>The right to access:</strong> You have the right to request copies of your personal data from us.</li>
-              <li><strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
-              <li><strong>The right to erasure:</strong> You have the right to request that we erase your personal data, under certain conditions.</li>
-              <li><strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
-              <li><strong>The right to object to processing:</strong> You have the right to object to our processing of your personal data, under certain conditions.</li>
-              <li><strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
-            </ul>
-            <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
-          </div>
-        </section>
-        
-        <section id="childrens-privacy" class="policy-section">
-          <h2>Children's Privacy</h2>
-          <div class="content-wrapper">
-            <p>Our service is not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If we discover that a child under 13 has provided us with personal information, we immediately delete this information from our servers.</p>
-            <p>If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.</p>
-          </div>
-        </section>
-        
-        <section id="changes" class="policy-section">
-          <h2>Changes to This Privacy Policy</h2>
-          <div class="content-wrapper">
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-            <p>Last Updated: May 15, 2024</p>
-          </div>
-        </section>
-        
-        <section id="contact" class="policy-section">
-          <h2>Contact Us</h2>
-          <div class="content-wrapper">
-            <p>If you have any questions about this Privacy Policy, please contact us:</p>
-            <ul class="contact-info">
-              <li>By email: privacy@briskvideos.com</li>
-              <li>By visiting this page on our website: www.briskvideos.com/contact</li>
-              <li>By phone: +1 (555) 123-4567</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-// Define the policy sections
-const sections = [
+// Privacy sections - for navigation
+const sections = ref([
   { id: 'introduction', title: 'Introduction' },
-  { id: 'information-collection', title: 'Information Collection' },
-  { id: 'data-usage', title: 'Data Usage' },
-  { id: 'data-sharing', title: 'Data Sharing' },
-  { id: 'cookies', title: 'Cookies & Tracking' },
-  { id: 'security', title: 'Security' },
-  { id: 'your-rights', title: 'Your Rights' },
-  { id: 'childrens-privacy', title: "Children's Privacy" },
-  { id: 'changes', title: 'Changes' },
+  { id: 'data-collection', title: 'What Data We Collect' },
+  { id: 'data-usage', title: 'How We Use Your Data' },
+  { id: 'data-sharing', title: 'How We Share Your Data' },
+  { id: 'data-rights', title: 'Your Data Protection Rights' },
+  { id: 'data-security', title: 'How We Secure Your Data' },
+  { id: 'cookies', title: 'Cookies Policy' },
+  { id: 'children', title: 'Children\'s Privacy' },
+  { id: 'changes', title: 'Changes to This Policy' },
   { id: 'contact', title: 'Contact Us' }
-];
+]);
 
-// Track active section
+// Active section for mobile navigation
 const activeSection = ref('introduction');
 
-// Function to scroll to a specific section
-const scrollToSection = (sectionId) => {
+const setActiveSection = (sectionId) => {
+  activeSection.value = sectionId;
+  
+  // Scroll to the section
   const element = document.getElementById(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
-    activeSection.value = sectionId;
   }
 };
 
-// Function to update active section based on scroll position
+// Handle scroll to highlight active section
 const handleScroll = () => {
-  const sectionElements = sections.map(section => ({
-    id: section.id,
-    element: document.getElementById(section.id)
-  })).filter(section => section.element !== null);
+  const scrollPosition = window.scrollY;
   
-  // Find the section that is currently visible
-  const currentSection = sectionElements.find(section => {
-    const rect = section.element.getBoundingClientRect();
-    return rect.top <= 150 && rect.bottom > 150;
-  });
-  
-  if (currentSection) {
-    activeSection.value = currentSection.id;
+  // Find which section is currently in view
+  for (const section of sections.value) {
+    const element = document.getElementById(section.id);
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      const offsetBottom = offsetTop + element.offsetHeight;
+      
+      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+        activeSection.value = section.id;
+        break;
+      }
+    }
   }
 };
 
-// Add scroll event listener when component mounts
+// Add scroll event listener on mount
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
 
-// Remove scroll event listener when component unmounts
+// Remove scroll event listener on unmount
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
+<template>
+  <div class="privacy-page">
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: May 15, 2024</p>
+      </div>
+      <div class="hero-backdrop"></div>
+    </section>
+
+    <div class="privacy-container">
+      <!-- Mobile section navigation -->
+      <div class="mobile-section-nav">
+        <select v-model="activeSection" @change="setActiveSection(activeSection)">
+          <option v-for="section in sections" :key="section.id" :value="section.id">
+            {{ section.title }}
+          </option>
+        </select>
+      </div>
+      
+      <div class="privacy-content">
+        <!-- Sidebar navigation -->
+        <aside class="privacy-nav">
+          <ul>
+            <li v-for="section in sections" :key="section.id">
+              <a 
+                :href="`#${section.id}`"
+                :class="{ active: activeSection === section.id }"
+                @click.prevent="setActiveSection(section.id)"
+              >
+                {{ section.title }}
+              </a>
+            </li>
+          </ul>
+        </aside>
+        
+        <!-- Privacy content -->
+        <main class="privacy-text">
+          <section id="introduction" class="privacy-section">
+            <h2>Introduction</h2>
+            <p>Berg Online Marketing B.V. (hereinafter also referred to as 'we') treats your personal data with great care. This Privacy Statement describes how your personal data is processed when using our streaming entertainment services and visiting our website.</p>
+            
+            <p>We are responsible for processing your personal data when you visit our website. For any questions you may have about the processing of your personal data, you can reach us at our general postal address or via email:</p>
+            
+            <address class="contact-info">
+              <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
+              <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
+              <p><strong>Postal Code:</strong> 1056JV</p>
+              <p><strong>City:</strong> Amsterdam</p>
+              <p><strong>Email:</strong> <a href="mailto:privacy@briskvideos.com">privacy@briskvideos.com</a></p>
+            </address>
+
+            <p>This Privacy Policy applies to all services offered by BriskVideos, including our website, mobile applications, and gaming platforms that link to this policy.</p>
+            
+            <p>By using our services, you agree to the collection and use of information in accordance with this policy. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+          </section>
+          
+          <section id="data-collection" class="privacy-section">
+            <h2>What Data We Collect</h2>
+            
+            <h3>Personal Information</h3>
+            <p>When you create an account, subscribe to our services, or contact us, we may collect the following types of personal information:</p>
+            
+            <ul>
+              <li>Contact Information: Name, email address, phone number, and billing address</li>
+              <li>Account Information: Username, password, and account preferences</li>
+              <li>Payment Information: Mobile phone number for carrier billing purposes</li>
+              <li>Demographic Information: Age, gender, and location (country/region)</li>
+            </ul>
+            
+            <h3>Usage Data</h3>
+            <p>We automatically collect information about how you interact with our services:</p>
+            
+            <ul>
+              <li>Gaming History: Games you play, preferences, and achievements</li>
+              <li>Device Information: Device type, operating system, browser type, mobile network information, and IP address</li>
+              <li>Log Data: Access times, pages viewed, time spent on pages, and other statistics</li>
+              <li>Location Data: General location derived from IP address</li>
+            </ul>
+          </section>
+          
+          <section id="data-usage" class="privacy-section">
+            <h2>How We Use Your Data</h2>
+            <p>We use the information we collect for various purposes, including:</p>
+            
+            <h3>Providing and Improving Our Services</h3>
+            <ul>
+              <li>Processing transactions and managing your account</li>
+              <li>Delivering, maintaining, and improving our content and services</li>
+              <li>Personalizing game recommendations based on your preferences and usage patterns</li>
+              <li>Developing new features and functionality</li>
+            </ul>
+            
+            <h3>Communications</h3>
+            <ul>
+              <li>Sending service-related notifications and updates</li>
+              <li>Responding to your inquiries, comments, or concerns</li>
+              <li>Sending promotional messages and marketing communications (if you have opted in)</li>
+              <li>Conducting surveys and collecting feedback</li>
+            </ul>
+            
+            <h3>Legal and Security Purposes</h3>
+            <ul>
+              <li>Detecting, preventing, and addressing fraud, security issues, and technical problems</li>
+              <li>Protecting our rights, property, and safety, as well as those of our users</li>
+              <li>Complying with legal obligations and enforcing our terms of service</li>
+            </ul>
+            
+            <p>We process your data based on the following legal grounds:</p>
+            <ul>
+              <li>Performance of the contract we have with you (service provision)</li>
+              <li>Your consent (for marketing communications and personalization)</li>
+              <li>Our legitimate interests (service improvement, security, fraud prevention)</li>
+              <li>Compliance with legal obligations</li>
+            </ul>
+          </section>
+          
+          <section id="data-sharing" class="privacy-section">
+            <h2>How We Share Your Data</h2>
+            <p>We do not sell your personal information. However, we may share your data with:</p>
+            
+            <h3>Service Providers</h3>
+            <p>We work with third-party service providers who perform functions on our behalf, such as:</p>
+            <ul>
+              <li>Payment processors and mobile carriers (for billing purposes)</li>
+              <li>Content delivery networks and hosting providers</li>
+              <li>Analytics providers and marketing services</li>
+              <li>Customer support services</li>
+            </ul>
+            
+            <h3>Business Partners</h3>
+            <p>We may share data with game developers, mobile network operators, and other business partners to:</p>
+            <ul>
+              <li>Provide joint content and services</li>
+              <li>Process payments through carrier billing</li>
+              <li>Facilitate marketing and promotional activities (with your consent)</li>
+            </ul>
+            
+            <h3>Legal Requirements</h3>
+            <p>We may disclose your information if required by law, regulation, legal process, or governmental request, or to protect our rights, property, or safety, or that of our users or the public.</p>
+            
+            <h3>Corporate Transactions</h3>
+            <p>In the event of a merger, acquisition, or sale of all or part of our assets, personal data may be transferred as part of the transaction. We will notify you via email and/or a prominent notice on our website of any change in ownership or uses of your personal information.</p>
+            
+            <h3>International Data Transfers</h3>
+            <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that are different from those in your country. We implement appropriate safeguards to protect your information when it is transferred internationally.</p>
+          </section>
+          
+          <section id="data-rights" class="privacy-section">
+            <h2>Your Data Protection Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal data, including:</p>
+            
+            <h3>Access and Portability</h3>
+            <p>You have the right to access the personal data we hold about you and to request a copy of your data in a structured, commonly used format.</p>
+            
+            <h3>Correction</h3>
+            <p>You have the right to correct inaccurate or incomplete personal data we hold about you.</p>
+            
+            <h3>Deletion</h3>
+            <p>You have the right to request the deletion of your personal data in certain circumstances.</p>
+            
+            <h3>Restriction and Objection</h3>
+            <p>You have the right to restrict or object to the processing of your personal data in certain circumstances.</p>
+            
+            <h3>Withdrawal of Consent</h3>
+            <p>Where we rely on your consent to process your data, you have the right to withdraw your consent at any time.</p>
+            
+            <h3>Complaint</h3>
+            <p>You have the right to lodge a complaint with a data protection authority if you believe your rights have been violated.</p>
+            
+            <p>To exercise your rights, please contact us at <a href="mailto:privacy@briskvideos.com">privacy@briskvideos.com</a>. We will respond to your request within 30 days.</p>
+          </section>
+          
+          <section id="data-security" class="privacy-section">
+            <h2>How We Secure Your Data</h2>
+            <p>We implement a variety of security measures to protect your personal information:</p>
+            <ul>
+              <li>Encryption: We use encryption technologies to protect data transmission and storage</li>
+              <li>Access Controls: We restrict access to personal data to authorized employees and contractors</li>
+              <li>Regular Audits: We conduct regular security assessments and audits</li>
+              <li>Incident Response: We have procedures in place to address potential data breaches</li>
+            </ul>
+            
+            <p>While we implement safeguards to protect your information, no security system is impenetrable. We cannot guarantee the security of your data transmitted to our site; any transmission is at your own risk.</p>
+            
+            <h3>Data Retention</h3>
+            <p>We retain your personal data for as long as necessary to provide you with our services and as needed to comply with our legal obligations. When we no longer need to use your data, we will delete it or anonymize it.</p>
+          </section>
+          
+          <section id="cookies" class="privacy-section">
+            <h2>Cookies Policy</h2>
+            <p>We use cookies and similar tracking technologies to enhance your browsing experience, analyze site traffic, and personalize content.</p>
+            
+            <h3>Types of Cookies We Use</h3>
+            <ul>
+              <li><strong>Essential Cookies:</strong> Necessary for the website to function properly</li>
+              <li><strong>Functional Cookies:</strong> Enable personalized features and remember your preferences</li>
+              <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website</li>
+              <li><strong>Marketing Cookies:</strong> Track your browsing habits to deliver advertising relevant to your interests</li>
+            </ul>
+            
+            <h3>Your Cookie Choices</h3>
+            <p>You can control cookies through your browser settings. Most browsers allow you to refuse or accept cookies and to delete them. Note that if you disable cookies, some features of our service may not function properly.</p>
+          </section>
+          
+          <section id="children" class="privacy-section">
+            <h2>Children's Privacy</h2>
+            <p>Our services are not directed to children under the age of 16. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe we may have collected information about your child, please contact us immediately at <a href="mailto:privacy@briskvideos.com">privacy@briskvideos.com</a>.</p>
+            
+            <p>We offer certain content suitable for children, but these are clearly marked within our services and subject to additional protections and limitations on data collection.</p>
+          </section>
+          
+          <section id="changes" class="privacy-section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top.</p>
+            
+            <p>For significant changes, we will provide a more prominent notice, such as an email notification. We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
+            
+            <p>Your continued use of our services after any changes to this Privacy Policy constitutes your acceptance of the changes.</p>
+          </section>
+          
+          <section id="contact" class="privacy-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+            
+            <address class="contact-info">
+              <p><strong>Organization:</strong> Berg Online Marketing B.V.</p>
+              <p><strong>Address:</strong> Willem de Zwijgerlaan 150</p>
+              <p><strong>Postal Code:</strong> 1056JV</p>
+              <p><strong>City:</strong> Amsterdam</p>
+              <p><strong>Email:</strong> <a href="mailto:privacy@briskvideos.com">privacy@briskvideos.com</a></p>
+            </address>
+            
+            <p>We will respond to your inquiry as soon as possible and within 30 days.</p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.briskvideos-privacy {
-  background-color: #0a0a0a;
-  color: #ffffff;
+.privacy-page {
   min-height: 100vh;
-  font-family: 'Inter', 'Roboto', sans-serif;
-  padding: 100px 0 60px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #f8fafc;
+  background-color: #0a0a0a;
+  padding-top: 64px;
 }
 
-.privacy-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 3rem;
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   text-align: center;
+}
+
+.hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.3) 0%, rgba(0, 255, 255, 0.3) 100%), url('https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg') center/cover no-repeat;
+  filter: brightness(0.4);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   background: linear-gradient(to right, #ff00ff, #00ffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
 
-.policy-navigation {
+.hero-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Privacy Container */
+.privacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.privacy-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
-  justify-content: center;
+  gap: 3rem;
+}
+
+/* Sidebar Navigation */
+.privacy-nav {
+  width: 250px;
   position: sticky;
-  top: 70px;
-  background: rgba(10, 10, 10, 0.95);
-  padding: 1rem;
-  border-radius: 10px;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  top: 100px;
+  align-self: flex-start;
 }
 
-.nav-button {
-  background: #1a1a1a;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.9rem;
-  cursor: pointer;
+.privacy-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-nav li {
+  margin-bottom: 0.75rem;
+}
+
+.privacy-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #a1a1aa;
+  text-decoration: none;
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
-.nav-button:hover {
-  background: #2a2a2a;
-  border-color: rgba(0, 255, 255, 0.5);
-}
-
-.nav-button.active {
-  background: linear-gradient(90deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
-  border-color: rgba(0, 255, 255, 0.7);
+.privacy-nav a:hover {
+  background: rgba(255, 255, 255, 0.05);
   color: #00ffff;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
-.policy-content {
-  margin-top: 3rem;
-}
-
-.policy-section {
-  margin-bottom: 4rem;
-  scroll-margin-top: 150px;
-}
-
-.policy-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+.privacy-nav a.active {
+  background: rgba(0, 255, 255, 0.1);
   color: #00ffff;
-  position: relative;
-  display: inline-block;
+  font-weight: 600;
+  border-left: 3px solid #00ffff;
 }
 
-.policy-section h2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
+/* Mobile Section Nav */
+.mobile-section-nav {
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.mobile-section-nav select {
   width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, #ff00ff, transparent);
-  border-radius: 3px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #27272a;
+  border-radius: 0.5rem;
+  background-color: #18181b;
+  color: #f8fafc;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f8fafc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
 }
 
-.content-wrapper {
-  background: #1a1a1a;
-  padding: 2rem;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.mobile-section-nav select:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
 }
 
-.policy-section h3 {
-  font-size: 1.5rem;
-  color: #ff00ff;
+/* Privacy Text Content */
+.privacy-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.privacy-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #27272a;
+  scroll-margin-top: 100px;
+}
+
+.privacy-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.privacy-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.privacy-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e5e7eb;
   margin: 1.5rem 0 1rem;
 }
 
-.policy-section p {
-  margin-bottom: 1.5rem;
+.privacy-section p {
+  margin-bottom: 1rem;
   line-height: 1.7;
-  color: #cccccc;
+  color: #d1d5db;
 }
 
-.policy-section ul {
+.privacy-section ul, 
+.privacy-section ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
 }
 
-.policy-section li {
+.privacy-section li {
   margin-bottom: 0.5rem;
-  color: #cccccc;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.privacy-section a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.privacy-section a:hover {
+  color: #ff00ff;
+  text-decoration: underline;
 }
 
 .contact-info {
-  list-style-type: none;
-  padding-left: 0;
+  background: rgba(0, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(0, 255, 255, 0.1);
 }
 
-.contact-info li {
-  margin-bottom: 0.75rem;
-  color: #ffffff;
+.contact-info p {
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive design */
+/* Responsive Design */
+@media (max-width: 992px) {
+  .privacy-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .privacy-nav {
+    width: 100%;
+    position: static;
+  }
+  
+  .privacy-nav ul {
+    display: none;
+  }
+  
+  .mobile-section-nav {
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
-  h1 {
+  .hero-section {
+    height: 250px;
+  }
+  
+  .hero-section h1 {
     font-size: 2.5rem;
   }
-
-  .policy-navigation {
-    padding: 0.75rem;
+  
+  .privacy-section h2 {
+    font-size: 1.75rem;
   }
-
-  .nav-button {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-  }
-
-  .policy-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .policy-section h3 {
+  
+  .privacy-section h3 {
     font-size: 1.3rem;
-  }
-
-  .content-wrapper {
-    padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  h1 {
+  .hero-section h1 {
     font-size: 2rem;
   }
-
-  .policy-navigation {
-    flex-direction: column;
-    align-items: stretch;
+  
+  .privacy-container {
+    padding: 2rem 1rem;
   }
-
-  .nav-button {
-    text-align: left;
-    border-radius: 8px;
-    margin-bottom: 0.3rem;
-  }
-
-  .policy-section h2 {
+  
+  .privacy-section h2 {
     font-size: 1.5rem;
   }
   
-  .policy-section {
-    margin-bottom: 3rem;
+  .privacy-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info {
+    padding: 1rem;
   }
 }
 </style>
