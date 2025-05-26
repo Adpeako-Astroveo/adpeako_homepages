@@ -3,6 +3,7 @@ import { ref, provide, onMounted, watch } from 'vue';
 import { RouterView, RouterLink, useRoute } from 'vue-router';
 import domainMapping, { designs, domainsMetadata } from './domain.js';
 import FunPuzzlePalaceNavbar from './components/FunPuzzlePalaceNavbar.vue';
+import HastyReelsNavbar from './components/HastyReelsNavbar.vue';
 
 const designId = ref('default');
 const route = useRoute();
@@ -143,6 +144,8 @@ watch(
         pageConfig.description = `Enjoy unlimited ${pageTitle.toLowerCase()} on ${siteName.value}. Access our premium library of ${pageName.toLowerCase()} content for entertainment on the go.`;
       } else if (designId.value === 'timber-content.com') {
         pageConfig.description = `Stream ${pageTitle.toLowerCase()} content on ${siteName.value}. Discover our selection of premium ${pageName.toLowerCase()} for all devices.`;
+      } else if (designId.value === 'hastyreels.com') {
+        pageConfig.description = `Watch premium ${pageTitle.toLowerCase()} content on ${siteName.value}. Unlimited streaming of high-quality short-form videos.`;
       }
       
       // Special handling for payment pages
@@ -188,6 +191,9 @@ provide('siteName', siteName);
   <div class="app-container">
     <!-- Use FunPuzzlePalace navbar for that domain -->
     <FunPuzzlePalaceNavbar v-if="designId === 'funpuzzlepalace.com'" />
+    
+    <!-- Use HastyReels navbar for that domain -->
+    <HastyReelsNavbar v-else-if="designId === 'hastyreels.com'" />
     
     <!-- Default header for other domains -->
     <header v-else class="app-header" :class="[designId, {'scrolled': isScrolled}]">
@@ -248,6 +254,13 @@ provide('siteName', siteName);
           <RouterLink to="/categories/strategy" class="nav-link">Strategy</RouterLink>
         </template>
         
+        <!-- HastyReels specific links -->
+        <template v-if="designId === 'hastyreels.com'">
+          <RouterLink to="/hastyreels/categories" class="nav-link">Categories</RouterLink>
+          <RouterLink to="/hastyreels/trending" class="nav-link">Trending</RouterLink>
+          <RouterLink to="/hastyreels/creators" class="nav-link">Creators</RouterLink>
+        </template>
+        
         <RouterLink to="/login" class="login-btn">Login</RouterLink>
       </nav>
     </header>
@@ -299,6 +312,13 @@ provide('siteName', siteName);
           <RouterLink to="/funpuzzlepalace/category/action">Action</RouterLink>
           <RouterLink to="/funpuzzlepalace/payment">Pricing</RouterLink>
           <RouterLink to="/funpuzzlepalace/contact">Contact</RouterLink>
+        </template>
+        
+        <!-- HastyReels specific links in footer -->
+        <template v-if="designId === 'hastyreels.com'">
+          <RouterLink to="/hastyreels/categories">Categories</RouterLink>
+          <RouterLink to="/hastyreels/trending">Trending</RouterLink>
+          <RouterLink to="/hastyreels/creators">Creators</RouterLink>
         </template>
       </nav>
       <div class="copyright">
@@ -430,6 +450,10 @@ body, html {
 
 .funpuzzlepalace\.com {
   background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.hastyreels\.com {
+  background: linear-gradient(135deg, #ff4e50 0%, #fc913a 100%);
 }
 
 .default {
@@ -668,6 +692,11 @@ footer {
   /* Match mobile nav background to header design for briskvideos.com */
   .briskvideos\.com .nav-links {
     background: linear-gradient(135deg, rgba(255, 0, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 100%);
+  }
+  
+  /* Match mobile nav background to header design for hastyreels.com */
+  .hastyreels\.com .nav-links {
+    background: linear-gradient(135deg, #ff4e50 0%, #fc913a 100%);
   }
   
   /* Match mobile nav background to header design for other domains */

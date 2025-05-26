@@ -16,7 +16,7 @@ const design = computed(() => {
 });
 
 onMounted(async () => {
-  if (design.value?.pages?.home?.component) {
+  if (design.value && design.value.pages && design.value.pages.home && design.value.pages.home.component) {
     const module = await design.value.pages.home.component();
     HomeComponent.value = module.default;
   }

@@ -98,6 +98,16 @@ import FunPuzzlePalaceContactPage from './designs/funpuzzlepalace/ContactPage.vu
 import FunPuzzlePalacePaymentPage from './designs/funpuzzlepalace/PaymentPage.vue';
 import FunPuzzlePalacePrivacyPage from './designs/funpuzzlepalace/PrivacyPage.vue';
 
+// HastyReels specific pages
+import HastyReelsHomePage from './pages/hastyreels/HomePage.vue';
+import HastyReelsCategoriesPage from './pages/hastyreels/CategoriesPage.vue';
+import HastyReelsCategoryPage from './pages/hastyreels/CategoryPage.vue';
+import HastyReelsWatchPage from './pages/hastyreels/WatchPage.vue';
+import HastyReelsCreatorsPage from './pages/hastyreels/CreatorsPage.vue';
+import HastyReelsTrendingPage from './pages/hastyreels/TrendingPage.vue';
+import HastyReelsLoginPage from './pages/hastyreels/LoginPage.vue';
+import HastyReelsSignUpPage from './pages/hastyreels/SignUpPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -476,6 +486,48 @@ const routes = [
     path: '/funpuzzlepalace/privacy',
     component: FunPuzzlePalacePrivacyPage,
     name: 'funpuzzlepalace-privacy'
+  },
+  
+  // HastyReels specific routes
+  {
+    path: '/hastyreels',
+    component: HastyReelsHomePage,
+    name: 'hastyreels-home'
+  },
+  {
+    path: '/hastyreels/categories',
+    component: HastyReelsCategoriesPage,
+    name: 'hastyreels-categories'
+  },
+  {
+    path: '/hastyreels/category/:categoryId',
+    component: HastyReelsCategoryPage,
+    name: 'hastyreels-category'
+  },
+  {
+    path: '/hastyreels/watch/:videoId',
+    component: HastyReelsWatchPage,
+    name: 'hastyreels-watch'
+  },
+  {
+    path: '/hastyreels/creators',
+    component: HastyReelsCreatorsPage,
+    name: 'hastyreels-creators'
+  },
+  {
+    path: '/hastyreels/trending',
+    component: HastyReelsTrendingPage,
+    name: 'hastyreels-trending'
+  },
+  {
+    path: '/hastyreels/login',
+    component: HastyReelsLoginPage,
+    name: 'hastyreels-login'
+  },
+  {
+    path: '/hastyreels/signup',
+    component: HastyReelsSignUpPage,
+    name: 'hastyreels-signup'
   },
   
   {
