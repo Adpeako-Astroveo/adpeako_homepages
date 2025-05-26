@@ -19,7 +19,7 @@ const searchQuery = ref('');
 // Check if the current route should have transparent navbar
 const checkTransparency = () => {
   // Only certain pages should have transparent navbar (e.g., home)
-  const transparentRoutes = ['/hastyreels', '/hastyreels/'];
+  const transparentRoutes = ['/', '/'];
   isTransparent.value = (transparentRoutes.includes(route.path) && !isScrolled.value);
 };
 
