@@ -109,7 +109,8 @@ watch(
                route.path.includes('/audiobooks') ||
                route.path.includes('/payment')) {
       // For domain-specific pages use the home page config but modify for the specific section
-      const pageName = route.path.split('/').pop();
+      const pathParts = route.path.split('/');
+      const pageName = pathParts[pathParts.length - 1];
       pageConfig = {
         title: `${siteName.value} - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`,
         description: currentDesign.pages.home.description
