@@ -10,12 +10,12 @@ export default {
     home: {
       title: "BriskVideos - Ultimate Gaming Experience",
       description: "Dive into the world of premium online gaming with BriskVideos. Play thousands of high-quality games instantly with no downloads.",
-      component: () => import('.briskvideos/HomePage.vue')
+      component: () => import('../pages/briskvideos/HomePage.vue')
     },
     privacy: {
       title: "Privacy Policy | BriskVideos",
       description: "Learn about how we handle your data and protect your privacy at BriskVideos.",
-      component: () => import('.briskvideos/PrivacyPage.vue')
+      component: () => import('../designs/briskvideos/PrivacyPage.vue')
     },
     notFound: {
       title: "Page Not Found | BriskVideos",
