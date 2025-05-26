@@ -95,15 +95,27 @@ watch(
     if (!currentDesign) return;
 
     let pageConfig;
-    switch (route.path) {
-      case '/':
-        pageConfig = currentDesign.pages.home;
-        break;
-      case '/privacy':
-        pageConfig = currentDesign.pages.privacy;
-        break;
-      default:
-        pageConfig = currentDesign.pages.notFound;
+    
+    // Determine page config based on route path
+    if (route.path === '/') {
+      pageConfig = currentDesign.pages.home;
+    } else if (route.path === '/privacy') {
+      pageConfig = currentDesign.pages.privacy;
+    } else if (route.path.includes('/games') || 
+               route.path.includes('/categories') || 
+               route.path.includes('/music') || 
+               route.path.includes('/video') || 
+               route.path.includes('/sports') || 
+               route.path.includes('/audiobooks') ||
+               route.path.includes('/payment')) {
+      // For domain-specific pages use the home page config but modify for the specific section
+      const pageName = route.path.split('/').pop();
+      pageConfig = {
+        title: `${siteName.value} - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`,
+        description: currentDesign.pages.home.description
+      };
+    } else {
+      pageConfig = currentDesign.pages.notFound;
     }
 
     // Update title
@@ -116,7 +128,7 @@ watch(
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = pageConfig.description;
+    metaDescription.content = pageConfig.description.replace('Your Domain', siteName.value);
 
     // Update favicon
     const favicon = document.querySelector('link[rel="icon"]');
