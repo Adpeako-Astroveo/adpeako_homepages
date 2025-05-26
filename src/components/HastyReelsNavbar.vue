@@ -107,7 +107,7 @@ const navbarClass = computed(() => ({
 <template>
   <header class="hasty-navbar" :class="navbarClass">
     <div class="navbar-container">
-      <!-- Logo -->
+      <!-- Logo - Fixed: Changed from "/" to "/hastyreels" -->
       <router-link to="/hastyreels" class="navbar-logo">
         <div class="logo-icon">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

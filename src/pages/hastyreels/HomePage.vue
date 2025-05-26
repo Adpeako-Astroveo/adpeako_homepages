@@ -152,8 +152,8 @@ const navigateToCategory = (categoryId) => {
 };
 
 const navigateToCreator = (creatorId) => {
-  // In a real app, this would navigate to a creator profile
-  router.push(`/hastyreels/creators`);
+  // In a real app, this would go to a specific creator profile
+  router.push('/hastyreels/creators');
 };
 
 const navigateToLogin = () => {
