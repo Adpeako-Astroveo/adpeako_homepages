@@ -107,6 +107,7 @@ import HastyReelsCreatorsPage from './pages/hastyreels/CreatorsPage.vue';
 import HastyReelsTrendingPage from './pages/hastyreels/TrendingPage.vue';
 import HastyReelsLoginPage from './pages/hastyreels/LoginPage.vue';
 import HastyReelsSignUpPage from './pages/hastyreels/SignUpPage.vue';
+import HastyReelsPrivacyPage from './pages/hastyreels/PrivacyPage.vue';
 
 const routes = [
   {
@@ -494,6 +495,11 @@ const routes = [
     component: HastyReelsHomePage,
     name: 'hastyreels-home'
   },
+  // Add redirect for hastyreels.com/hastyreels to home page
+  {
+    path: '/hastyreels/hastyreels',
+    redirect: '/hastyreels'
+  },
   {
     path: '/hastyreels/categories',
     component: HastyReelsCategoriesPage,
@@ -528,6 +534,12 @@ const routes = [
     path: '/hastyreels/signup',
     component: HastyReelsSignUpPage,
     name: 'hastyreels-signup'
+  },
+  // HastyReels privacy page
+  {
+    path: '/hastyreels/privacy',
+    component: HastyReelsPrivacyPage,
+    name: 'hastyreels-privacy'
   },
   
   {

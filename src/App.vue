@@ -319,6 +319,7 @@ provide('siteName', siteName);
           <RouterLink to="/hastyreels/categories">Categories</RouterLink>
           <RouterLink to="/hastyreels/trending">Trending</RouterLink>
           <RouterLink to="/hastyreels/creators">Creators</RouterLink>
+          <RouterLink to="/hastyreels/privacy">Privacy</RouterLink>
         </template>
       </nav>
       <div class="copyright">

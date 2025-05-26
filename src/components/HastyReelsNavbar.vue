@@ -139,6 +139,9 @@ const navbarClass = computed(() => ({
           <li>
             <router-link to="/hastyreels/creators">Creators</router-link>
           </li>
+          <li>
+            <router-link to="/hastyreels/privacy">Privacy</router-link>
+          </li>
         </ul>
       </nav>
       
@@ -208,6 +211,9 @@ const navbarClass = computed(() => ({
               </li>
               <li>
                 <router-link to="/hastyreels/creators" @click="toggleMobileMenu">Creators</router-link>
+              </li>
+              <li>
+                <router-link to="/hastyreels/privacy" @click="toggleMobileMenu">Privacy</router-link>
               </li>
             </ul>
           </nav>
