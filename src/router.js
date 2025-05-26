@@ -89,6 +89,14 @@ import BriskVideosSignUpPage from './pages/briskvideos/SignUpPage.vue';
 import BriskVideosActionGamesPage from './pages/briskvideos/categories/ActionGamesPage.vue';
 import BriskVideosAdventureGamesPage from './pages/briskvideos/categories/AdventureGamesPage.vue';
 
+// Fun Puzzle Palace specific pages
+import FunPuzzlePalaceCategoryPage from './designs/funpuzzlepalace/CategoryPage.vue';
+import FunPuzzlePalaceLoginPage from './designs/funpuzzlepalace/LoginPage.vue';
+import FunPuzzlePalaceSignUpPage from './designs/funpuzzlepalace/SignUpPage.vue';
+import FunPuzzlePalaceContactPage from './designs/funpuzzlepalace/ContactPage.vue';
+import FunPuzzlePalacePaymentPage from './designs/funpuzzlepalace/PaymentPage.vue';
+import FunPuzzlePalacePrivacyPage from './designs/funpuzzlepalace/PrivacyPage.vue';
+
 const routes = [
   {
     path: '/',
@@ -431,6 +439,39 @@ const routes = [
     component: BriskVideosAdventureGamesPage,
     name: 'briskvideos-adventure-games'
   },
+  
+  // Fun Puzzle Palace specific routes
+  {
+    path: '/funpuzzlepalace/category/:categoryId',
+    component: FunPuzzlePalaceCategoryPage,
+    name: 'funpuzzlepalace-category'
+  },
+  {
+    path: '/funpuzzlepalace/login',
+    component: FunPuzzlePalaceLoginPage,
+    name: 'funpuzzlepalace-login'
+  },
+  {
+    path: '/funpuzzlepalace/signup',
+    component: FunPuzzlePalaceSignUpPage,
+    name: 'funpuzzlepalace-signup'
+  },
+  {
+    path: '/funpuzzlepalace/contact',
+    component: FunPuzzlePalaceContactPage,
+    name: 'funpuzzlepalace-contact'
+  },
+  {
+    path: '/funpuzzlepalace/payment',
+    component: FunPuzzlePalacePaymentPage,
+    name: 'funpuzzlepalace-payment'
+  },
+  {
+    path: '/funpuzzlepalace/privacy',
+    component: FunPuzzlePalacePrivacyPage,
+    name: 'funpuzzlepalace-privacy'
+  },
+  
   {
     path: '/:pathMatch(.*)*',
     component: NotFoundPage,
