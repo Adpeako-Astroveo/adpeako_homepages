@@ -234,7 +234,6 @@ provide('siteName', siteName);
           <RouterLink to="/games">Games</RouterLink>
           <RouterLink to="/categories/action">Action</RouterLink>
           <RouterLink to="/categories/adventure">Adventure</RouterLink>
-          <RouterLink to="/privacy">Privacy Policy</RouterLink>
         </template>
       </nav>
       <div class="copyright">
