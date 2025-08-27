@@ -166,9 +166,6 @@ const navbarClass = computed(() => ({
           <li>
             <router-link to="/funpuzzlepalace/contact">Contact</router-link>
           </li>
-          <li>
-            <router-link to="/funpuzzlepalace/privacy">Privacy</router-link>
-          </li>
         </ul>
       </nav>
       
@@ -229,9 +226,6 @@ const navbarClass = computed(() => ({
               </li>
               <li>
                 <router-link to="/funpuzzlepalace/contact" @click="toggleMobileMenu">Contact</router-link>
-              </li>
-              <li>
-                <router-link to="/funpuzzlepalace/privacy" @click="toggleMobileMenu">Privacy</router-link>
               </li>
             </ul>
           </nav>
