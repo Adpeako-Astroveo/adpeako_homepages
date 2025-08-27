@@ -24,6 +24,11 @@ export default {
       component: () => import('./funpuzzlepalace/HomePage.vue')
     },
     privacy: {
+      title: 'Privacy Policy - Fun Puzzle Palace',
+      content: 'Learn how we protect your personal data and privacy.',
+      component: () => import('./funpuzzlepalace/PrivacyPage.vue')
+    },
+    privacy: {
       title: 'Privacy Policy | Fun Puzzle Palace',
       description: 'Learn how Fun Puzzle Palace protects your data and respects your privacy.',
       component: () => import('./funpuzzlepalace/PrivacyPage.vue')
