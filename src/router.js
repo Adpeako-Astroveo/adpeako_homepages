@@ -116,11 +116,6 @@ const routes = [
     name: 'home'
   },
   {
-    path: '/privacy',
-    component: PrivacyPage,
-    name: 'privacy'
-  },
-  {
     path: '/login',
     component: LoginPage,
     name: 'login'
@@ -451,6 +446,11 @@ const routes = [
     component: BriskVideosAdventureGamesPage,
     name: 'briskvideos-adventure-games'
   },
+  {
+    path: '/privacy',
+    component: () => import('./designs/briskvideos/PrivacyPage.vue'),
+    name: 'briskvideos-privacy'
+  },
   
   // Fun Puzzle Palace specific routes
   {
@@ -546,7 +546,7 @@ const routes = [
     path: '/:pathMatch(.*)*',
     component: NotFoundPage,
     name: 'catch-all'
-  }
+  },
 ];
 
 const router = createRouter({
