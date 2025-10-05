@@ -160,6 +160,11 @@ const routes = [
     component: AudiobooksPage,
     name: 'audiobooks'
   },
+  {
+    path: '/privacy',
+    component: PrivacyPage,
+    name: 'privacy'
+  },
   // Switch Runner specific routes
   {
     path: '/switch-runner/music',
