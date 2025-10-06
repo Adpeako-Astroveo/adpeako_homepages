@@ -20,6 +20,7 @@ import jewelVideoContentMeta from './domains/jewel-video-content.js';
 import briskvideosMeta from './domains/briskvideos.js';
 import funpuzzlepalaceMeta from './domains/funpuzzlepalace.js';
 import hastyreelsMeta from './domains/hastyreels.js';
+import snappyFigMeta from './domains/snappy-fig.js';
 
 // Domain mapping
 const domainMapping = {
@@ -42,6 +43,7 @@ const domainMapping = {
   "briskvideos.com": briskvideosMeta.id,
   "funpuzzlepalace.com": funpuzzlepalaceMeta.id,
   "hastyreels.com": hastyreelsMeta.id,
+  "snappy-fig.com": snappyFigMeta.id,
   "localhost": localhostMeta.id,
   "127.0.0.1": localhostMeta.id
 };
@@ -67,6 +69,7 @@ const designs = {
   [briskvideosMeta.id]: briskvideosMeta.design,
   [funpuzzlepalaceMeta.id]: funpuzzlepalaceMeta.design,
   [hastyreelsMeta.id]: hastyreelsMeta.design,
+  [snappyFigMeta.id]: snappyFigMeta.design,
   [localhostMeta.id]: localhostMeta.design,
   [defaultMeta.id]: defaultMeta.design
 };
@@ -92,6 +95,7 @@ export const domainsMetadata = {
   "briskvideos.com": briskvideosMeta,
   "funpuzzlepalace.com": funpuzzlepalaceMeta,
   "hastyreels.com": hastyreelsMeta,
+  "snappy-fig.com": snappyFigMeta,
   "localhost": localhostMeta,
   "127.0.0.1": localhostMeta,
   "default": defaultMeta

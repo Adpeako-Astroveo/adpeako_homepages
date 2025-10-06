@@ -21,15 +21,24 @@ const domains = getDomainHtmlFiles()
 export default defineConfig({
   plugins: [vue()],
   build: {
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
         ...Object.fromEntries(
           domains.map(domain => [
-            domain, 
+            domain,
             resolve(__dirname, 'domain-html', `${domain}.html`)
           ])
         )
+      },
+      output: {
+        manualChunks: {
+          'vue-vendor': ['vue', 'vue-router'],
+          'swiper-vendor': ['swiper'],
+          'gsap-vendor': ['gsap'],
+          'carousel-vendor': ['vue3-carousel']
+        }
       }
     }
   },

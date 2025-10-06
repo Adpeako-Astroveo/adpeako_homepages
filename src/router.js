@@ -76,7 +76,7 @@ import JewelVideoContentSportsPage from './pages/jewel-video-content/SportsPage.
 import JewelVideoContentGamesPage from './pages/jewel-video-content/GamesPage.vue';
 import JewelVideoContentAudiobooksPage from './pages/jewel-video-content/AudiobooksPage.vue';
 import JewelVideoContentPaymentPage from './pages/jewel-video-content/PaymentPage.vue';
-import JewelVideoContentPrivacyPage from './pages/jewel-video-content/PrivacyPage.vue';
+import JewelVideoContentPrivacyPage from './designs/jewel-video-content/PrivacyPage.vue';
 
 // BriskVideos specific pages
 import BriskVideosHomePage from './pages/briskvideos/HomePage.vue';
@@ -108,6 +108,17 @@ import HastyReelsTrendingPage from './designs/hastyreels/TrendingPage.vue';
 import HastyReelsLoginPage from './designs/hastyreels/LoginPage.vue';
 import HastyReelsSignUpPage from './designs/hastyreels/SignUpPage.vue';
 import HastyReelsPrivacyPage from './designs/hastyreels/PrivacyPage.vue';
+
+// Snappy Fig specific pages
+import SnappyFigHomePage from './designs/snappy-fig/HomePage.vue';
+import SnappyFigMusicPage from './designs/snappy-fig/MusicPage.vue';
+import SnappyFigVideoPage from './designs/snappy-fig/VideoPage.vue';
+import SnappyFigSportsPage from './designs/snappy-fig/SportsPage.vue';
+import SnappyFigGamesPage from './designs/snappy-fig/GamesPage.vue';
+import SnappyFigAudiobooksPage from './designs/snappy-fig/AudiobooksPage.vue';
+import SnappyFigLoginPage from './designs/snappy-fig/LoginPage.vue';
+import SnappyFigSignUpPage from './designs/snappy-fig/SignUpPage.vue';
+import SnappyFigPrivacyPage from './designs/snappy-fig/PrivacyPage.vue';
 
 const routes = [
   {
@@ -421,7 +432,7 @@ const routes = [
     name: 'briskvideos-home'
   },
   {
-    path: '/games',
+    path: '/briskvideos/games',
     component: BriskVideosGamesPage,
     name: 'briskvideos-games'
   },
@@ -431,12 +442,12 @@ const routes = [
     name: 'briskvideos-category'
   },
   {
-    path: '/login',
+    path: '/briskvideos/login',
     component: BriskVideosLoginPage,
     name: 'briskvideos-login'
   },
   {
-    path: '/signup',
+    path: '/briskvideos/signup',
     component: BriskVideosSignUpPage,
     name: 'briskvideos-signup'
   },
@@ -452,7 +463,7 @@ const routes = [
     name: 'briskvideos-adventure-games'
   },
   {
-    path: '/privacy',
+    path: '/briskvideos/privacy',
     component: () => import('./designs/briskvideos/PrivacyPage.vue'),
     name: 'briskvideos-privacy'
   },
@@ -546,7 +557,39 @@ const routes = [
     component: HastyReelsPrivacyPage,
     name: 'hastyreels-privacy'
   },
-  
+
+  // Snappy Fig specific routes (moved before conflicting routes)
+  {
+    path: '/music',
+    component: SnappyFigMusicPage,
+    name: 'music'
+  },
+  {
+    path: '/video',
+    component: SnappyFigVideoPage,
+    name: 'video'
+  },
+  {
+    path: '/sports',
+    component: SnappyFigSportsPage,
+    name: 'sports'
+  },
+  {
+    path: '/games',
+    component: SnappyFigGamesPage,
+    name: 'games'
+  },
+  {
+    path: '/audiobooks',
+    component: SnappyFigAudiobooksPage,
+    name: 'audiobooks'
+  },
+  {
+    path: '/signup',
+    component: SnappyFigSignUpPage,
+    name: 'signup'
+  },
+
   {
     path: '/:pathMatch(.*)*',
     component: NotFoundPage,
