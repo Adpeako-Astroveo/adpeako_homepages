@@ -3,7 +3,7 @@
     <header class="header">
       <div class="container">
         <router-link to="/" class="logo-section">
-          <img src="/logo-video-089-black.png" alt="Snappy Fig" class="logo">
+          <img src="/snappy-fig-logo.svg" alt="Snappy Fig" class="logo">
           <span class="brand-name">Snappy Fig</span>
         </router-link>
         <router-link to="/" class="back-btn">Back to Home</router-link>

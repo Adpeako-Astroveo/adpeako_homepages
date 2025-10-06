@@ -3,7 +3,7 @@
     <header class="header">
       <div class="container">
         <div class="logo-section">
-          <img src="/logo-video-089-black.png" alt="Snappy Fig" class="logo">
+          <img src="/snappy-fig-logo.svg" alt="Snappy Fig" class="logo">
           <span class="brand-name">Snappy Fig</span>
         </div>
         <nav class="nav">
@@ -138,7 +138,7 @@
         <div class="footer-content">
           <div class="footer-section">
             <div class="footer-logo-section">
-              <img src="/logo-video-089-w.png" alt="Snappy Fig" class="footer-logo">
+              <img src="/snappy-fig-logo.svg" alt="Snappy Fig" class="footer-logo">
               <h4 class="footer-title">Snappy Fig</h4>
             </div>
             <p class="footer-text">Your mobile entertainment hub. Making quality content accessible to everyone.</p>

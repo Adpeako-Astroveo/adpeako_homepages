@@ -12,7 +12,7 @@
 
       <div class="login-card">
         <div class="logo-section">
-          <img src="/logo-video-089-black.png" alt="Snappy Fig" class="logo">
+          <img src="/snappy-fig-logo.svg" alt="Snappy Fig" class="logo">
           <h1 class="brand-name">Snappy Fig</h1>
         </div>
 
